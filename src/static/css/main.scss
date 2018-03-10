@@ -1,0 +1,14 @@
+@import "config/root";
+@import "config/variables";
+@import "config/fonts";
+
+@import "components/button";
+@import "components/input";
+
+@import "layout/header";
+@import "layout/footer";
+
+@import "pages/home.scss";
+@import "pages/about";
+@import "pages/contact";
+

@@ -1,0 +1,28 @@
+//DOSYAYI AKTARIĞIMIZ YER
+@mixin font-face($family) {
+      $filepath: "./../fonts/" + $family;
+      @font-face {
+            font-family: "#{$family}";
+            src: url($filepath+".eot"),
+                  url($filepath+".eot?#iefix") format("embedded-opentype"),
+                  url($filepath+".woff") format("woff"),
+                  url($filepath+".ttf") format("truetype"),
+                  url($filepath+".svg#"+$family+"") format("svg");
+      }
+}
+
+//MIXINI TETİKLEDİĞİZ YER
+@include font-face("Roboto-Medium");
+@include font-face("Roboto-Regular");
+@include font-face("IndieFlower");
+
+// SCSS İÇİN KULLANIMA HAZIR FONT
+@mixin roboto-medium {
+      font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+}
+@mixin roboto-regular {
+      font-family: "Roboto-Regular", arial, helvetica, sans-serif;
+}
+@mixin indie {
+      font-family: "IndieFlower", arial, helvetica, sans-serif;
+}
