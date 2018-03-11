@@ -1,0 +1,26 @@
+header {
+      @include flex-between;
+      padding: 20px 50px;
+      background-color: rgba(155, 89, 182, 1);
+      .header__title {
+            @include flex-center;
+            h1 {
+                  @include roboto-medium;
+                  @include font-style(3rem, $white);
+            }
+      }
+      .header__user {
+            @include flex-center;
+            .user__item {
+                  padding: 5px 10px;
+                  margin: 0 10px;
+                  background-color: rgba(52, 73, 94, 1);
+                  border-radius: 5px;
+                  cursor: pointer;
+                  a {
+                        @include roboto-regular;
+                        @include font-style(2rem, $white);
+                  }
+            }
+      }
+}

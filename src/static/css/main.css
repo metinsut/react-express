@@ -20,8 +20,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 100%;
   font-weight: normal; }
+
+a {
+  text-decoration: none; }
 
 .safe-area {
   max-width: 1200px;
@@ -38,3 +40,115 @@ h6 {
 @font-face {
   font-family: "IndieFlower";
   src: url("./../fonts/IndieFlower.eot"), url("./../fonts/IndieFlower.eot?#iefix") format("embedded-opentype"), url("./../fonts/IndieFlower.woff") format("woff"), url("./../fonts/IndieFlower.ttf") format("truetype"), url("./../fonts/IndieFlower.svg#IndieFlower") format("svg"); }
+
+@font-face {
+  font-family: "custom";
+  src: url("./../fonts/custom.eot"), url("./../fonts/custom.eot?#iefix") format("embedded-opentype"), url("./../fonts/custom.woff") format("woff"), url("./../fonts/custom.ttf") format("truetype"), url("./../fonts/custom.svg#custom") format("svg"); }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background-color: #9b59b6; }
+  header .header__title {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    header .header__title h1 {
+      font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+      font-size: 3rem;
+      color: #ffffff; }
+  header .header__user {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    header .header__user .user__item {
+      padding: 5px 10px;
+      margin: 0 10px;
+      background-color: #34495e;
+      border-radius: 5px;
+      cursor: pointer; }
+      header .header__user .user__item a {
+        font-family: "Roboto-Regular", arial, helvetica, sans-serif;
+        font-size: 2rem;
+        color: #ffffff; }
+
+footer {
+  padding: 20px 50px;
+  border-top: 1px solid #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  footer .footer__logo h1 {
+    font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+    font-size: 3rem;
+    color: #c0392b; }
+  footer .footer__social {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    footer .footer__social .social__item {
+      font-family: "custom";
+      font-size: 3rem;
+      margin: 0 10px;
+      padding: 5px;
+      background-color: red;
+      cursor: pointer; }
+      footer .footer__social .social__item.item--facebook {
+        color: #3b5998;
+        padding: 5px 15px; }
+      footer .footer__social .social__item.item--twitter {
+        color: #00aced; }
+      footer .footer__social .social__item.item--linkedin {
+        color: #0077B5; }
+      footer .footer__social .social__item.item--youtube {
+        color: #cc181e; }
+
+.nav__menu__root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+  background-color: #34495e; }
+  .nav__menu__root .nav__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .nav__menu__root .nav__menu .menu__item {
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-bottom: 2px solid transparent; }
+      .nav__menu__root .nav__menu .menu__item:hover {
+        border-bottom: 2px solid #3498db; }
+        .nav__menu__root .nav__menu .menu__item:hover a .item__icon {
+          color: #ffffff; }
+        .nav__menu__root .nav__menu .menu__item:hover a .item__name {
+          color: #ffffff; }
+      .nav__menu__root .nav__menu .menu__item.active {
+        border-bottom: 2px solid #3498db; }
+        .nav__menu__root .nav__menu .menu__item.active a .item__icon {
+          color: #ffffff; }
+        .nav__menu__root .nav__menu .menu__item.active a .item__name {
+          color: #ffffff; }
+      .nav__menu__root .nav__menu .menu__item a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 25px; }
+        .nav__menu__root .nav__menu .menu__item a .item__icon {
+          font-family: "custom";
+          font-size: 2rem;
+          color: #c7d1d8; }
+        .nav__menu__root .nav__menu .menu__item a .item__name {
+          font-family: "Roboto-Regular", arial, helvetica, sans-serif;
+          font-size: 2rem;
+          color: #c7d1d8;
+          padding: 0 0 0 10px; }
+
+section {
+  background-color: #F5F5F5;
+  min-height: 600px; }

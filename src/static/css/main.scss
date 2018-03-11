@@ -1,12 +1,15 @@
 @import "config/root";
 @import "config/variables";
 @import "config/fonts";
+@import "config/mixin.scss";
 
 @import "components/button";
 @import "components/input";
 
 @import "layout/header";
 @import "layout/footer";
+@import "layout/menu";
+@import "layout/home";
 
 @import "pages/home.scss";
 @import "pages/about";

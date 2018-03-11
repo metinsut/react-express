@@ -1,15 +1,17 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Home extends Component {
       render() {
-            console.log(this.props.site);
-            // let { home,footer,header } = this.props.site;
-            // console.log(this.props.site && home)
+            const { site } = this.props;
             return (
-                  <Fragment>
-                        {this.props.site ? <p>{this.props.site.home.title}</p>: <p>Test</p>}
-                  </Fragment>
+                  <section>
+                        {site && (
+                              <article>
+                                    <p>{site.home.title}</p>
+                              </article>
+                        )}
+                  </section>
             );
       }
 }

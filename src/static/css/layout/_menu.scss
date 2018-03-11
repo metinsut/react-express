@@ -1,0 +1,49 @@
+.nav__menu__root {
+      @include flex-center;
+      padding: 0 50px;
+      background-color: rgba(52, 73, 94, 1);
+      .nav__menu {
+            @include flex-center;
+            .menu__item {
+                  margin: 0 10px;
+                  @include flex-center;
+                  cursor: pointer;
+                  border-bottom: 2px solid transparent;
+                  &:hover {
+                        border-bottom: 2px solid $blue;
+                        a {
+                              .item__icon {
+                                    color: $white;
+                              }
+                              .item__name {
+                                    color: $white;
+                              }
+                        }
+                  }
+                  &.active {
+                        border-bottom: 2px solid $blue;
+                        a {
+                              .item__icon {
+                                    color: $white;
+                              }
+                              .item__name {
+                                    color: $white;
+                              }
+                        }
+                  }
+                  a {
+                        @include flex-center;
+                        padding: 15px 25px;
+                        .item__icon {
+                              @include custom;
+                              @include font-style(2rem, $g1);
+                        }
+                        .item__name {
+                              @include roboto-regular;
+                              @include font-style(2rem, $g1);
+                              padding: 0 0 0 10px;
+                        }
+                  }
+            }
+      }
+}

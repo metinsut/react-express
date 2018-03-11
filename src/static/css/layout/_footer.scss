@@ -1,0 +1,35 @@
+footer {
+      padding: 20px 50px;
+      border-top: 1px solid $blue;
+      @include flex-between;
+      .footer__logo {
+            h1 {
+                  @include roboto-medium;
+                  @include font-style(3rem, $text1);
+            }
+      }
+      .footer__social {
+            @include flex-center;
+            .social__item {
+                  @include custom;
+                  font-size: 3rem;
+                  margin:0 10px;
+                  padding: 5px;
+                  background-color: red;
+                  cursor: pointer;
+                  &.item--facebook {
+                        color:$face;
+                        padding: 5px 15px;
+                  }
+                  &.item--twitter {
+                        color:$twitter;
+                  }
+                  &.item--linkedin {
+                        color:$linkedin;
+                  }
+                  &.item--youtube {
+                        color:$youtube;
+                  }
+            }
+      }
+}
