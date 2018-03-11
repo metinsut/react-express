@@ -17,8 +17,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-      lang: state.lang && state.lang.lang,
-      site: state.siteLayout && state.siteLayout[state.lang.lang]
+      lang: state.siteLang && state.siteLang.lang,
+      site: state.siteLayout && state.siteLayout[state.siteLang.lang]
 });
 
 export default connect(mapStateToProps)(Home);

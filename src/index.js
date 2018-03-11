@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import reducer from "./reducers";
 import "./static/css/main.css";
 import App from "./containers/app";
-import {getLang} from "./actions/index";
+import { getLang } from "./actions/index";
 
 const middleware = [thunk];
 
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const store = createStore(reducer, applyMiddleware(...middleware));
 
-store.dispatch(getLang());
+store.dispatch(getLang("TR"));
 
 const AppClient = () => (
       <Provider store={store}>

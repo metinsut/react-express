@@ -45,6 +45,9 @@ a {
   font-family: "custom";
   src: url("./../fonts/custom.eot"), url("./../fonts/custom.eot?#iefix") format("embedded-opentype"), url("./../fonts/custom.woff") format("woff"), url("./../fonts/custom.ttf") format("truetype"), url("./../fonts/custom.svg#custom") format("svg"); }
 
+body {
+  background-color: #F5F5F5; }
+
 header {
   display: flex;
   align-items: center;
@@ -73,13 +76,33 @@ header {
         font-family: "Roboto-Regular", arial, helvetica, sans-serif;
         font-size: 2rem;
         color: #ffffff; }
+    header .header__user .header__line {
+      width: 2px;
+      height: 50px;
+      background-color: #c7d1d8;
+      margin: 0 10px; }
+    header .header__user .user__lang {
+      padding: 5px 10px;
+      margin: 0 10px;
+      background-color: #34495e;
+      border-radius: 5px;
+      cursor: pointer; }
+      header .header__user .user__lang a {
+        min-width: 40px;
+        font-family: "Roboto-Regular", arial, helvetica, sans-serif;
+        font-size: 2rem;
+        color: #ffffff; }
 
 footer {
-  padding: 20px 50px;
+  padding: 10px 50px;
   border-top: 1px solid #3498db;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  width: 100%; }
   footer .footer__logo h1 {
     font-family: "Roboto-Medium", arial, helvetica, sans-serif;
     font-size: 3rem;
@@ -93,7 +116,6 @@ footer {
       font-size: 3rem;
       margin: 0 10px;
       padding: 5px;
-      background-color: red;
       cursor: pointer; }
       footer .footer__social .social__item.item--facebook {
         color: #3b5998;
@@ -148,7 +170,3 @@ footer {
           font-size: 2rem;
           color: #c7d1d8;
           padding: 0 0 0 10px; }
-
-section {
-  background-color: #F5F5F5;
-  min-height: 600px; }

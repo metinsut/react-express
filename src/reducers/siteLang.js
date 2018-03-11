@@ -1,11 +1,12 @@
 import { GET_LANG } from "../constants/actionTypes";
 
-const initialState = { lang: "tr" };
+const initialState = { lang: null };
 
-const sitelang = (state = initialState, action) => {
+const siteLang = (state = initialState, action) => {
       switch (action.type) {
             case GET_LANG:
                   return {
+                        ...state,
                         lang: action.payload
                   };
             default:
@@ -13,4 +14,4 @@ const sitelang = (state = initialState, action) => {
       }
 };
 
-export default sitelang;
+export default siteLang;

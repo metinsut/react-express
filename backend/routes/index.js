@@ -7,9 +7,14 @@ const router = express.Router();
 router.get("/", (req, res) => {
       const siteLayout = {
             success: {
-                  tr: {
+                  TR: {
+                        lang:"TR",
                         header: {
-                              title:"Piston Aşağıya İndi...",
+                              title:"Kullanıcı veri servisi",
+                              desc:"Piston Aşağıya İndi...",
+                              login:"Giriş",
+                              logout:"Çıkış",
+                              singup:"Üye Ol",
                         },
                         home: {
                               title:"Anasayfaya hoş geldiniz."
@@ -19,9 +24,14 @@ router.get("/", (req, res) => {
                         }
 
                   },
-                  en: {
+                  EN: {
+                        lang:"EN",
                         header:{
-                              title:"Stack Overflow"
+                              title:"User Data Service",
+                              desc:"Stack Overflow",
+                              login:"Login",
+                              logout:"Logout",
+                              singup:"Sign Up",
                         },
                         home: {
                               title:"Welcome to Home page."

@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import siteLayout from "./siteLayout";
-import lang from "./lang";
+import siteLang from "./siteLang";
 
 const reducers = combineReducers({
       siteLayout,
-      lang
+      siteLang
 });
 
 export default reducers;

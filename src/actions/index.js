@@ -8,7 +8,7 @@ export const getSite = data => ({
 });
 
 //GET AND CHANGE LANG
-export const getLang = (lang = "tr") => ({
+export const getLang = (lang) => ({
       type: GET_LANG,
       payload: lang
 });

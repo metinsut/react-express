@@ -1,7 +1,11 @@
 footer {
-      padding: 20px 50px;
+      padding: 10px 50px;
       border-top: 1px solid $blue;
       @include flex-between;
+      position: fixed;
+      bottom: 0;
+      background-color: $white;
+      width: 100%;
       .footer__logo {
             h1 {
                   @include roboto-medium;
@@ -13,21 +17,21 @@ footer {
             .social__item {
                   @include custom;
                   font-size: 3rem;
-                  margin:0 10px;
+                  margin: 0 10px;
                   padding: 5px;
                   cursor: pointer;
                   &.item--facebook {
-                        color:$face;
+                        color: $face;
                         padding: 5px 15px;
                   }
                   &.item--twitter {
-                        color:$twitter;
+                        color: $twitter;
                   }
                   &.item--linkedin {
-                        color:$linkedin;
+                        color: $linkedin;
                   }
                   &.item--youtube {
-                        color:$youtube;
+                        color: $youtube;
                   }
             }
       }
