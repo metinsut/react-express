@@ -1,0 +1,9 @@
+.users {
+      article {
+            a {
+                  padding: 10px 20px;
+                  @include roboto-medium;
+                  @include font-style(2rem, $text);
+            }
+      }
+}

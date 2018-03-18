@@ -10,9 +10,11 @@
 @import "layout/header";
 @import "layout/footer";
 @import "layout/menu";
-@import "layout/home";
+
 
 @import "pages/home.scss";
 @import "pages/about";
 @import "pages/contact";
-
+@import "pages/home";
+@import "pages/user";
+@import "pages/signUp";

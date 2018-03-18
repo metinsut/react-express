@@ -1,42 +1,56 @@
 import React, { Component, Fragment } from "react";
-// import {Link} from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getLang } from "../../actions/index";
+import { HOME, SINGUP,LOGIN } from "../../constants/routhPath";
 
 class Header extends Component {
       render() {
             const site = this.props.site;
             const header = this.props.header;
-            const data = this.props.lang === "TR" ? "EN" : "TR";
             return (
                   <Fragment>
                         {header && site ? (
                               <header>
                                     <div className="header__title">
-                                          <h1>{header.title}</h1>
+                                          <Link to={HOME}>
+                                                <h1>{header.title}</h1>
+                                          </Link>
                                           <p>{header.desc}</p>
                                     </div>
 
                                     <div className="header__user">
                                           <div className="user__item user--login">
-                                                <a href="">{header.login}</a>
+                                                <Link
+                                                      to={LOGIN}
+                                                >
+                                                      {header.login}
+                                                </Link>
                                           </div>
                                           <div className="user__item user--signup">
-                                                <a href=""> {header.singup}</a>
+                                                <Link to={SINGUP}>
+                                                      {header.singup}
+                                                </Link>
                                           </div>
                                           <div className="user__item user--logout">
-                                                <a href="">{header.logout}</a>
+                                                <a>Logout</a>
                                           </div>
                                           <div className="header__line" />
                                           <div className="user__lang">
                                                 <div
                                                       onClick={() =>
                                                             this.props.changeLang(
-                                                                  data
+                                                                  this.props
+                                                                        .lang ===
+                                                                  "tr"
+                                                                        ? "en"
+                                                                        : "tr"
                                                             )
                                                       }
                                                 >
-                                                      {site.lang}
+                                                      <div className="lang__text">
+                                                            {site.lang}
+                                                      </div>
                                                 </div>
                                           </div>
                                     </div>
@@ -67,4 +81,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

@@ -7,8 +7,8 @@ const router = express.Router();
 router.get("/", (req, res) => {
       const siteLayout = {
             success: {
-                  TR: {
-                        lang:"TR",
+                  tr: {
+                        lang:"tr",
                         header: {
                               title:"Kullanıcı veri servisi",
                               desc:"Piston Aşağıya İndi...",
@@ -24,8 +24,8 @@ router.get("/", (req, res) => {
                         }
 
                   },
-                  EN: {
-                        lang:"EN",
+                  en: {
+                        lang:"en",
                         header:{
                               title:"User Data Service",
                               desc:"Stack Overflow",

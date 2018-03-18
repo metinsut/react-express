@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
+import * as R from "../../constants/routhPath";
 
 class Menu extends Component {
       render() {
@@ -6,22 +8,28 @@ class Menu extends Component {
                   <nav className="nav__menu__root">
                         <ul className="nav__menu">
                               <li className="menu__item">
-                                    <a href="">
+                                    <Link to={R.HOME}>
                                           <div className="item__icon">a</div>
                                           <p className="item__name">Home</p>
-                                    </a>
+                                    </Link>
                               </li>
                               <li className="menu__item">
-                                    <a href="">
+                                    <Link to={R.ABOUT}>
                                           <div className="item__icon">b</div>
                                           <p className="item__name">About</p>
-                                    </a>
+                                    </Link>
                               </li>
                               <li className="menu__item">
-                                    <a href="">
+                                    <Link to={R.CONTACT}>
                                           <div className="item__icon">c</div>
                                           <p className="item__name">Contact</p>
-                                    </a>
+                                    </Link>
+                              </li>
+                              <li className="menu__item">
+                                    <Link to={R.USERS}>
+                                          <div className="item__icon">e</div>
+                                          <p className="item__name">USERS</p>
+                                    </Link>
                               </li>
                         </ul>
                   </nav>

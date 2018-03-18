@@ -82,12 +82,13 @@ header {
       background-color: #c7d1d8;
       margin: 0 10px; }
     header .header__user .user__lang {
-      padding: 5px 10px;
       margin: 0 10px;
       background-color: #34495e;
       border-radius: 5px;
       cursor: pointer; }
-      header .header__user .user__lang a {
+      header .header__user .user__lang .lang__text {
+        text-transform: uppercase;
+        padding: 5px 10px;
         min-width: 40px;
         font-family: "Roboto-Regular", arial, helvetica, sans-serif;
         font-size: 2rem;
@@ -95,7 +96,7 @@ header {
 
 footer {
   padding: 10px 50px;
-  border-top: 1px solid #3498db;
+  border-top: 1px solid #2980b9;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -145,13 +146,13 @@ footer {
       cursor: pointer;
       border-bottom: 2px solid transparent; }
       .nav__menu__root .nav__menu .menu__item:hover {
-        border-bottom: 2px solid #3498db; }
+        border-bottom: 2px solid #2980b9; }
         .nav__menu__root .nav__menu .menu__item:hover a .item__icon {
           color: #ffffff; }
         .nav__menu__root .nav__menu .menu__item:hover a .item__name {
           color: #ffffff; }
       .nav__menu__root .nav__menu .menu__item.active {
-        border-bottom: 2px solid #3498db; }
+        border-bottom: 2px solid #2980b9; }
         .nav__menu__root .nav__menu .menu__item.active a .item__icon {
           color: #ffffff; }
         .nav__menu__root .nav__menu .menu__item.active a .item__name {
@@ -170,3 +171,69 @@ footer {
           font-size: 2rem;
           color: #c7d1d8;
           padding: 0 0 0 10px; }
+
+.users article a {
+  padding: 10px 20px;
+  font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+  font-size: 2rem;
+  color: #4a4a4a; }
+
+.auth__root {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .auth__root .auth__block {
+    margin-top: -20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px; }
+    .auth__root .auth__block .auth__header {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 600px; }
+      .auth__root .auth__block .auth__header .header__title {
+        font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+        font-size: 2rem;
+        color: #4a4a4a; }
+      .auth__root .auth__block .auth__header .header__exit {
+        font-family: "custom";
+        font-size: 3rem;
+        color: #2980b9;
+        cursor: pointer; }
+    .auth__root .auth__block .auth__form {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column; }
+      .auth__root .auth__block .auth__form .form__input {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 10px;
+        background-color: #e7f8f8; }
+        .auth__root .auth__block .auth__form .form__input .input__title {
+          font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+          font-size: 1.6rem;
+          color: #2980b9;
+          padding: 5px 0; }
+        .auth__root .auth__block .auth__form .form__input .input {
+          padding: 5px;
+          width: 300px;
+          border: 2px solid #1abc9c; }
+        .auth__root .auth__block .auth__form .form__input .input__warning {
+          padding: 5px 0;
+          font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+          font-size: 1.6rem;
+          color: #c0392b; }
+      .auth__root .auth__block .auth__form .form__submit {
+        margin: 10px 0;
+        align-self: flex-end; }
+        .auth__root .auth__block .auth__form .form__submit input {
+          padding: 5px 15px; }

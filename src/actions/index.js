@@ -1,5 +1,5 @@
-import { getSiteApi } from "../services/webServices";
-import { GET_LANG, GET_SITE } from "../constants/actionTypes";
+import { getSiteApi, signUpApi } from "../services/webServices";
+import { GET_LANG, GET_SITE, GET_RESULT } from "../constants/actionTypes";
 
 //GET SITE DATA TO STORE
 export const getSite = data => ({
@@ -8,9 +8,14 @@ export const getSite = data => ({
 });
 
 //GET AND CHANGE LANG
-export const getLang = (lang) => ({
+export const getLang = lang => ({
       type: GET_LANG,
       payload: lang
+});
+
+export const getResult = data => ({
+      type: GET_RESULT,
+      payload: data
 });
 
 //GET SITE INFO
@@ -18,6 +23,14 @@ export const getSiteData = () => dispatch => {
       getSiteApi().then(res => {
             if (res.data.success) {
                   dispatch(getSite(res.data.success));
+            }
+      });
+};
+
+export const signUp = data => dispatch => {
+      signUpApi(data).then(res => {
+            if (res.data) {
+                  dispatch(getResult(res.data));
             }
       });
 };

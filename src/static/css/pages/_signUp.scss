@@ -1,0 +1,68 @@
+.auth__root {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .auth__block {
+            margin-top: -20px;
+            background-color: $white;
+            padding: 20px;
+            border-radius: 5px;
+
+            .auth__header {
+                  padding: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  width: 600px;
+                  .header__title {
+                        @include roboto-medium;
+                        @include font-style(2rem, $text);
+                  }
+                  .header__exit {
+                        @include custom;
+                        @include font-style(3rem, $blue);
+                        cursor: pointer;
+                  }
+            }
+            .auth__form {
+                  display: flex;
+                  align-items: flex-start;
+                  flex-direction: column;
+                  .form__input {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        padding: 10px;
+                        background-color: #e7f8f8;
+                        .input__title {
+                              @include roboto-medium;
+                              @include font-style(1.6rem, $blue);
+                              padding: 5px 0;
+                        }
+                        .input {
+                              padding: 5px;
+                              width: 300px;
+                              border: 2px solid #1abc9c;
+                        }
+                        .input__warning {
+                              padding: 5px 0;
+                              @include roboto-medium;
+                              @include font-style(1.6rem, $text1);
+                        }
+                  }
+                  .form__submit {
+                        margin:10px 0;
+                        align-self: flex-end;
+                        input {
+                              padding: 5px 15px;
+                        }
+                  }
+            }
+      }
+}

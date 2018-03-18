@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const store = createStore(reducer, applyMiddleware(...middleware));
 
-store.dispatch(getLang("TR"));
+store.dispatch(getLang("tr"));
 
 const AppClient = () => (
       <Provider store={store}>
