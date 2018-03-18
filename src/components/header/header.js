@@ -16,7 +16,7 @@ class Header extends Component {
                                           <Link to={HOME}>
                                                 <h1>{header.title}</h1>
                                           </Link>
-                                          <p>{header.desc}</p>
+                                          {/* <p>{header.desc}</p> */}
                                     </div>
 
                                     <div className="header__user">

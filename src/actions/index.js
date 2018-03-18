@@ -1,4 +1,4 @@
-import { getSiteApi, signUpApi } from "../services/webServices";
+import { getSiteApi, signUpApi,loginApi } from "../services/webServices";
 import { GET_LANG, GET_SITE, GET_RESULT } from "../constants/actionTypes";
 
 //GET SITE DATA TO STORE
@@ -34,3 +34,13 @@ export const signUp = data => dispatch => {
             }
       });
 };
+
+export const login = data => dispatch => {
+      loginApi(data).then(res => {
+            if (res.data.status) {
+                  console.log(res.data);
+                 localStorage.setItem("userToken",res.data.token)
+            }
+      });
+};
+
