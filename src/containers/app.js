@@ -29,8 +29,14 @@ class App extends Component {
                               <Route path={R.ABOUT} component={About} />
                               <Route path={R.CONTACT} component={Contact} />
                               <Route path={R.USERS} component={Users} />
-                              <Route path={R.LOGIN} component={Login} />
-                              <Route path={R.SINGUP} component={SignUp} />
+                              <Route
+                                    path={R.ALLPAGES + R.LOGIN}
+                                    component={Login}
+                              />
+                              <Route
+                                    path={R.ALLPAGES + R.SINGUP}
+                                    component={SignUp}
+                              />
                         </Switch>
                         <Footer />
                   </main>

@@ -22,13 +22,13 @@ class Header extends Component {
                                     <div className="header__user">
                                           <div className="user__item user--login">
                                                 <Link
-                                                      to={LOGIN}
+                                                      to={this.props.location.pathname+LOGIN}
                                                 >
                                                       {header.login}
                                                 </Link>
                                           </div>
                                           <div className="user__item user--signup">
-                                                <Link to={SINGUP}>
+                                                <Link to={this.props.location.pathname+SINGUP}>
                                                       {header.singup}
                                                 </Link>
                                           </div>

@@ -9,9 +9,10 @@ export const ABOUT ="/about";
 // export const CONTACT ="/:lang/contact";
 export const CONTACT ="/contact";
 
-export const LOGIN = "/home/login";
+export const ALLPAGES = "/:pages?/:param?/:param1?/:param2?/:param3?";
 
-export const SINGUP = "/home/signup";
+export const LOGIN = "/login";
+export const SINGUP = "/signup";
 
 
 
