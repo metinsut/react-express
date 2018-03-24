@@ -30,7 +30,7 @@ class Login extends Component {
             e.preventDefault();
             if (Object.keys(this.state.password).length > 5) {
                   this.props.handleSubmit(this.state);
-                  this.props.history.push("/login");
+                  this.props.history.goBack();
             }
       };
 

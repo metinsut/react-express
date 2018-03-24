@@ -11,12 +11,19 @@ import Contact from "./contact/contact";
 import Users from "./users/users";
 import Login from "./auth/login";
 import SignUp from "./auth/signUp";
-import { getSiteData, getResult } from "../actions/index";
+import { getSiteData, getResult, loginStatus } from "../actions/index";
 
 class App extends Component {
       componentDidMount() {
             this.props.dispatch(getSiteData());
             this.props.dispatch(getResult());
+            this.props.dispatch(
+                  loginStatus(
+                        localStorage.userToken
+                              ? { status: true, token: localStorage.userToken }
+                              : { status: false }
+                  )
+            );
       }
 
       render() {
@@ -25,19 +32,18 @@ class App extends Component {
                         <Header />
                         <Menu />
                         <Switch>
-                              <Route exact path={R.HOME} component={Home} />
+                              <Route exact path={R.ROOT} component={Home} />
+                              <Route path={R.HOME} component={Home} />
                               <Route path={R.ABOUT} component={About} />
                               <Route path={R.CONTACT} component={Contact} />
                               <Route path={R.USERS} component={Users} />
-                              <Route
-                                    path={R.ALLPAGES + R.LOGIN}
-                                    component={Login}
-                              />
-                              <Route
-                                    path={R.ALLPAGES + R.SINGUP}
-                                    component={SignUp}
-                              />
                         </Switch>
+
+                        <Route path={R.ALLPAGES + R.LOGIN} component={Login} />
+                        <Route
+                              path={R.ALLPAGES + R.SINGUP}
+                              component={SignUp}
+                        />
                         <Footer />
                   </main>
             );

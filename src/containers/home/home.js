@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Home extends Component {
+
       render() {
             const { site } = this.props;
-            const token =     localStorage.getItem("userToken")
             return (
                   <section>
                         {site && (
                               <article>
                                     <p>{site.home.title}</p>
-                                    {
-                                      token && <div>{token}</div>
-                                    }
                               </article>
                         )}
                   </section>

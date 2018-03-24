@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const database = require("./backend/database/index");
 const index = require("./backend/routes/index");
 const login = require("./backend/routes/user/login");
-// const logout = require("./backend/routes/user/logout");
 const signup = require("./backend/routes/user/signup");
 // const settings = require("./backend/routes/user/settings");
 const movie = require("./backend/routes/movie");
@@ -34,7 +33,6 @@ app.use((req, res, next) => {
 app.use("/", index);
 
 app.use("/login", login);
-// app.use("/logout", logout);
 app.use("/signup", signup);
 // app.use("/settings", settings);
 

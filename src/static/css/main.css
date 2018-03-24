@@ -38,10 +38,6 @@ a {
   src: url("./../fonts/Roboto-Regular.eot"), url("./../fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("./../fonts/Roboto-Regular.woff") format("woff"), url("./../fonts/Roboto-Regular.ttf") format("truetype"), url("./../fonts/Roboto-Regular.svg#Roboto-Regular") format("svg"); }
 
 @font-face {
-  font-family: "IndieFlower";
-  src: url("./../fonts/IndieFlower.eot"), url("./../fonts/IndieFlower.eot?#iefix") format("embedded-opentype"), url("./../fonts/IndieFlower.woff") format("woff"), url("./../fonts/IndieFlower.ttf") format("truetype"), url("./../fonts/IndieFlower.svg#IndieFlower") format("svg"); }
-
-@font-face {
   font-family: "custom";
   src: url("./../fonts/custom.eot"), url("./../fonts/custom.eot?#iefix") format("embedded-opentype"), url("./../fonts/custom.woff") format("woff"), url("./../fonts/custom.ttf") format("truetype"), url("./../fonts/custom.svg#custom") format("svg"); }
 
@@ -72,7 +68,7 @@ header {
       background-color: #34495e;
       border-radius: 5px;
       cursor: pointer; }
-      header .header__user .user__item a {
+      header .header__user .user__item a, header .header__user .user__item .logout__text {
         font-family: "Roboto-Regular", arial, helvetica, sans-serif;
         font-size: 2rem;
         color: #ffffff; }

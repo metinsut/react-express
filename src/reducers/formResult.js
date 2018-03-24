@@ -1,8 +1,8 @@
-import { GET_RESULT } from "../constants/actionTypes";
+import { FORM_RESULT } from "../constants/actionTypes";
 
 const formResult = (state = {}, action) => {
       switch (action.type) {
-            case GET_RESULT:
+            case FORM_RESULT:
                   return {
                         ...action.payload
                   };

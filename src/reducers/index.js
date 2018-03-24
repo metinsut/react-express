@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import siteLayout from "./siteLayout";
 import siteLang from "./siteLang";
-import formResult from "./result";
+import formResult from "./formResult";
+import loginStatus from "./loginStatus";
 
 const reducers = combineReducers({
       siteLayout,
       siteLang,
-      formResult
+      formResult,
+      loginStatus
 });
 
 export default reducers;

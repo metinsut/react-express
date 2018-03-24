@@ -14,7 +14,6 @@
 //MIXINI TETİKLEDİĞİZ YER
 @include font-face("Roboto-Medium");
 @include font-face("Roboto-Regular");
-@include font-face("IndieFlower");
 @include font-face("custom");
 
 // SCSS İÇİN KULLANIMA HAZIR FONT
@@ -23,9 +22,6 @@
 }
 @mixin roboto-regular {
       font-family: "Roboto-Regular", arial, helvetica, sans-serif;
-}
-@mixin indie {
-      font-family: "IndieFlower", arial, helvetica, sans-serif;
 }
 
 @mixin custom{
