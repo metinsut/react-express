@@ -18,8 +18,13 @@ export const getResult = data => ({
       payload: data
 });
 
-export const loginStatus = data => ({
-      type: A.LOGIN_STATUS,
+export const statusLogin = data => ({
+      type: A.STATUS_LOGIN,
+      payload: data
+});
+
+export const getLogin = (data) => ({
+      type: A.GET_LOGIN,
       payload: data
 });
 
@@ -41,21 +46,28 @@ export const signUp = data => dispatch => {
 };
 
 export const login = data => dispatch => {
-      S.loginApi(data).then(res => {
+      S.loginToken(data).then(res => {
             if (res.data.status) {
                   localStorage.setItem("userToken", res.data.token);
-                  dispatch(loginStatus(res.data));
+                  dispatch(statusLogin(res.data));
+                  S.loginUser(data.username, res.data.token).then(
+                        res => {
+                              if (res.data.success) {
+                                    dispatch.getLogin(res.data.success);
+                              }
+                        }
+                  );
             } else {
-                  dispatch(loginStatus(res.data));
+                  dispatch(statusLogin(res.data));
             }
       });
 };
 
 export const logOut = () => dispatch => {
       const data = {
-            status:false,
-            token:null
-      }
+            status: false,
+            token: null
+      };
       localStorage.removeItem("userToken");
-      dispatch(loginStatus(data));
+      dispatch(statusLogin(data));
 };

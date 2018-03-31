@@ -7,7 +7,7 @@ class SignUp extends Component {
       constructor(props) {
             super(props);
             this.state = {
-                  username: null,
+                  email: null,
                   password: null
             };
       }
@@ -34,9 +34,9 @@ class SignUp extends Component {
             }
       };
 
-      username = e => {
+      email = e => {
             this.setState({
-                  username: e.target.value
+                  email: e.target.value
             });
       };
 
@@ -68,22 +68,22 @@ class SignUp extends Component {
                                     onSubmit={this.submit}
                                     className="auth__form"
                               >
-                                    <div className="form__input username">
-                                          <label htmlFor="username">
+                                    <div className="form__input email">
+                                          <label htmlFor="email">
                                                 <div className="input__title">
-                                                      Username
+                                                      Email
                                                 </div>
                                                 <input
                                                       className="input"
-                                                      name="username"
+                                                      name="email"
                                                       type="text"
-                                                      id="username"
-                                                      onChange={this.username}
+                                                      id="email"
+                                                      onChange={this.email}
                                                 />
                                           </label>
                                           {this.props.result.code && (
                                                 <div className="input__warning">
-                                                      Email error
+                                                      email error
                                                 </div>
                                           )}
                                     </div>
@@ -129,6 +129,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
       return {
             handleSubmit: data => {
+                  console.log(data)
                   dispatch(signUp(data));
             }
       };

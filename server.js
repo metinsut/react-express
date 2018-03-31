@@ -3,11 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const database = require("./backend/database/index");
 const index = require("./backend/routes/index");
-const login = require("./backend/routes/user/login");
-const signup = require("./backend/routes/user/signup");
-// const settings = require("./backend/routes/user/settings");
-const movie = require("./backend/routes/movie");
-const director = require("./backend/routes/director");
+const login = require("./backend/routes/auth/login");
+const signup = require("./backend/routes/auth/signup");
+const users = require("./backend/routes/users");
 const verifyToken = require("./backend/middleware/veriyfToken");
 
 const app = express();
@@ -34,11 +32,9 @@ app.use("/", index);
 
 app.use("/login", login);
 app.use("/signup", signup);
-// app.use("/settings", settings);
 
 app.use("/api", verifyToken);
-app.use("/api/movie", movie);
-app.use("/api/director", director);
+app.use("/api/users", users);
 
 const port = process.env.PORT || 3001;
 const server = http.createServer(app);

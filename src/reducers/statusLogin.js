@@ -1,8 +1,8 @@
-import { LOGIN_STATUS } from "../constants/actionTypes";
+import { STATUS_LOGIN } from "../constants/actionTypes";
 
-const formResult = (state = {}, action) => {
+const loginResult = (state = {}, action) => {
       switch (action.type) {
-            case LOGIN_STATUS:
+            case STATUS_LOGIN:
                   return {
                         ...action.payload
                   };
@@ -11,4 +11,4 @@ const formResult = (state = {}, action) => {
       }
 };
 
-export default formResult;
+export default loginResult;
