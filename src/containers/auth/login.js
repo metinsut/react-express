@@ -7,7 +7,7 @@ class Login extends Component {
       constructor(props) {
             super(props);
             this.state = {
-                  username: null,
+                  email: null,
                   password: null
             };
       }
@@ -34,9 +34,9 @@ class Login extends Component {
             }
       };
 
-      username = e => {
+      email = e => {
             this.setState({
-                  username: e.target.value
+                  email: e.target.value
             });
       };
 
@@ -68,17 +68,17 @@ class Login extends Component {
                                     onSubmit={this.submit}
                                     className="auth__form"
                               >
-                                    <div className="form__input username">
-                                          <label htmlFor="username">
+                                    <div className="form__input email">
+                                          <label htmlFor="email">
                                                 <div className="input__title">
-                                                      Username
+                                                Email
                                                 </div>
                                                 <input
                                                       className="input"
-                                                      name="username"
+                                                      name="email"
                                                       type="text"
-                                                      id="username"
-                                                      onChange={this.username}
+                                                      id="email"
+                                                      onChange={this.email}
                                                 />
                                           </label>
                                           {this.props.result.code && (

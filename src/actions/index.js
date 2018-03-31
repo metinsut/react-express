@@ -50,7 +50,7 @@ export const login = data => dispatch => {
             if (res.data.status) {
                   localStorage.setItem("userToken", res.data.token);
                   dispatch(statusLogin(res.data));
-                  S.loginUser(data.username, res.data.token).then(
+                  S.loginUser(data.email, res.data.token).then(
                         res => {
                               if (res.data.success) {
                                     dispatch.getLogin(res.data.success);

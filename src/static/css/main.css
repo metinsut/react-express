@@ -44,6 +44,9 @@ a {
 body {
   background-color: #F5F5F5; }
 
+p {
+  font-size: 1.6rem; }
+
 header {
   display: flex;
   align-items: center;

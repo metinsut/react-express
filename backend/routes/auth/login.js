@@ -7,10 +7,10 @@ const userSchema = require("../../models/userSchema");
 const key = require("../../helpers/apiSecretKey");
 
 router.post("/", (req, res) => {
-      const { username, password } = req.body;
+      const { email, password } = req.body;
       userSchema.findOne(
             {
-                  username
+                  email
             },
             (err, data) => {
                   if (err) {
@@ -31,11 +31,15 @@ router.post("/", (req, res) => {
                                     });
                               } else {
                                     const payload = {
-                                          username
+                                          email
                                     };
-                                    const token = jwt.sign(payload, key.api_secret_key, {
-                                          expiresIn: 720
-                                    });
+                                    const token = jwt.sign(
+                                          payload,
+                                          key.api_secret_key,
+                                          {
+                                                expiresIn: 720
+                                          }
+                                    );
                                     res.json({
                                           status: true,
                                           token

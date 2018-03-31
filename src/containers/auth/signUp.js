@@ -129,7 +129,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
       return {
             handleSubmit: data => {
-                  console.log(data)
                   dispatch(signUp(data));
             }
       };

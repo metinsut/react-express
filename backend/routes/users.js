@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post("/:username", (req,res)=> {
       const username = req.params.username;
-      console.log(username)
 })
 
 module.exports = router;
