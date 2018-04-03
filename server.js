@@ -5,6 +5,7 @@ const database = require("./backend/database/index");
 const index = require("./backend/routes/index");
 const login = require("./backend/routes/auth/login");
 const signup = require("./backend/routes/auth/signup");
+const logout = require("./backend/routes/auth/logout");
 const users = require("./backend/routes/users");
 const verifyToken = require("./backend/middleware/veriyfToken");
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 app.use("/", index);
 
 app.use("/login", login);
+app.use("/logout", logout);
 app.use("/signup", signup);
 
 app.use("/api", verifyToken);

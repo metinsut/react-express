@@ -15,52 +15,38 @@ import ScrollToTopComponent from "../components/scrollTo/scrollToTopComponent";
 import { getSiteData, getResult, statusLogin } from "../actions/index";
 
 class App extends Component {
-      componentDidMount() {
-            this.props.dispatch(getSiteData());
-            this.props.dispatch(getResult());
-            this.props.dispatch(
-                  statusLogin(
-                        localStorage.userToken
-                              ? { status: true, token: localStorage.userToken }
-                              : { status: false }
-                  )
-            );
-      }
+   componentDidMount() {
+      this.props.dispatch(getSiteData());
+      this.props.dispatch(getResult());
+      this.props.dispatch(
+         statusLogin(
+            localStorage.userToken
+               ? { status: true, token: localStorage.userToken }
+               : { status: false }
+         )
+      );
+   }
 
-      render() {
-            return (
-                  <ScrollToTopComponent>
-                        <main>
-                              <Header />
-                              <Menu />
-                              <Switch>
-                                    <Route
-                                          exact
-                                          path={R.ROOT}
-                                          component={Home}
-                                    />
-                                    <Route path={R.HOME} component={Home} />
-                                    <Route path={R.ABOUT} component={About} />
-                                    <Route
-                                          path={R.CONTACT}
-                                          component={Contact}
-                                    />
-                                    <Route path={R.USERS} component={Users} />
-                              </Switch>
-
-                              <Route
-                                    path={R.ALLPAGES + R.LOGIN}
-                                    component={Login}
-                              />
-                              <Route
-                                    path={R.ALLPAGES + R.SINGUP}
-                                    component={SignUp}
-                              />
-                              <Footer />
-                        </main>
-                  </ScrollToTopComponent>
-            );
-      }
+   render() {
+      return (
+         <ScrollToTopComponent>
+            <main>
+               <Header />
+               <Menu />
+               <Switch>
+                  <Route exact path={R.ROOT} component={Home} />
+                  <Route path={R.HOME} component={Home} />
+                  <Route path={R.ABOUT} component={About} />
+                  <Route path={R.CONTACT} component={Contact} />
+                  <Route path={R.USERS} component={Users} />
+               </Switch>
+               <Route path={R.ALLPAGES + R.LOGIN} component={Login} />
+               <Route path={R.ALLPAGES + R.SINGUP} component={SignUp} />
+               <Footer />
+            </main>
+         </ScrollToTopComponent>
+      );
+   }
 }
 
 export default withRouter(connect()(App));

@@ -1,8 +1,8 @@
-import { GET_LOGIN } from "../constants/actionTypes";
+import { GET_USER } from "../constants/actionTypes";
 
-const getLogin = (state = {}, action) => {
+const getUser = (state = {}, action) => {
       switch (action.type) {
-            case GET_LOGIN:
+            case GET_USER:
                   return {
                         ...action.payload
                   };
@@ -11,4 +11,4 @@ const getLogin = (state = {}, action) => {
       }
 };
 
-export default getLogin;
+export default getUser;
