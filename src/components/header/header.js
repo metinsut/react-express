@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getLang, logOut } from "../../actions/index";
-import { HOME, SINGUP, LOGIN } from "../../constants/routhPath";
+import { getLang, logOut, clearGetUser } from "../../actions/index";
+import { HOME, SINGUP, LOGIN, ACCOUNT } from "../../constants/routhPath";
 import HeaderTitle from "./headerTitle";
 
 class Header extends Component {
@@ -12,9 +12,9 @@ class Header extends Component {
       const isLogin = this.props.isLogin;
       return header && site ? (
          <header>
-            <HeaderTitle title={header.title} />
+            <HeaderTitle title={header.title} {...this.props.isLogin} />
             <div className="header__user">
-               {isLogin === false ? (
+               {isLogin.status === false ? (
                   <React.Fragment>
                      <div className="user__item">
                         <Link
@@ -40,11 +40,19 @@ class Header extends Component {
                      </div>
                   </React.Fragment>
                ) : (
-                  <div className="user__item">
-                     <div className="logout__text" onClick={this.props.logOut}>
-                        Logout
+                  <React.Fragment>
+                     <div className="user__item">
+                        <Link to={ACCOUNT}>Settings</Link>
                      </div>
-                  </div>
+                     <div className="user__item">
+                        <div
+                           className="logout__text"
+                           onClick={this.props.logOut}
+                        >
+                           Logout
+                        </div>
+                     </div>
+                  </React.Fragment>
                )}
                <div className="header__line" />
                <div className="user__lang">
@@ -74,7 +82,7 @@ const mapStateToProps = (state, ownProps) => {
       header: state.siteLayout[state.siteLang.lang]
          ? state.siteLayout[state.siteLang.lang].header
          : null,
-      isLogin: state.statusLogin.status
+      isLogin: state.statusLogin
    };
 };
 
@@ -85,6 +93,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       },
       logOut() {
          dispatch(logOut());
+         dispatch(clearGetUser());
       }
    };
 };

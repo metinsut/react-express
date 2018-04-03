@@ -18,3 +18,5 @@ export const SINGUP = "/signup";
 
 export const USERS = "/users";
 export const USER = "/users/:id";
+
+export const ACCOUNT = "/account"

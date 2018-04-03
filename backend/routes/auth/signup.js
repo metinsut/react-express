@@ -6,28 +6,31 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-      const { email, password } = req.body;
+   const { email, password } = req.body;
 
-      bcrypt.hash(password, 10).then(hash => {
-            const user = new userSchema({
-                  email,
-                  password: hash
-            });
+   const name = email.split("@")[0];
 
-            const userSave = user.save();
-            userSave
-                  .then(data => {
-                        res.json({
-                              success: {
-                                    email:data.email,
-                                    message:"Your sign has been successful"
-                              }
-                        });
-                  })
-                  .catch(err => {
-                        res.json(err);
-                  });
+   bcrypt.hash(password, 10).then(hash => {
+      const user = new userSchema({
+         email,
+         password: hash,
+         name: name
       });
+
+      const userSave = user.save();
+      userSave
+         .then(data => {
+            res.json({
+               success: {
+                  email: data.email,
+                  message: "Your sign has been successful"
+               }
+            });
+         })
+         .catch(err => {
+            res.json(err);
+         });
+   });
 });
 
 module.exports = router;

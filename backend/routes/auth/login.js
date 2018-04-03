@@ -4,7 +4,6 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userSchema = require("../../models/userSchema");
-const tokenSchema = require("../../models/tokenScheme");
 const key = require("../../helpers/apiSecretKey");
 
 router.post("/", (req, res) => {
@@ -37,18 +36,20 @@ router.post("/", (req, res) => {
                      expiresIn: 720
                   });
 
-                  const tokenSave = new tokenSchema({
-                     email,
-                     token
-                  });
+                  const userSave = userSchema.findOneAndUpdate(
+                     {
+                        email: email
+                     },
+                     { $set: { token: token } },
+                     { new: true }
+                  );
 
-                  const tokenData = tokenSave.save();
-
-                  tokenData
+                  userSave
                      .then(data => {
                         res.json({
                            status: true,
-                           token: data.token
+                           token: data.token,
+                           name:data.name
                         });
                      })
                      .catch(err => {

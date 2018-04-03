@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 
-// GET DIRECTORS
+// GET SITE
 router.get("/", (req, res) => {
       const siteLayout = {
             success: {

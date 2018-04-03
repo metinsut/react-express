@@ -11,6 +11,7 @@ import Contact from "./contact/contact";
 import Users from "./users/users";
 import Login from "./auth/login";
 import SignUp from "./auth/signUp";
+import Account from "./account/account";
 import ScrollToTopComponent from "../components/scrollTo/scrollToTopComponent";
 import { getSiteData, getResult, statusLogin } from "../actions/index";
 
@@ -21,7 +22,11 @@ class App extends Component {
       this.props.dispatch(
          statusLogin(
             localStorage.userToken
-               ? { status: true, token: localStorage.userToken }
+               ? {
+                    status: true,
+                    token: localStorage.userToken,
+                    name: localStorage.userName
+                 }
                : { status: false }
          )
       );
@@ -39,6 +44,7 @@ class App extends Component {
                   <Route path={R.ABOUT} component={About} />
                   <Route path={R.CONTACT} component={Contact} />
                   <Route path={R.USERS} component={Users} />
+                  <Route path={R.ACCOUNT} component={Account} />
                </Switch>
                <Route path={R.ALLPAGES + R.LOGIN} component={Login} />
                <Route path={R.ALLPAGES + R.SINGUP} component={SignUp} />

@@ -23,10 +23,14 @@ export const statusLogin = data => ({
    payload: data
 });
 
-// export const getUser = data => ({
-//    type: A.GET_USER,
-//    payload: data
-// });
+export const getUser = data => ({
+   type: A.GET_USER,
+   payload: data
+});
+
+export const clearGetUser = () => ({
+   type: A.CLEAR_GET_USER
+});
 
 //GET SITE INFO
 export const getSiteData = () => dispatch => {
@@ -49,12 +53,8 @@ export const login = data => dispatch => {
    S.loginToken(data).then(res => {
       if (res.data.status) {
          localStorage.setItem("userToken", res.data.token);
+         localStorage.setItem("userName", res.data.name);
          dispatch(statusLogin(res.data));
-      //    S.loginUser(data.email, res.data.token).then(res => {
-      //       if (res.data.success) {
-      //          dispatch.getUser(res.data.success);
-      //       }
-      //    });
       } else {
          dispatch(statusLogin(res.data));
       }
@@ -64,9 +64,18 @@ export const login = data => dispatch => {
 export const logOut = () => dispatch => {
    const token = localStorage.getItem("userToken");
    localStorage.removeItem("userToken");
-   S.leaveUser({"token":token}).then(res => {
+   localStorage.removeItem("userName");
+   return S.leaveUser({ token: token }).then(res => {
       if (res.data) {
          dispatch(statusLogin(res.data));
+      }
+   });
+};
+
+export const getAccount = token => dispatch => {
+   S.getAccountData({ token: token }).then(res => {
+      if (res.data.success) {
+         dispatch(getUser(res.data.success));
       }
    });
 };

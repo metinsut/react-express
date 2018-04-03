@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SITE, SINGUP, LOGIN, LOGOUT } from "../constants/path";
+import { SITE, SINGUP, LOGIN, LOGOUT, ACCOUNT } from "../constants/path";
 
 export const getSiteApi = () => {
    return axios.get(SITE);
@@ -13,10 +13,10 @@ export const loginToken = data => {
    return axios.post(LOGIN, data);
 };
 
-// export const loginUser = (email, token) => {
-//    return axios.post(USER + "/" + email, token);
-// };
-
 export const leaveUser = token => {
    return axios.post(LOGOUT, token);
+};
+
+export const getAccountData = token => {
+   return axios.post(ACCOUNT, token);
 };

@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
-const tokenSchema = require("../../models/tokenScheme");
+const userSchema = require("../../models/userSchema");
 
 router.post("/", (req, res) => {
    const { token } = req.body;
-   const removeToken = tokenSchema.findOneAndRemove({ token: token });
+   const removeToken = userSchema.findOneAndUpdate(
+      { token: token },
+      { $set: { token: null } },
+      { new: true }
+   );
 
    removeToken
       .then(data => {

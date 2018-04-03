@@ -7,6 +7,7 @@ const login = require("./backend/routes/auth/login");
 const signup = require("./backend/routes/auth/signup");
 const logout = require("./backend/routes/auth/logout");
 const users = require("./backend/routes/users");
+const account = require("./backend/routes/account");
 const verifyToken = require("./backend/middleware/veriyfToken");
 
 const app = express();
@@ -37,6 +38,7 @@ app.use("/signup", signup);
 
 app.use("/api", verifyToken);
 app.use("/api/users", users);
+app.use("/api/account", account);
 
 const port = process.env.PORT || 3001;
 const server = http.createServer(app);
