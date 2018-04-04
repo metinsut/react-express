@@ -44,49 +44,59 @@ a {
 .input__item {
   width: 100%;
   position: relative;
-  padding: 20px 0 0 0;
-  margin: 0 0 10px 0; }
-  .input__item.item--focused .item__label {
-    top: -3px;
-    color: #5c90cd;
-    font-size: 1.2rem; }
-  .input__item .item__label {
+  padding: 20px 0 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column; }
+  .input__item input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: 0;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 5px;
+    background-color: #ededee;
+    border-bottom: 1px solid #8a8a8b; }
+    .input__item input:focus ~ label {
+      top: 0;
+      color: #5c90cd;
+      font-size: 1.2rem; }
+      .input__item input:focus ~ label.error {
+        color: #fb7676; }
+    .input__item input:focus ~ span {
+      width: 100%;
+      left: 0; }
+      .input__item input:focus ~ span.error {
+        background-color: #ff5353; }
+    .input__item input.fill ~ label {
+      top: 0;
+      color: #5c90cd;
+      font-size: 1.2rem; }
+  .input__item label {
     font-family: "Roboto-Medium", arial, helvetica, sans-serif;
     font-size: 1.6rem;
     color: #8f8f90;
+    pointer-events: none;
     position: absolute;
-    transition: all 0.4s ease;
-    padding: 5px;
     top: 20px;
-    z-index: 1; }
-    .input__item .item__label.error {
+    transition: all 0.4s ease;
+    padding: 5px; }
+    .input__item label.error {
       color: #fb7676; }
-  .input__item .item__input {
-    position: relative; }
-    .input__item .item__input input {
-      width: 100%;
-      height: 30px;
-      border: none;
-      outline: none;
-      font-size: 1.6rem;
-      color: rgba(0, 0, 0, 0.87);
-      padding: 5px;
-      background-color: #ededee;
-      border-bottom: 1px solid #8a8a8b; }
-    .input__item .item__input input:focus ~ .border {
-      width: 100%;
-      left: 0; }
-    .input__item .item__input .border {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background-color: #1e67bf;
-      transition: 0.4s; }
-      .input__item .item__input .border.error {
-        background-color: #ff5353; }
-  .input__item .item__detail {
+  .input__item span {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #1e67bf;
+    transition: 0.4s; }
+    .input__item span.error {
+      background-color: #ff5353; }
+  .input__item p {
+    position: absolute;
+    bottom: -30px;
     padding: 5px;
     font-family: "Roboto-Medium", arial, helvetica, sans-serif;
     font-size: 1.6rem;

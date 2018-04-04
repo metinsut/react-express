@@ -1,59 +1,74 @@
 .input__item {
    width: 100%;
    position: relative;
-   padding: 20px 0 0 0;
-   margin: 0 0 10px 0;
-   &.item--focused {
-      .item__label {
-         top: -3px;
-         color:$form_info_blue;
-         font-size: 1.2rem;
-      }
-   }
-   .item__label {
-      @include roboto-medium;
-      @include font-style(1.6rem, $form_info);
-      position: absolute;
-      transition: all 0.4s ease;
+   padding: 20px 0 0;
+   margin: 0 0 20px 0;
+   display: flex;
+   flex-direction: column;
+
+   input {
+      width: 100%;
+      height: 30px;
+      border: none;
+      outline: 0;
+      @include font-style(1.6rem, $form_color);
       padding: 5px;
-      top: 20px;
-      z-index: 1;
-      &.error {
-         color:$form_info_red;
+      background-color: $form_bc;
+      border-bottom: 1px solid $form_border;
+      &:focus {
+         ~ label {
+            top: 0;
+            color: $form_info_blue;
+            font-size: 1.2rem;
+            &.error {
+               color: $form_info_red;
+            }
+         }
+         ~ span {
+            width: 100%;
+            left: 0;
+            &.error {
+               background-color: $form_border_red;
+            }
+         }
       }
-   }
-   .item__input {
-      position: relative;
-      input {
-         width: 100%;
-         height: 30px;
-         border: none;
-         outline: none;
-         @include font-style(1.6rem, $form_color);
-         padding: 5px;
-         background-color: $form_bc;
-         border-bottom: 1px solid $form_border;
-      }
-
-      input:focus ~ .border {
-         width: 100%;
-         left: 0;
-      }
-
-      .border {
-         position: absolute;
-         bottom: 0;
-         left: 50%;
-         width: 0;
-         height: 2px;
-         background-color: $form_border_blue;
-         transition: 0.4s;
-         &.error {
-            background-color: $form_border_red;
+      &.fill {
+         ~ label {
+            top: 0;
+            color: $form_info_blue;
+            font-size: 1.2rem;
          }
       }
    }
-   .item__detail {
+
+   label {
+      @include roboto-medium;
+      @include font-style(1.6rem, $form_info);
+      pointer-events: none;
+      position: absolute;
+      top: 20px;
+      transition: all 0.4s ease;
+      padding: 5px;
+      &.error {
+         color: $form_info_red;
+      }
+   }
+
+   span {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: $form_border_blue;
+      transition: 0.4s;
+      &.error {
+         background-color: $form_border_red;
+      }
+   }
+   p {
+      position: absolute;
+      bottom: -30px;
       padding: 5px;
       @include roboto-medium;
       @include font-style(1.6rem, $form_error);
