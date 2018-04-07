@@ -4,10 +4,10 @@ const userSchema = require("../models/userSchema");
 
 const router = express.Router();
 
-router.post("/:email", (req, res) => {
-   const email = req.params.email;
+router.post("/:token", (req, res) => {
+   const token = req.params.token;
 
-   const getUser = userSchema.findOne({ email: email });
+   const getUser = userSchema.findOne({ token: token });
 
    getUser
       .then(data => {
@@ -17,5 +17,10 @@ router.post("/:email", (req, res) => {
          res.json(err);
       });
 });
+
+
+router.post("/update/:token", (req,res)=> {
+      const token = req.params.token;
+})
 
 module.exports = router;

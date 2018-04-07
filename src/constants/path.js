@@ -12,5 +12,7 @@ export const LOGOUT = "http://localhost:3001/logout";
 
 // ACCOUNT
 export const ACCOUNT = "http://localhost:3001/api/account";
+export const ACC_UP = "http://localhost:3001/api/account/update";
+
 
 // OTHERS

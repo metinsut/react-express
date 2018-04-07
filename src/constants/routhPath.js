@@ -19,4 +19,8 @@ export const SINGUP = "/signup";
 export const USERS = "/users";
 export const USER = "/users/:id";
 
-export const ACCOUNT = "/account"
+export const ACCOUNT = "/account";
+export const EMAIL = "/email";
+export const PASSWORD = "/password";
+export const PHOTO = "/photo";
+export const PROFILE = "/profile";

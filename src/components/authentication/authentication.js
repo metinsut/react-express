@@ -2,16 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { HOME } from "../../constants/routhPath";
+import Loading from "../loading/loading";
 
 const Authentication = ({ children, history, isLogin }) => {
-   console.log(isLogin);
-   return isLogin !== undefined && isLogin ? children : <Redirect to={HOME} />;
+      return isLogin === undefined ? (
+            <Loading />
+      ) : isLogin ? (
+            children
+      ) : (
+            <Redirect to={HOME} />
+      );
 };
 
 const mapStateToProps = state => {
-   return {
-      isLogin: state.statusLogin.status
-   };
+      return {
+            isLogin: state.statusLogin.status
+      };
 };
 
 export default connect(mapStateToProps)(Authentication);
