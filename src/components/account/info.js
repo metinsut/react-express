@@ -2,16 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import renderField from "../../components/forms/renderField";
+import { updateUser } from "../../actions/index";
 
 const validate = values => {
       let errors = {};
-      if (
-            !/^([a-zA-Z0-9!#$%&'*-`{|}~_.]{1}[a-zA-Z0-9!#$%&'*-`{|}~_.]*)(@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6})$/i.test(
-                  values.email
-            )
-      ) {
-            errors.email = "email_match";
-      }
 
       if (!values.email || values.email.trim() === "") {
             errors.email = "email_required";
@@ -23,7 +17,7 @@ const validate = values => {
       return errors;
 };
 
-class Profile extends React.Component {
+class Info extends React.Component {
       render() {
             const { handleSubmit, pristine, reset, submitting } = this.props;
             return (
@@ -34,30 +28,29 @@ class Profile extends React.Component {
 
                         <form onSubmit={handleSubmit(this.props.onSaveData)}>
                               <Field
-                                    name="email"
-                                    type="email"
-                                    label="email"
-                                    component={renderField}
-                              />
-                              <Field
                                     name="name"
                                     type="text"
-                                    label="name"
+                                    label="Name"
                                     component={renderField}
                               />
                               <Field
-                                    name="bio"
+                                    name="surName"
                                     type="text"
-                                    label="bio"
+                                    label="Sur Name"
                                     component={renderField}
                               />
-                              <button
-                                    type="button"
-                                    disabled={pristine || submitting}
-                                    onClick={reset}
-                              >
-                                    Clear Values
-                              </button>
+                              <div className="button__block">
+                                    <button
+                                          type="button"
+                                          disabled={pristine || submitting}
+                                          onClick={reset}
+                                    >
+                                          Clear Values
+                                    </button>
+                                    <button type="submit" disabled={submitting}>
+                                          SEND
+                                    </button>
+                              </div>
                         </form>
                   </div>
             );
@@ -74,10 +67,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
       return {
             onSaveData: data => {
-                  console.log(data);
+                  const token = localStorage.getItem("userToken");
+                  dispatch(updateUser({ ...data, ...{ token: token } }));
             }
       };
 };
 
-Profile = connect(mapStateToProps, mapDispatchToProps)(Profile);
-export default reduxForm({ form: "account", validate })(Profile);
+Info = connect(mapStateToProps, mapDispatchToProps)(Info);
+export default reduxForm({ form: "account", validate })(Info);

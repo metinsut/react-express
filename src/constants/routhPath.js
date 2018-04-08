@@ -24,3 +24,4 @@ export const EMAIL = "/email";
 export const PASSWORD = "/password";
 export const PHOTO = "/photo";
 export const PROFILE = "/profile";
+export const INFO = "/info";

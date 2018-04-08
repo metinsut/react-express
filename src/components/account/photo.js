@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import inputComponent from "../../components/forms/input";
+import renderField from "../../components/forms/renderField";
 
 const validate = values => {
       let errors = {};
@@ -37,19 +37,19 @@ class Profile extends React.Component {
                                     name="email"
                                     type="email"
                                     label="email"
-                                    component={inputComponent}
+                                    component={renderField}
                               />
                               <Field
                                     name="name"
                                     type="text"
                                     label="name"
-                                    component={inputComponent}
+                                    component={renderField}
                               />
                               <Field
                                     name="bio"
                                     type="text"
                                     label="bio"
-                                    component={inputComponent}
+                                    component={renderField}
                               />
                               <button
                                     type="button"

@@ -1,0 +1,36 @@
+button[type="button"] {
+      padding: 1rem;
+      border: none;
+      outline: none;
+      border-radius: 0.3rem;
+      background-color: $button;
+      min-width: 10rem;
+      @include roboto-medium;
+      @include font-style(1.6rem, $white);
+      @include box-shadow-button;
+      &:active {
+            background-color: $button_active;
+            @include box-shadow-button-active;
+      }
+      &:disabled {
+            background-color: $button_disable;
+      }
+}
+
+
+
+button[type="submit"] {
+      padding: 1rem;
+      border: none;
+      outline: none;
+      border-radius: 0.3rem;
+      background-color: $submit;
+      min-width: 10rem;
+      @include roboto-medium;
+      @include font-style(1.6rem, $white);
+      @include box-shadow-button;
+      &:active{
+            background-color: $submit_active;
+            @include box-shadow-button-active;
+      }
+}

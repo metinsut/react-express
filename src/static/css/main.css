@@ -22,6 +22,10 @@ h5,
 h6 {
   font-weight: normal; }
 
+h1 {
+  font-size: 2rem;
+  margin: 0.67rem 0; }
+
 a {
   text-decoration: none;
   background-color: transparent; }
@@ -45,47 +49,124 @@ img {
   font-family: "custom";
   src: url("./../fonts/custom.eot"), url("./../fonts/custom.eot?#iefix") format("embedded-opentype"), url("./../fonts/custom.woff") format("woff"), url("./../fonts/custom.ttf") format("truetype"), url("./../fonts/custom.svg#custom") format("svg"); }
 
+button[type="button"] {
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  background-color: #2C3B37;
+  min-width: 10rem;
+  font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  button[type="button"]:active {
+    background-color: #506C64;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }
+  button[type="button"]:disabled {
+    background-color: #7F948E; }
+
+button[type="submit"] {
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  background-color: #533A71;
+  min-width: 10rem;
+  font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  button[type="submit"]:active {
+    background-color: #725D8A;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12); }
+
 .input__item {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   position: relative;
-  padding: 20px 0 0;
-  margin: 0 0 20px 0;
-  display: flex;
-  flex-direction: column; }
-  .input__item input {
+  padding: 30px 0 0;
+  margin: 0 0 30px; }
+  .input__item input[type="text"],
+  .input__item input[type="email"],
+  .input__item input[type="password"] {
     width: 100%;
     height: 30px;
     border: none;
     outline: 0;
+    font-family: "Roboto-Regular", arial, helvetica, sans-serif;
     font-size: 1.6rem;
     color: rgba(0, 0, 0, 0.87);
     padding: 5px;
     background-color: #ededee;
     border-bottom: 1px solid #8a8a8b; }
-    .input__item input:focus ~ label {
-      top: 0;
-      color: #5c90cd;
-      font-size: 1.2rem; }
-      .input__item input:focus ~ label.error {
+    .input__item input[type="text"]:focus ~ label,
+    .input__item input[type="email"]:focus ~ label,
+    .input__item input[type="password"]:focus ~ label {
+      transform: translateY(-60%) scale(0.75);
+      color: #5c90cd; }
+      .input__item input[type="text"]:focus ~ label.error,
+      .input__item input[type="email"]:focus ~ label.error,
+      .input__item input[type="password"]:focus ~ label.error {
         color: #fb7676; }
-    .input__item input:focus ~ span {
+    .input__item input[type="text"]:focus ~ span,
+    .input__item input[type="email"]:focus ~ span,
+    .input__item input[type="password"]:focus ~ span {
       width: 100%;
       left: 0; }
-      .input__item input:focus ~ span.error {
+      .input__item input[type="text"]:focus ~ span.error,
+      .input__item input[type="email"]:focus ~ span.error,
+      .input__item input[type="password"]:focus ~ span.error {
         background-color: #ff5353; }
-    .input__item input.fill ~ label {
-      top: 0;
-      color: #5c90cd;
-      font-size: 1.2rem; }
+    .input__item input[type="text"].fill ~ label,
+    .input__item input[type="email"].fill ~ label,
+    .input__item input[type="password"].fill ~ label {
+      transform: translateY(-60%) scale(0.75);
+      color: #5c90cd; }
+  .input__item textarea {
+    width: 100%;
+    height: 60px;
+    border: none;
+    outline: 0;
+    font-family: "Roboto-Regular", arial, helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 5px;
+    background-color: #ededee;
+    border-bottom: 1px solid #8a8a8b; }
+    .input__item textarea:focus ~ label {
+      transform: translateY(-60%) scale(0.75);
+      color: #5c90cd; }
+      .input__item textarea:focus ~ label.error {
+        color: #fb7676; }
+    .input__item textarea:focus ~ span {
+      width: 100%;
+      left: 0; }
+      .input__item textarea:focus ~ span.error {
+        background-color: #ff5353; }
+    .input__item textarea.fill ~ label {
+      transform: translateY(-60%) scale(0.75);
+      color: #5c90cd; }
   .input__item label {
     font-family: "Roboto-Medium", arial, helvetica, sans-serif;
     font-size: 1.6rem;
     color: #8f8f90;
+    display: inline-block;
+    width: 100%;
+    max-width: 90%;
+    min-width: 0;
     pointer-events: none;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     position: absolute;
     top: 20px;
     transition: all 0.4s ease;
-    padding: 5px; }
+    transform-origin: top left;
+    padding: 5px;
+    z-index: 0; }
     .input__item label.error {
       color: #fb7676; }
   .input__item span {
@@ -99,15 +180,87 @@ img {
     .input__item span.error {
       background-color: #ff5353; }
   .input__item p {
+    display: inline-block;
+    width: 100%;
+    max-width: 90%;
+    min-width: 0;
+    pointer-events: none;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     position: absolute;
     bottom: -30px;
     padding: 5px;
+    transition: all 1s ease;
+    opacity: 0;
     font-family: "Roboto-Medium", arial, helvetica, sans-serif;
     font-size: 1.6rem;
     color: #ff5252; }
+    .input__item p.open {
+      opacity: 1; }
+
+.radio__root {
+  display: flex;
+  padding: 1rem; }
+  .radio__root label {
+    display: flex;
+    align-items: center;
+    padding: 2rem 2rem 2rem 0; }
+    .radio__root label input {
+      display: none; }
+    .radio__root label .radio__icon {
+      font-family: "custom";
+      font-size: 2rem;
+      color: #8f8f90; }
+      .radio__root label .radio__icon.active {
+        color: #5c90cd; }
+    .radio__root label .radio__value {
+      padding: 0 0 0 1rem;
+      font-family: "Roboto-Regular", arial, helvetica, sans-serif;
+      font-size: 1.6rem;
+      color: rgba(0, 0, 0, 0.87); }
+      .radio__root label .radio__value.active {
+        color: #5c90cd; }
+
+.switch__root {
+  display: flex;
+  padding: 1rem; }
+  .switch__root label {
+    display: flex; }
+    .switch__root label input[type="checkbox"] {
+      display: none; }
+      .switch__root label input[type="checkbox"]:checked ~ .switch__items {
+        background-color: #2980b9; }
+        .switch__root label input[type="checkbox"]:checked ~ .switch__items:before {
+          background-color: #3498db;
+          transform: translateX(100%); }
+    .switch__root label .switch__items {
+      background-color: #95a5a6;
+      height: 2rem;
+      width: 6rem;
+      border-radius: 2rem;
+      position: relative;
+      display: flex;
+      align-items: center; }
+      .switch__root label .switch__items:before {
+        position: absolute;
+        content: "";
+        height: 3rem;
+        width: 3rem;
+        transform: translateX(0);
+        border-radius: 50%;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: all 0.5s ease; }
+    .switch__root label .switch__info {
+      padding: 0 0 0 2rem; }
 
 body {
   background-color: #f5f5f5; }
+
+main {
+  padding: 0 0 8rem 0; }
 
 p {
   font-size: 1.6rem; }
@@ -169,7 +322,8 @@ header {
         color: #ffffff; }
 
 footer {
-  padding: 10px 50px;
+  height: 8rem;
+  padding: 0 50px;
   border-top: 1px solid #3498db;
   display: flex;
   align-items: center;
@@ -335,7 +489,7 @@ footer {
   padding: 2rem;
   grid-gap: 2rem; }
   .account__root .account__menu .menu__title {
-    background-color: #c4ebc8;
+    background-color: #c3acce;
     padding: 1.5rem;
     border: 1px solid #e1e4e8;
     border-bottom: none; }
@@ -372,4 +526,5 @@ footer {
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12); }
     .account__root form .button__block {
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      padding: 2rem 0 0; }

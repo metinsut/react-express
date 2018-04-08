@@ -14,6 +14,7 @@ class AccountMenuContainer extends React.Component {
                               <Link to={R.ACCOUNT + R.EMAIL}>Email</Link>
                               <Link to={R.ACCOUNT + R.PASSWORD}>Password</Link>
                               <Link to={R.ACCOUNT + R.PHOTO}>Photo</Link>
+                              <Link to={R.ACCOUNT + R.INFO}>Info</Link>
                         </nav>
                   </article>
             );

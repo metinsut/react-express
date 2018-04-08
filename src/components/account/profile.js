@@ -1,22 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import inputComponent from "../../components/forms/input";
+import renderField from "../../components/forms/renderField";
+import renderRadio from "../../components/forms/renderRadio";
+import renderSwitch from "../../components/forms/renderSwitch";
 import { updateUser } from "../../actions/index";
 
 const validate = values => {
       let errors = {};
-      if (
-            !/^([a-zA-Z0-9!#$%&'*-`{|}~_.]{1}[a-zA-Z0-9!#$%&'*-`{|}~_.]*)(@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6})$/i.test(
-                  values.email
-            )
-      ) {
-            errors.email = "email_match";
-      }
 
-      if (!values.email || values.email.trim() === "") {
-            errors.email = "email_required";
-      }
       if (!values.name || values.name.trim() === "") {
             errors.name = "name_required";
       }
@@ -35,22 +27,39 @@ class Profile extends React.Component {
 
                         <form onSubmit={handleSubmit(this.props.onSaveData)}>
                               <Field
-                                    name="email"
-                                    type="email"
-                                    label="email"
-                                    component={inputComponent}
-                              />
-                              <Field
                                     name="name"
                                     type="text"
-                                    label="name"
-                                    component={inputComponent}
+                                    label="Name"
+                                    component={renderField}
                               />
                               <Field
-                                    name="bio"
+                                    name="surName"
                                     type="text"
+                                    label="Sur Name"
+                                    component={renderField}
+                              />
+
+                              <Field
+                                    name="gender"
+                                    // required={true}
+                                    options={[
+                                          { title: "Male", value: "male" },
+                                          { title: "Female", value: "female" }
+                                    ]}
+                                    component={renderRadio}
+                              />
+
+                              <Field
+                                    name="bio"
+                                    type="textarea"
                                     label="bio"
-                                    component={inputComponent}
+                                    component={renderField}
+                              />
+                              <Field
+                                    type="checkbox"
+                                    name="isActive"
+                                    label="User is Active ?"
+                                    component={renderSwitch}
                               />
                               <div className="button__block">
                                     <button

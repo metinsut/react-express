@@ -35,10 +35,7 @@ router.post("/", (req, res) => {
                                     };
                                     const token = jwt.sign(
                                           payload,
-                                          key.api_secret_key,
-                                          {
-                                                expiresIn: 60*60*24
-                                          }
+                                          key.api_secret_key
                                     );
 
                                     const userSave = userSchema.findOneAndUpdate(

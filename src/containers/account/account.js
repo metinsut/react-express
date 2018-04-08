@@ -7,6 +7,7 @@ import Profile from "../../components/account/profile";
 import Email from "../../components/account/email";
 import Password from "../../components/account/password";
 import Photo from "../../components/account/photo";
+import Info from "../../components/account/info";
 import AccountMenuContainer from "./accountMenu";
 import * as R from "../../constants/routhPath";
 
@@ -29,6 +30,10 @@ class Account extends React.Component {
                                           <Route
                                                 path={R.ACCOUNT + R.PROFILE}
                                                 component={Profile}
+                                          />
+                                          <Route
+                                                path={R.ACCOUNT + R.INFO}
+                                                component={Info}
                                           />
                                           <Route
                                                 path={R.ACCOUNT + R.EMAIL}
