@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import renderFile from "../../components/forms/renderFile";
+import renderCheckboxGroup from "../../components/forms/renderCheckboxGroup";
+import { updateUser } from "../../actions/index";
 
 const validate = values => {
     let errors = {};
@@ -9,8 +10,11 @@ const validate = values => {
     return errors;
 };
 
-class Profile extends React.Component {
-    render() {
+class InterestedIn extends React.Component {
+
+      colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+
+      render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <div className="profile__root">
@@ -20,13 +24,14 @@ class Profile extends React.Component {
 
                 <form onSubmit={handleSubmit(this.props.onSaveData)}>
                     <Field
-                        name="file"
-                        type="file"
-                        label="File"
-                        component={renderFile}
+                        name="interestedIn"
+                        type="checkbox"
+                        title="InterestedIn"
+                        label="InterestedIn"
+                        options={this.colors}
+                        component={renderCheckboxGroup}
                     />
-
-                   <div className="button__block">
+                    <div className="button__block">
                         <button
                             type="button"
                             disabled={pristine || submitting}
@@ -54,10 +59,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
-            console.log(data);
+            const token = localStorage.getItem("userToken");
+            dispatch(updateUser({ ...data, ...{ token: token } }));
         }
     };
 };
 
-Profile = connect(mapStateToProps, mapDispatchToProps)(Profile);
-export default reduxForm({ form: "account", validate })(Profile);
+InterestedIn = connect(mapStateToProps, mapDispatchToProps)(InterestedIn);
+export default reduxForm({ form: "account", validate })(InterestedIn);

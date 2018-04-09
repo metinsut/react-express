@@ -56,6 +56,7 @@ button[type="button"] {
   border-radius: 0.3rem;
   background-color: #2C3B37;
   min-width: 10rem;
+  cursor: pointer;
   font-family: "Roboto-Medium", arial, helvetica, sans-serif;
   font-size: 1.6rem;
   color: #ffffff;
@@ -73,6 +74,7 @@ button[type="submit"] {
   border-radius: 0.3rem;
   background-color: #533A71;
   min-width: 10rem;
+  cursor: pointer;
   font-family: "Roboto-Medium", arial, helvetica, sans-serif;
   font-size: 1.6rem;
   color: #ffffff;
@@ -206,7 +208,8 @@ button[type="submit"] {
   .radio__root label {
     display: flex;
     align-items: center;
-    padding: 2rem 2rem 2rem 0; }
+    padding: 2rem 2rem 2rem 0;
+    cursor: pointer; }
     .radio__root label input {
       display: none; }
     .radio__root label .radio__icon {
@@ -227,7 +230,8 @@ button[type="submit"] {
   display: flex;
   padding: 1rem; }
   .switch__root label {
-    display: flex; }
+    display: flex;
+    cursor: pointer; }
     .switch__root label input[type="checkbox"] {
       display: none; }
       .switch__root label input[type="checkbox"]:checked ~ .switch__items {

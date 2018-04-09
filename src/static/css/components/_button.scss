@@ -5,6 +5,7 @@ button[type="button"] {
       border-radius: 0.3rem;
       background-color: $button;
       min-width: 10rem;
+      cursor: pointer;
       @include roboto-medium;
       @include font-style(1.6rem, $white);
       @include box-shadow-button;
@@ -26,6 +27,7 @@ button[type="submit"] {
       border-radius: 0.3rem;
       background-color: $submit;
       min-width: 10rem;
+      cursor: pointer;
       @include roboto-medium;
       @include font-style(1.6rem, $white);
       @include box-shadow-button;

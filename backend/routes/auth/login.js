@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
                                     res.json({
                                           status: false,
                                           message:
-                                                " Authenticate failed, wrong password."
+                                                "Authenticate failed, wrong password."
                                     });
                               } else {
                                     const payload = {
