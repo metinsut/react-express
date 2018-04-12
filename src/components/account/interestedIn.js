@@ -12,7 +12,7 @@ const validate = values => {
 
 class InterestedIn extends React.Component {
 
-      colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+      colors = ["Computer", "Music", "Sport", "Art", "Gaming", "Travel", "Cooking"];
 
       render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
