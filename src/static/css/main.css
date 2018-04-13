@@ -274,7 +274,7 @@ button[type="submit"] {
   flex-direction: column;
   align-items: flex-start;
   padding: 2rem 1rem; }
-  .checkbox__root p {
+  .checkbox__root .checkbox__title {
     font-family: "Roboto-Medium", arial, helvetica, sans-serif;
     font-size: 1.6rem;
     color: #a1a1a1;
@@ -310,7 +310,10 @@ button[type="submit"] {
         transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1); }
     .checkbox__root label .checkbox__info {
       padding: 0 0 0 2rem;
-      pointer-events: none; }
+      pointer-events: none;
+      font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+      font-size: 1.6rem;
+      color: #a1a1a1; }
 
 .checkboxGroup__root {
   display: flex;
@@ -337,14 +340,21 @@ button[type="submit"] {
       padding: 1rem;
       font-size: 2rem;
       color: #1e67bf; }
-    .checkboxGroup__root .checkboxGroup__menu .menu__content {
+    .checkboxGroup__root .checkboxGroup__menu .checkbox__root {
       background-color: #ffffff;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      display: flex;
-      flex-direction: column; }
+      padding: 0;
+      display: none; }
+      .checkboxGroup__root .checkboxGroup__menu .checkbox__root.open {
+        display: flex; }
+      .checkboxGroup__root .checkboxGroup__menu .checkbox__root label {
+        padding: 1rem 0 1rem 1rem;
+        width: 100%; }
+        .checkboxGroup__root .checkboxGroup__menu .checkbox__root label:hover {
+          background-color: rgba(0, 0, 0, 0.12); }
 
 body {
   background-color: #f5f5f5; }
