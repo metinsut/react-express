@@ -330,7 +330,8 @@ button[type="submit"] {
     justify-content: center;
     cursor: pointer;
     position: relative;
-    background-color: salmon; }
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }
     .checkboxGroup__root .checkboxGroup__menu h3 {
       font-family: "Roboto-Medium", arial, helvetica, sans-serif;
       font-size: 2rem;

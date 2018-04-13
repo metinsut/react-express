@@ -281,7 +281,8 @@
         @include flex-center;
         cursor: pointer;
         position: relative;
-        background-color: salmon;
+        padding: 0.5rem 2rem;
+        @include box-shadow1;
         h3 {
             @include roboto-medium;
             @include font-style(2rem, $form_info_blue);

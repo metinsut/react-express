@@ -5,21 +5,30 @@ class CheckboxGroup extends React.Component {
 
     componentDidMount() {
         if (typeof window !== "undefined") {
-            window.addEventListener("click", this.toogleCheckBoxMenu);
+            window.addEventListener("click", this.closeCheckBoxMenu);
         }
     }
 
     componentWillUnmount() {
         if (typeof window !== "undefined") {
-            window.removeEventListener("click", this.toogleCheckBoxMenu);
+            window.removeEventListener("click", this.closeCheckBoxMenu);
         }
     }
 
-    toogleCheckBoxMenu = e => {
-        if (true) {
-            console.log(e.target);
+    closeCheckBoxMenu = e => {
+        if (!e.target.matches(".checkboxGroup__menu")) {
+            console.log( this.checkboxMenu.current);
+            // console.log(e.target);
+            if (this.checkboxMenu.current.classList.contains("open")) {
+                this.checkboxMenu.current.classList.remove("open");
+            }
+        }else{
+            console.log( this.checkboxMenu.current.classList);
         }
-        // this.checkboxMenu.current.classList.toggle("open");
+    };
+
+    toogleCheckBoxMenu = () => {
+        this.checkboxMenu.current.classList.toggle("open");
     };
 
     render() {
