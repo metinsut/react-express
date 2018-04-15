@@ -332,7 +332,7 @@ button[type="submit"] {
     position: relative;
     padding: 0.5rem 2rem;
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }
-    .checkboxGroup__root .checkboxGroup__menu h3 {
+    .checkboxGroup__root .checkboxGroup__menu .checkboxGroup__menu__title {
       font-family: "Roboto-Medium", arial, helvetica, sans-serif;
       font-size: 2rem;
       color: #5c90cd; }
@@ -351,10 +351,10 @@ button[type="submit"] {
       display: none; }
       .checkboxGroup__root .checkboxGroup__menu .checkbox__root.open {
         display: flex; }
-      .checkboxGroup__root .checkboxGroup__menu .checkbox__root label {
+      .checkboxGroup__root .checkboxGroup__menu .checkbox__root .checkboxGroup__block {
         padding: 1rem 0 1rem 1rem;
         width: 100%; }
-        .checkboxGroup__root .checkboxGroup__menu .checkbox__root label:hover {
+        .checkboxGroup__root .checkboxGroup__menu .checkbox__root .checkboxGroup__block:hover {
           background-color: rgba(0, 0, 0, 0.12); }
 
 body {
