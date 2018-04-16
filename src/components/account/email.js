@@ -86,8 +86,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser,
-        isLogin: state.statusLogin.status
+        account: state.getUser
     };
 };
 
@@ -95,8 +94,13 @@ const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
             const token = localStorage.getItem("userToken");
-            console.log({ ...{previousEmail:data.previousEmail},...{email:data.email}, ...{ token: token } });
-            dispatch(updateUserEmail({ ...{previousEmail:data.previousEmail},...{email:data.email}, ...{ token: token } }));
+            dispatch(
+                updateUserEmail({
+                    ...{ previousEmail: data.previousEmail },
+                    ...{ email: data.email },
+                    ...{ token: token }
+                })
+            );
         }
     };
 };

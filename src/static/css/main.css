@@ -292,7 +292,7 @@ button[type="submit"] {
           border: none; }
         .checkbox__root label input[type="checkbox"]:checked ~ .checkbox__items.open {
           background-color: #1e67bf;
-          border: 1.5px solid #1e67bf; }
+          border: 0.2rem solid #1e67bf; }
     .checkbox__root label .checkbox__items {
       height: 2.5rem;
       width: 2.5rem;
@@ -303,7 +303,7 @@ button[type="submit"] {
       font-size: 1.6rem;
       color: #ffffff; }
       .checkbox__root label .checkbox__items.close {
-        border: 1.5px solid #6D6D6D;
+        border: 0.2rem solid #6D6D6D;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1); }
       .checkbox__root label .checkbox__items.open {
         background-color: #ffffff;
@@ -314,6 +314,24 @@ button[type="submit"] {
       font-family: "Roboto-Medium", arial, helvetica, sans-serif;
       font-size: 1.6rem;
       color: #a1a1a1; }
+
+.date__root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 1rem 2rem; }
+  .date__root p {
+    font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: #a1a1a1;
+    padding: 1rem 1rem 2rem; }
+  .date__root label {
+    display: flex;
+    align-items: center;
+    cursor: pointer; }
+    .date__root label .date__info {
+      padding: 0 0 0 2rem;
+      pointer-events: none; }
 
 .checkboxGroup__root {
   display: flex;
@@ -356,6 +374,25 @@ button[type="submit"] {
         width: 100%; }
         .checkboxGroup__root .checkboxGroup__menu .checkbox__root .checkboxGroup__block:hover {
           background-color: rgba(0, 0, 0, 0.12); }
+
+.multiple__input__root {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap; }
+  .multiple__input__root .input__item {
+    width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  .multiple__input__root .checkboxGroup__root {
+    width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+    .multiple__input__root .checkboxGroup__root h1 {
+      font-size: 1.6rem; }
+    .multiple__input__root .checkboxGroup__root .checkboxGroup__menu {
+      width: 100%;
+      justify-content: space-between; }
 
 body {
   background-color: #f5f5f5; }

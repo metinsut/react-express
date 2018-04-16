@@ -8,6 +8,7 @@ import Email from "../../components/account/email";
 import Password from "../../components/account/password";
 import Photo from "../../components/account/photo";
 import InterestedIn from "../../components/account/interestedIn";
+import Info from "../../components/account/info";
 import AccountMenuContainer from "./accountMenu";
 import * as R from "../../constants/routhPath";
 
@@ -27,6 +28,7 @@ class Account extends React.Component {
                     <AccountMenuContainer />
                     <article className="account__content">
                         <Switch>
+                            <Route exact path={R.ACCOUNT} component={Profile} />
                             <Route
                                 path={R.ACCOUNT + R.PROFILE}
                                 component={Profile}
@@ -46,6 +48,10 @@ class Account extends React.Component {
                             <Route
                                 path={R.ACCOUNT + R.INTERESTED}
                                 component={InterestedIn}
+                            />
+                            <Route
+                                path={R.ACCOUNT + R.INFO}
+                                component={Info}
                             />
                         </Switch>
                     </article>

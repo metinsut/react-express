@@ -1,314 +1,363 @@
 .input__item {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      position: relative;
-      padding: 30px 0 0;
-      margin: 0 0 30px;
-      input[type="text"],
-      input[type="email"],
-      input[type="password"] {
-            width: 100%;
-            height: 30px;
-            border: none;
-            outline: 0;
-            @include roboto-regular;
-            @include font-style(1.6rem, $form_color);
-            padding: 5px;
-            background-color: $form_bc;
-            border-bottom: 1px solid $form_border;
-            &:focus {
-                  ~ label {
-                        transform: translateY(-60%) scale(0.75);
-                        color: $form_info_blue;
-                        &.error {
-                              color: $form_info_red;
-                        }
-                  }
-                  ~ span {
-                        width: 100%;
-                        left: 0;
-                        &.error {
-                              background-color: $form_border_red;
-                        }
-                  }
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    padding: 30px 0 0;
+    margin: 0 0 30px;
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        height: 30px;
+        border: none;
+        outline: 0;
+        @include roboto-regular;
+        @include font-style(1.6rem, $form_color);
+        padding: 5px;
+        background-color: $form_bc;
+        border-bottom: 1px solid $form_border;
+        &:focus {
+            ~ label {
+                transform: translateY(-60%) scale(0.75);
+                color: $form_info_blue;
+                &.error {
+                    color: $form_info_red;
+                }
             }
-            &.fill {
-                  ~ label {
-                        transform: translateY(-60%) scale(0.75);
-                        color: $form_info_blue;
-                  }
+            ~ span {
+                width: 100%;
+                left: 0;
+                &.error {
+                    background-color: $form_border_red;
+                }
             }
-      }
-      textarea {
-            width: 100%;
-            height: 60px;
-            border: none;
-            outline: 0;
-            @include roboto-regular;
-            @include font-style(1.6rem, $form_color);
-            padding: 5px;
-            background-color: $form_bc;
-            border-bottom: 1px solid $form_border;
-            &:focus {
-                  ~ label {
-                        transform: translateY(-60%) scale(0.75);
-                        color: $form_info_blue;
-                        &.error {
-                              color: $form_info_red;
-                        }
-                  }
-                  ~ span {
-                        width: 100%;
-                        left: 0;
-                        &.error {
-                              background-color: $form_border_red;
-                        }
-                  }
+        }
+        &.fill {
+            ~ label {
+                transform: translateY(-60%) scale(0.75);
+                color: $form_info_blue;
             }
-            &.fill {
-                  ~ label {
-                        transform: translateY(-60%) scale(0.75);
-                        color: $form_info_blue;
-                  }
+        }
+    }
+    textarea {
+        width: 100%;
+        height: 60px;
+        border: none;
+        outline: 0;
+        @include roboto-regular;
+        @include font-style(1.6rem, $form_color);
+        padding: 5px;
+        background-color: $form_bc;
+        border-bottom: 1px solid $form_border;
+        &:focus {
+            ~ label {
+                transform: translateY(-60%) scale(0.75);
+                color: $form_info_blue;
+                &.error {
+                    color: $form_info_red;
+                }
             }
-      }
+            ~ span {
+                width: 100%;
+                left: 0;
+                &.error {
+                    background-color: $form_border_red;
+                }
+            }
+        }
+        &.fill {
+            ~ label {
+                transform: translateY(-60%) scale(0.75);
+                color: $form_info_blue;
+            }
+        }
+    }
 
-      label {
-            @include roboto-medium;
-            @include font-style(1.6rem, $form_info);
-            display: inline-block;
-            width: 100%;
-            max-width: 90%;
-            min-width: 0;
-            pointer-events: none;
-            text-align: left;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            position: absolute;
-            top: 20px;
-            transition: all 0.4s ease;
-            transform-origin: top left;
-            padding: 5px;
-            z-index: 0;
-            &.error {
-                  color: $form_info_red;
-            }
-      }
+    label {
+        @include roboto-medium;
+        @include font-style(1.6rem, $form_info);
+        display: inline-block;
+        width: 100%;
+        max-width: 90%;
+        min-width: 0;
+        pointer-events: none;
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        position: absolute;
+        top: 20px;
+        transition: all 0.4s ease;
+        transform-origin: top left;
+        padding: 5px;
+        z-index: 0;
+        &.error {
+            color: $form_info_red;
+        }
+    }
 
-      span {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: $form_border_blue;
-            transition: 0.4s;
-            &.error {
-                  background-color: $form_border_red;
-            }
-      }
-      p {
-            display: inline-block;
-            width: 100%;
-            max-width: 90%;
-            min-width: 0;
-            pointer-events: none;
-            text-align: left;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            position: absolute;
-            bottom: -30px;
-            padding: 5px;
-            transition: all 1s ease;
-            opacity: 0;
-            @include roboto-medium;
-            @include font-style(1.6rem, $form_error);
-            &.open {
-                  opacity: 1;
-            }
-      }
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: $form_border_blue;
+        transition: 0.4s;
+        &.error {
+            background-color: $form_border_red;
+        }
+    }
+    p {
+        display: inline-block;
+        width: 100%;
+        max-width: 90%;
+        min-width: 0;
+        pointer-events: none;
+        text-align: left;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        position: absolute;
+        bottom: -30px;
+        padding: 5px;
+        transition: all 1s ease;
+        opacity: 0;
+        @include roboto-medium;
+        @include font-style(1.6rem, $form_error);
+        &.open {
+            opacity: 1;
+        }
+    }
 }
 
 .radio__root {
-      display: flex;
-      padding: 1rem;
-      label {
-            display: flex;
-            align-items: center;
-            padding: 2rem 2rem 2rem 0;
-            cursor: pointer;
-            input {
-                  display: none;
+    display: flex;
+    padding: 1rem;
+    label {
+        display: flex;
+        align-items: center;
+        padding: 2rem 2rem 2rem 0;
+        cursor: pointer;
+        input {
+            display: none;
+        }
+        .radio__icon {
+            @include custom;
+            @include font-style(2rem, $form_info);
+            &.active {
+                color: $form_info_blue;
             }
-            .radio__icon {
-                  @include custom;
-                  @include font-style(2rem, $form_info);
-                  &.active {
-                        color: $form_info_blue;
-                  }
+        }
+        .radio__value {
+            padding: 0 0 0 1rem;
+            @include roboto-regular;
+            @include font-style(1.6rem, $form_color);
+            &.active {
+                color: $form_info_blue;
             }
-            .radio__value {
-                  padding: 0 0 0 1rem;
-                  @include roboto-regular;
-                  @include font-style(1.6rem, $form_color);
-                  &.active {
-                        color: $form_info_blue;
-                  }
-            }
-      }
+        }
+    }
 }
 
 .switch__root {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem 1rem 2rem;
-      p {
-            @include roboto-medium;
-            @include font-style(1.6rem, $form_label);
-            padding: 1rem 1rem 2rem;
-      }
-      label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem 2rem;
+    p {
+        @include roboto-medium;
+        @include font-style(1.6rem, $form_label);
+        padding: 1rem 1rem 2rem;
+    }
+    label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        input[type="checkbox"] {
+            display: none;
+            &:checked {
+                ~ .switch__items {
+                    background-color: $switchBack2;
+                    &:before {
+                        background-color: $blue;
+                        transform: translateX(100%);
+                    }
+                }
+            }
+        }
+        .switch__items {
+            background-color: $switchBack;
+            height: 2rem;
+            width: 6rem;
+            border-radius: 2rem;
+            position: relative;
             display: flex;
             align-items: center;
-            cursor: pointer;
-            input[type="checkbox"] {
-                  display: none;
-                  &:checked {
-                        ~ .switch__items {
-                              background-color: $switchBack2;
-                              &:before {
-                                    background-color: $blue;
-                                    transform: translateX(100%);
-                              }
-                        }
-                  }
+            &:before {
+                position: absolute;
+                content: "";
+                height: 3rem;
+                width: 3rem;
+                transform: translateX(0);
+                border-radius: 50%;
+                background-color: $white;
+                @include box-shadow1;
+                transition: all 0.5s ease;
             }
-            .switch__items {
-                  background-color: $switchBack;
-                  height: 2rem;
-                  width: 6rem;
-                  border-radius: 2rem;
-                  position: relative;
-                  display: flex;
-                  align-items: center;
-                  &:before {
-                        position: absolute;
-                        content: "";
-                        height: 3rem;
-                        width: 3rem;
-                        transform: translateX(0);
-                        border-radius: 50%;
-                        background-color: $white;
-                        @include box-shadow1;
-                        transition: all 0.5s ease;
-                  }
-            }
-            .switch__info {
-                  padding: 0 0 0 2rem;
-                  pointer-events: none;
-            }
-      }
+        }
+        .switch__info {
+            padding: 0 0 0 2rem;
+            pointer-events: none;
+        }
+    }
 }
 
 .checkbox__root {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 2rem 1rem;
-      .checkbox__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    .checkbox__title {
+        @include roboto-medium;
+        @include font-style(1.6rem, $form_label);
+        padding: 1rem 1rem 2rem;
+    }
+    label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        input[type="checkbox"] {
+            display: none;
+            &:checked {
+                ~ .checkbox__items {
+                    @include font-style(1.6rem, $white);
+                    &.close {
+                        border: none;
+                    }
+                    &.open {
+                        background-color: $form_border_blue;
+                        border: 0.2rem solid $form_border_blue;
+                    }
+                }
+            }
+        }
+        .checkbox__items {
+            height: 2.5rem;
+            width: 2.5rem;
+            @include flex-center;
+            @include custom;
+            @include font-style(1.6rem, $white);
+            &.close {
+                border: 0.2rem solid $checkbox_border;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+            }
+            &.open {
+                background-color: $white;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+            }
+        }
+        .checkbox__info {
+            padding: 0 0 0 2rem;
+            pointer-events: none;
             @include roboto-medium;
             @include font-style(1.6rem, $form_label);
-            padding: 1rem 1rem 2rem;
-      }
-      label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            input[type="checkbox"] {
-                  display: none;
-                  &:checked {
-                        ~ .checkbox__items {
-                              @include font-style(1.6rem, $white);
-                              &.close {
-                                    border: none;
-                              }
-                              &.open {
-                                    background-color: $form_border_blue;
-                                    border: 1.5px solid $form_border_blue;
-                              }
-                        }
-                  }
-            }
-            .checkbox__items {
-                  height: 2.5rem;
-                  width: 2.5rem;
-                  @include flex-center;
-                  @include custom;
-                  @include font-style(1.6rem, $white);
-                  &.close {
-                        border: 1.5px solid $checkbox_border;
-                        transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1);
-                  }
-                  &.open {
-                        background-color: $white;
-                        transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1);
-                  }
-            }
-            .checkbox__info {
-                  padding: 0 0 0 2rem;
-                  pointer-events: none;
-                  @include roboto-medium;
-                  @include font-style(1.6rem, $form_label);
-            }
-      }
+        }
+    }
+}
+
+.date__root {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem 2rem;
+    p {
+        @include roboto-medium;
+        @include font-style(1.6rem, $form_label);
+        padding: 1rem 1rem 2rem;
+    }
+    label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        input[type="date"] {
+        }
+        .date__items {
+        }
+        .date__info {
+            padding: 0 0 0 2rem;
+            pointer-events: none;
+        }
+    }
 }
 
 .checkboxGroup__root {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h1 {
+        @include roboto-medium;
+        @include font-style(2rem, $form_label);
+        padding: 1.5rem;
+    }
+    .checkboxGroup__menu {
+        @include flex-center;
+        cursor: pointer;
+        position: relative;
+        padding: 0.5rem 2rem;
+        @include box-shadow1;
+        .checkboxGroup__menu__title {
             @include roboto-medium;
-            @include font-style(2rem, $form_label);
-            padding: 1.5rem;
-      }
-      .checkboxGroup__menu {
-            @include flex-center;
-            cursor: pointer;
-            position: relative;
-            padding: 0.5rem 2rem;
-            @include box-shadow1;
-            .checkboxGroup__menu__title {
-                  @include roboto-medium;
-                  @include font-style(2rem, $form_info_blue);
+            @include font-style(2rem, $form_info_blue);
+        }
+        .menu__icon {
+            @include custom;
+            padding: 1rem;
+            @include font-style(2rem, $form_border_blue);
+        }
+        .checkbox__root {
+            background-color: $white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0;
+            display: none;
+            &.open {
+                display: flex;
             }
-            .menu__icon {
-                  @include custom;
-                  padding: 1rem;
-                  @include font-style(2rem, $form_border_blue);
+            .checkboxGroup__block {
+                padding: 1rem 0 1rem 1rem;
+                width: 100%;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.12);
+                }
             }
-            .checkbox__root {
-                  background-color: $white;
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  padding: 0;
-                  display: none;
-                  &.open {
-                        display: flex;
-                  }
-                  .checkboxGroup__block {
-                        padding: 1rem 0 1rem 1rem;
-                        width: 100%;
-                        &:hover {
-                              background-color: rgba(0, 0, 0, 0.12);
-                        }
-                  }
-            }
-      }
+        }
+    }
+}
+
+.multiple__input__root {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .input__item {
+        width: 50%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .checkboxGroup__root {
+        width: 50%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        h1 {
+            font-size: 1.6rem;
+        }
+        .checkboxGroup__menu {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
 }

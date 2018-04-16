@@ -2,7 +2,11 @@ import React from "react";
 
 class RenderCheckbox extends React.Component {
     render() {
-        const { label, input, meta: { error } } = this.props;
+        const {
+            label,
+            input,
+            meta: { error }
+        } = this.props;
         return (
             <div className="checkbox__root">
                 <p className="checkbox__title">{label}</p>

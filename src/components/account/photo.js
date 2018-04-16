@@ -47,7 +47,6 @@ class Profile extends React.Component {
 const mapStateToProps = state => {
     return {
         account: state.getUser,
-        isLogin: state.statusLogin.status
     };
 };
 
