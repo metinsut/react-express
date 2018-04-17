@@ -26,7 +26,7 @@ const UserSchema = new Schema({
       bio: String,
       interestedIn:Array,
       gender:String,
-      isReadTerm:String,
+      isReadTerm:Boolean,
       company: Array,
       school: Array,
       location: {

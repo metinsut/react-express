@@ -5,6 +5,7 @@ class RenderCheckbox extends React.Component {
         const {
             label,
             input,
+            options: { first, second },
             meta: { error }
         } = this.props;
         return (
@@ -22,7 +23,7 @@ class RenderCheckbox extends React.Component {
                         {input.value === true ? "y" : ""}
                     </div>
                     <p className="checkbox__info">
-                        {input.value === true ? "Read" : "Unread"}
+                        {input.value === true ? first : second}
                     </p>
                     <p className="checkbox__error">{error}</p>
                 </label>

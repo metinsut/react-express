@@ -393,6 +393,8 @@ button[type="submit"] {
     .multiple__input__root .checkboxGroup__root .checkboxGroup__menu {
       width: 100%;
       justify-content: space-between; }
+  .multiple__input__root .checkbox__root {
+    width: 100%; }
 
 body {
   background-color: #f5f5f5; }

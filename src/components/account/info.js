@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Field, Fields, reduxForm } from "redux-form";
+import { Field, Fields, reduxForm, initialize } from "redux-form";
 import { updateUser } from "../../actions/index";
 import renderMultipleFields from "../forms/renderMultipleFields";
 import renderDate from "../forms/renderDate";
@@ -35,6 +35,19 @@ const days = [
 ];
 
 class Info extends React.Component {
+    componentDidMount() {
+        this.props.initializeData(this.props.account);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (
+            Object.keys(prevProps.account).length === 0 &&
+            Object.keys(this.props.account).length > 0
+        ) {
+            this.props.initializeData(this.props.account);
+        }
+    }
+
     render() {
         const {
             handleSubmit,
@@ -51,12 +64,12 @@ class Info extends React.Component {
             endYear: "End Year",
             stillWork: "Still Work"
         };
+        const company = this.props.account.company;
         return (
             <div className="profile__root">
                 <div className="account__title">
                     <h1>YOUR PROFILE</h1>
                 </div>
-
                 <form onSubmit={handleSubmit(this.props.onSaveData)}>
                     <h1>{`Joined: ${date.getDay()} ${
                         monthNames[date.getMonth()]
@@ -72,6 +85,7 @@ class Info extends React.Component {
                         component={renderDate}
                     />
                     <Fields
+                        key={"key"}
                         label={label}
                         names={[
                             "company.name",
@@ -95,6 +109,7 @@ class Info extends React.Component {
                         </button>
                     </div>
                 </form>
+                <div />
             </div>
         );
     }
@@ -111,6 +126,9 @@ const mapDispatchToProps = dispatch => {
         onSaveData: data => {
             const token = localStorage.getItem("userToken");
             dispatch(updateUser({ ...data, ...{ token: token } }));
+        },
+        initializeData: data => {
+            dispatch(initialize("account", data));
         }
     };
 };

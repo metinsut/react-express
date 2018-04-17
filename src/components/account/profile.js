@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, initialize } from "redux-form";
 import renderField from "../../components/forms/renderField";
 import renderRadio from "../../components/forms/renderRadio";
 import renderSwitch from "../../components/forms/renderSwitch";
@@ -18,6 +18,19 @@ const validate = values => {
 };
 
 class Profile extends React.Component {
+    componentDidMount() {
+        this.props.initializeData(this.props.account);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (
+            Object.keys(prevProps.account).length === 0 &&
+            Object.keys(this.props.account).length > 0
+        ) {
+            this.props.initializeData(this.props.account);
+        }
+    }
+
     render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
@@ -66,6 +79,7 @@ class Profile extends React.Component {
                         type="checkbox"
                         name="isReadTerm"
                         label="Have you read rules ?"
+                        options={{ first: "Read", second: "UnRead" }}
                         component={renderCheckbox}
                     />
 
@@ -89,7 +103,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser,
+        account: state.getUser
     };
 };
 
@@ -98,9 +112,16 @@ const mapDispatchToProps = dispatch => {
         onSaveData: data => {
             const token = localStorage.getItem("userToken");
             dispatch(updateUser({ ...data, ...{ token: token } }));
+        },
+        initializeData: data => {
+            dispatch(initialize("account", data));
         }
     };
 };
 
 Profile = connect(mapStateToProps, mapDispatchToProps)(Profile);
-export default reduxForm({ form: "account", validate })(Profile);
+
+export default reduxForm({
+    form: "account",
+    validate
+})(Profile);
