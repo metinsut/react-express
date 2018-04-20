@@ -15,6 +15,7 @@ export const ACCOUNT = "http://localhost:3001/api/account";
 export const ACC_UP = "http://localhost:3001/api/account/update";
 export const ACC_EMAIL = "http://localhost:3001/api/account/email";
 export const ACC_PASS = "http://localhost:3001/api/account/password";
+export const ACC_COMPANY = "http://localhost:3001/api/account/company";
 
 
 // OTHERS

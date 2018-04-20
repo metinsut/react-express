@@ -131,4 +131,41 @@ router.post("/password", (req, res) => {
     });
 });
 
+router.post("/company", (req, res) => {
+    const token = req.body.token;
+    const index = req.body.index;
+    const company = req.body.company;
+
+    console.log(company);
+
+    // const getUser = userSchema.findOneAndUpdate(
+    //     { token: token },
+    //     { $push: { company: company } },
+    //     { new: true }
+    // );
+
+
+    const getUser = userSchema.update(
+        { token: token },
+        { $push: { company: company } },
+        { new: true }
+    );
+
+    getUser
+        .then(data => {
+            res.json({
+                success: {
+                    data
+                }
+            });
+        })
+        .catch(err => {
+            res.json({
+                success: {
+                    err
+                }
+            });
+        });
+});
+
 module.exports = router;

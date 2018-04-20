@@ -25,4 +25,4 @@ export const PASSWORD = "/password";
 export const PHOTO = "/photo";
 export const PROFILE = "/profile";
 export const INTERESTED = "/interested";
-export const INFO = "/info";
+export const COMPANY = "/company";

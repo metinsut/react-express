@@ -7,7 +7,8 @@ import {
     ACCOUNT,
     ACC_UP,
     ACC_EMAIL,
-    ACC_PASS
+    ACC_PASS,
+    ACC_COMPANY
 } from "../constants/path";
 
 export const getSiteApi = () => {
@@ -40,4 +41,8 @@ export const updateAccountEmail = data => {
 
 export const updateAccountPassword = data => {
     return axios.post(ACC_PASS, data);
+};
+
+export const pushNewUserCompany = data => {
+    return axios.post(ACC_COMPANY, data);
 };

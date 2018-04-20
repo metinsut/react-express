@@ -99,8 +99,15 @@ export const updateUserEmail = data => dispatch => {
 export const updateUserPassword = data => dispatch => {
     S.updateAccountPassword(data).then(res => {
         if (res.data.success) {
-            console.log(res.data);
             dispatch(getResult(res.data.success));
         }
     });
-}
+};
+
+export const newUserCompany = data => dispatch => {
+    S.pushNewUserCompany(data).then(res => {
+        if (res.data.success) {
+            dispatch(getResult(res.data.success));
+        }
+    });
+};

@@ -5,6 +5,7 @@ import renderField from "../../components/forms/renderField";
 import renderRadio from "../../components/forms/renderRadio";
 import renderSwitch from "../../components/forms/renderSwitch";
 import renderCheckbox from "../../components/forms/renderCheckbox";
+import renderDate from "../forms/renderDate";
 import { updateUser } from "../../actions/index";
 
 const validate = values => {
@@ -16,6 +17,30 @@ const validate = values => {
 
     return errors;
 };
+
+const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+];
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -32,7 +57,15 @@ class Profile extends React.Component {
     }
 
     render() {
-        const { handleSubmit, pristine, reset, submitting } = this.props;
+        const {
+            handleSubmit,
+            pristine,
+            reset,
+            submitting,
+            account
+        } = this.props;
+        const date = new Date(account.joinDate);
+
         return (
             <div className="profile__root">
                 <div className="account__title">
@@ -40,6 +73,13 @@ class Profile extends React.Component {
                 </div>
 
                 <form onSubmit={handleSubmit(this.props.onSaveData)}>
+                    <h1>{`Joined: ${date.getDay()} ${
+                        monthNames[date.getMonth()]
+                    } ${date.getFullYear()} ${
+                        days[date.getDay()]
+                    } ${date.getHours()}:${date.getMinutes()}`}</h1>
+                    <br />
+
                     <Field
                         name="name"
                         type="text"
@@ -61,6 +101,14 @@ class Profile extends React.Component {
                             { title: "Female", value: "female" }
                         ]}
                         component={renderRadio}
+                    />
+
+                    <Field
+                        name="birthday"
+                        type="date"
+                        title="Birthday"
+                        label="Birthday"
+                        component={renderDate}
                     />
 
                     <Field
