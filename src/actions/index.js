@@ -104,7 +104,7 @@ export const updateUserPassword = data => dispatch => {
     });
 };
 
-export const newUserCompany = data => dispatch => {
+export const updateCompany = data => dispatch => {
     S.pushNewUserCompany(data).then(res => {
         if (res.data.success) {
             dispatch(getResult(res.data.success));
