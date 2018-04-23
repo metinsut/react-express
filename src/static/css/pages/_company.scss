@@ -1,0 +1,27 @@
+.company__root {
+      background-color: aqua;
+      .company__item {
+            display: flex;
+            justify-content: space-between;
+            background-color: sandybrown;
+            padding: 1rem;
+            .company__info {
+                  display: flex;
+                  flex-wrap: wrap;
+                  width: 100%;
+                  padding: 1rem;
+                  background-color: seagreen;
+                  .info__item {
+                        flex: 1 1 50%;
+                        p {
+                              @include roboto-medium;
+                              @include font-style(1.6rem, $text2);
+                        }
+                  }
+            }
+            .company__edit {
+                  background-color: darkgoldenrod;
+                  padding: 1rem;
+            }
+      }
+}

@@ -668,3 +668,26 @@ footer {
       display: flex;
       justify-content: space-between;
       padding: 2rem 0 0; }
+
+.company__root {
+  background-color: aqua; }
+  .company__root .company__item {
+    display: flex;
+    justify-content: space-between;
+    background-color: sandybrown;
+    padding: 1rem; }
+    .company__root .company__item .company__info {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 1rem;
+      background-color: seagreen; }
+      .company__root .company__item .company__info .info__item {
+        flex: 1 1 50%; }
+        .company__root .company__item .company__info .info__item p {
+          font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+          font-size: 1.6rem;
+          color: #2c3e50; }
+    .company__root .company__item .company__edit {
+      background-color: darkgoldenrod;
+      padding: 1rem; }
