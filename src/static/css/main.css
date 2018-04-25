@@ -670,24 +670,81 @@ footer {
       padding: 2rem 0 0; }
 
 .company__root {
-  background-color: aqua; }
+  background-color: #ededee;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .company__root .company__create__new__root .company__create__new {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    cursor: pointer; }
+    .company__root .company__create__new__root .company__create__new p {
+      font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+      font-size: 1.6rem;
+      color: #4a4a4a; }
+    .company__root .company__create__new__root .company__create__new .add__new {
+      margin: 0 0 0 2rem;
+      border: 0.3rem solid #1e67bf;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .company__root .company__create__new__root .company__create__new .add__new .add__icon {
+        font-family: "custom";
+        font-size: 2rem;
+        color: #1e67bf; }
+  .company__root .company__create__new__root .new__acompany__form {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease; }
+    .company__root .company__create__new__root .new__acompany__form.open {
+      max-height: 43rem; }
+    .company__root .company__create__new__root .new__acompany__form form {
+      margin: 1rem;
+      width: 80%; }
   .company__root .company__item {
     display: flex;
-    justify-content: space-between;
-    background-color: sandybrown;
-    padding: 1rem; }
+    align-items: flex-start;
+    padding: 1rem;
+    width: 100%; }
     .company__root .company__item .company__info {
       display: flex;
       flex-wrap: wrap;
-      width: 100%;
-      padding: 1rem;
-      background-color: seagreen; }
+      flex: 1 1 100%; }
       .company__root .company__item .company__info .info__item {
-        flex: 1 1 50%; }
-        .company__root .company__item .company__info .info__item p {
+        flex: 1 1 50%;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap; }
+        .company__root .company__item .company__info .info__item .info__label {
           font-family: "Roboto-Medium", arial, helvetica, sans-serif;
           font-size: 1.6rem;
+          color: #1e67bf;
+          border-bottom: 0.1rem solid #1e67bf;
+          margin: 0 0 1rem 0; }
+        .company__root .company__item .company__info .info__item .info__value {
+          flex: 1 1 100%;
+          font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+          font-size: 1.4rem;
           color: #2c3e50; }
     .company__root .company__item .company__edit {
-      background-color: darkgoldenrod;
-      padding: 1rem; }
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-family: "custom";
+      font-size: 3rem;
+      color: #1e67bf;
+      padding: 1rem 2rem;
+      cursor: pointer; }
+    .company__root .company__item .company__delete {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-family: "custom";
+      font-size: 3rem;
+      color: #c0392b;
+      padding: 1rem 2rem;
+      cursor: pointer; }

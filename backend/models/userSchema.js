@@ -27,7 +27,10 @@ const UserSchema = new Schema({
     interestedIn: Array,
     gender: String,
     isReadTerm: Boolean,
-    company: Array,
+    company: {
+        type:Array,
+        index: true
+    },
     school: Array,
     location: {
         counrty: String,

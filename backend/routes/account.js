@@ -136,16 +136,7 @@ router.post("/company", (req, res) => {
     const index = req.body.index;
     const company = req.body.company;
 
-    console.log(company);
-
-    // const getUser = userSchema.findOneAndUpdate(
-    //     { token: token },
-    //     { $push: { company: company } },
-    //     { new: true }
-    // );
-
-
-    const getUser = userSchema.update(
+    const getUser = userSchema.findOneAndUpdate(
         { token: token },
         { $push: { company: company } },
         { new: true }

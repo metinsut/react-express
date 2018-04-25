@@ -8,7 +8,7 @@ import Email from "../../components/account/email";
 import Password from "../../components/account/password";
 import Photo from "../../components/account/photo";
 import InterestedIn from "../../components/account/interestedIn";
-import Company from "../../components/account/company";
+import Company from "../../components/account/company/company";
 import AccountMenuContainer from "./accountMenu";
 import * as R from "../../constants/routhPath";
 
