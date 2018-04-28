@@ -708,6 +708,7 @@ footer {
   .company__root .company__item {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 1rem;
     width: 100%; }
     .company__root .company__item .company__info {
@@ -730,21 +731,23 @@ footer {
           font-family: "Roboto-Medium", arial, helvetica, sans-serif;
           font-size: 1.4rem;
           color: #2c3e50; }
-    .company__root .company__item .company__edit {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      font-family: "custom";
-      font-size: 3rem;
-      color: #1e67bf;
-      padding: 1rem 2rem;
-      cursor: pointer; }
-    .company__root .company__item .company__delete {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      font-family: "custom";
-      font-size: 3rem;
-      color: #c0392b;
-      padding: 1rem 2rem;
-      cursor: pointer; }
+    .company__root .company__item .company__action {
+      display: flex; }
+      .company__root .company__item .company__action .company__edit {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-family: "custom";
+        font-size: 3rem;
+        color: #1e67bf;
+        padding: 1rem 2rem;
+        cursor: pointer; }
+      .company__root .company__item .company__action .company__delete {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-family: "custom";
+        font-size: 3rem;
+        color: #c0392b;
+        padding: 1rem 2rem;
+        cursor: pointer; }

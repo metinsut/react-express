@@ -3,9 +3,18 @@ import RenderInput from "./renderInput";
 
 class RenderField extends React.Component {
       render() {
-            const { input, label, type, meta: { touched, error } } = this.props;
+            const {
+                  input,
+                  label,
+                  type,
+                  meta: { touched, error },
+                  hidden
+            } = this.props;
             return (
-                  <div className="input__item">
+                  <div
+                        style={hidden === true ? {display:"none"}: null}
+                        className="input__item"
+                  >
                         <RenderInput type={type} input={input} />
                         <label className={touched && error ? "error" : ""}>
                               {label}

@@ -111,3 +111,20 @@ export const updateCompany = data => dispatch => {
         }
     });
 };
+
+export const editCompany = data => dispatch => {
+      S.editUserCompany(data).then(res => {
+          if (res.data.success) {
+              dispatch(getResult(res.data.success));
+          }
+      });
+  };
+export const deleteCompany = data => dispatch => {
+      S.deleteUserCompany(data).then(res => {
+          if (res.data.success) {
+              dispatch(getResult(res.data.success));
+          }
+      });
+  };
+  
+

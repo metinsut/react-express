@@ -1,91 +1,95 @@
 .company__root {
-    background-color: $form_bc;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .company__create__new__root {
-        .company__create__new {
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            cursor: pointer;
-            p {
-                @include roboto-medium;
-                @include font-style(1.6rem, $text);
+      background-color: $form_bc;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .company__create__new__root {
+            .company__create__new {
+                  display: flex;
+                  align-items: center;
+                  padding: 2rem;
+                  cursor: pointer;
+                  p {
+                        @include roboto-medium;
+                        @include font-style(1.6rem, $text);
+                  }
+                  .add__new {
+                        margin: 0 0 0 2rem;
+                        border: 0.3rem solid $form_border_blue;
+                        border-radius: 50%;
+                        width: 3rem;
+                        height: 3rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .add__icon {
+                              @include custom;
+                              @include font-style(2rem, $form_border_blue);
+                        }
+                  }
             }
-            .add__new {
-                margin: 0 0 0 2rem;
-                border: 0.3rem solid $form_border_blue;
-                border-radius: 50%;
-                width: 3rem;
-                height: 3rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                .add__icon {
-                    @include custom;
-                    @include font-style(2rem, $form_border_blue);
-                }
+            .new__acompany__form {
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: all 0.5s ease;
+                  &.open {
+                        max-height: 43rem;
+                  }
+                  form {
+                        margin: 1rem;
+                        width: 80%;
+                  }
             }
-        }
-        .new__acompany__form {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            &.open {
-                max-height: 43rem;
-            }
-            form {
-                margin: 1rem;
-                width: 80%;
-            }
-        }
-    }
+      }
 
-    .company__item {
-        display: flex;
-        align-items: flex-start;
-        padding: 1rem;
-        width: 100%;
-        .company__info {
+      .company__item {
             display: flex;
-            flex-wrap: wrap;
-            flex: 1 1 100%;
-            .info__item {
-                flex: 1 1 50%;
-                padding: 1rem;
-                display: flex;
-                flex-wrap: wrap;
-                .info__label {
-                    @include roboto-medium;
-                    @include font-style(1.6rem, $form_border_blue);
-                    border-bottom: 0.1rem solid $form_border_blue;
-                    margin: 0 0 1rem 0;
-                }
-                .info__value {
-                    flex: 1 1 100%;
-                    @include roboto-medium;
-                    @include font-style(1.4rem, $text2);
-                }
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 1rem;
+            width: 100%;
+            .company__info {
+                  display: flex;
+                  flex-wrap: wrap;
+                  flex: 1 1 100%;
+                  .info__item {
+                        flex: 1 1 50%;
+                        padding: 1rem;
+                        display: flex;
+                        flex-wrap: wrap;
+                        .info__label {
+                              @include roboto-medium;
+                              @include font-style(1.6rem, $form_border_blue);
+                              border-bottom: 0.1rem solid $form_border_blue;
+                              margin: 0 0 1rem 0;
+                        }
+                        .info__value {
+                              flex: 1 1 100%;
+                              @include roboto-medium;
+                              @include font-style(1.4rem, $text2);
+                        }
+                  }
             }
-        }
-        .company__edit {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            @include custom;
-            @include font-style(3rem, $form_border_blue);
-            padding: 1rem 2rem;
-            cursor: pointer;
-        }
-        .company__delete {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            @include custom;
-            @include font-style(3rem, $text1);
-            padding: 1rem 2rem;
-            cursor: pointer;
-        }
-    }
+            .company__action {
+                  display: flex;
+                  .company__edit {
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        @include custom;
+                        @include font-style(3rem, $form_border_blue);
+                        padding: 1rem 2rem;
+                        cursor: pointer;
+                  }
+                  .company__delete {
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        @include custom;
+                        @include font-style(3rem, $text1);
+                        padding: 1rem 2rem;
+                        cursor: pointer;
+                  }
+            }
+      }
 }
