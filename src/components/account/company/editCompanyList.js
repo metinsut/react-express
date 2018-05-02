@@ -2,15 +2,20 @@ import React from "react";
 import CompanyFormComponent from "./companyFormComponent";
 
 class EditCompanyList extends React.Component {
-      editOpen = false;
+      ownEdit = false;
 
-      toggleEditProcess = () => {
-            this.editOpen = !this.editOpen;
+      toogleOwnEdit = () => {
+            this.ownEdit = !this.ownEdit;
             this.forceUpdate();
       };
 
+      componentDidUpdate(prevProps) {
+            if (prevProps.editProcess === true) {
+                  this.props.toggleEditProcess();
+            }
+      }
+
       onDeleteData = () => {
-            console.log(this.props.company.id);
             this.props.onDeleteData(this.props.company.id);
       };
 
@@ -18,7 +23,7 @@ class EditCompanyList extends React.Component {
             const company = this.props.company;
             return (
                   <div className="company__item">
-                        {this.editOpen === false ? (
+                        {this.ownEdit === false ? (
                               <div className="company__info">
                                     <div className="info__name info__item">
                                           <p className="info__label">
@@ -63,7 +68,7 @@ class EditCompanyList extends React.Component {
                         <div className="company__action">
                               <div
                                     className="company__edit"
-                                    onClick={this.toggleEditProcess}
+                                    onClick={this.toogleOwnEdit}
                               >
                                     l
                               </div>

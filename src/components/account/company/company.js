@@ -7,39 +7,19 @@ import {
 } from "../../../actions/index";
 import CreateCompanyItem from "./createCompanyItem";
 import EditCompanyList from "./editCompanyList";
+import Helper from "../../../helper/helper";
 
 class Company extends Component {
       editProcess = false;
 
-      guid = () => {
-            let s4 = () => {
-                  return Math.floor((1 + Math.random()) * 0x10000)
-                        .toString(16)
-                        .substring(1);
-            };
-            return (
-                  s4() +
-                  s4() +
-                  "-" +
-                  s4() +
-                  "-" +
-                  s4() +
-                  "-" +
-                  s4() +
-                  "-" +
-                  s4() +
-                  s4() +
-                  s4()
-            );
+      toggleEditProcess = () => {
+            this.editProcess = !this.editProcess;
+            this.forceUpdate();
+            console.log(this.editProcess);
       };
 
-      // toggleEditProcess = () => {
-      //       this.editProcess = !this.editProcess;
-      //       this.forceUpdate();
-      // };
-
       onSaveData = data => {
-            const uuid = this.guid();
+            const uuid = Helper.guid();
             const company = { ...data, ...{ id: uuid } };
             this.props.saveDataCompany(company);
       };
@@ -60,6 +40,7 @@ class Company extends Component {
                               <CreateCompanyItem
                                     editProcess={this.editProcess}
                                     onSaveData={this.onSaveData}
+                                    toggleEditProcess={this.toggleEditProcess}
                               />
 
                               {this.props.company &&

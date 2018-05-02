@@ -696,15 +696,9 @@ footer {
         font-family: "custom";
         font-size: 2rem;
         color: #1e67bf; }
-  .company__root .company__create__new__root .new__acompany__form {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease; }
-    .company__root .company__create__new__root .new__acompany__form.open {
-      max-height: 43rem; }
-    .company__root .company__create__new__root .new__acompany__form form {
-      margin: 1rem;
-      width: 80%; }
+  .company__root .company__create__new__root .new__acompany__form form {
+    margin: 1rem;
+    width: 80%; }
   .company__root .company__item {
     display: flex;
     align-items: flex-start;

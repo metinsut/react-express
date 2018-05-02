@@ -29,12 +29,6 @@
                   }
             }
             .new__acompany__form {
-                  max-height: 0;
-                  overflow: hidden;
-                  transition: all 0.5s ease;
-                  &.open {
-                        max-height: 43rem;
-                  }
                   form {
                         margin: 1rem;
                         width: 80%;
