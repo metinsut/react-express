@@ -16,6 +16,9 @@ let CompanyComponent = props => {
             onEditData,
             type
       } = props;
+      // console.log(props.initialValues ? props.initialValues.stillWork : null);
+      // console.log(stillWorkValue);
+      // console.log(props);
       return (
             <form
                   onSubmit={handleSubmit(
@@ -40,13 +43,14 @@ let CompanyComponent = props => {
                               label="Start Year"
                               component={RenderCheckboxSelect}
                         />
-                        {!stillWorkValue &&(
-                                          <Field
-                                                name="endYear"
-                                                label="End Year"
-                                                component={RenderCheckboxSelect}
-                                          />
-                                    )}
+                        {!stillWorkValue && (
+                              <Field
+                                    name="endYear"
+                                    label="End Year"
+                                    stillWorkValue={stillWorkValue}
+                                    component={RenderCheckboxSelect}
+                              />
+                        )}
 
                         <Field
                               name="stillWork"
@@ -85,9 +89,10 @@ CompanyComponent = reduxForm({
       form: "company"
 })(CompanyComponent);
 
-const selector = formValueSelector("company");
+CompanyComponent = connect((state, ownProps) => {
+      
+      const selector = formValueSelector(`company${ownProps.formKey}`);
 
-CompanyComponent = connect(state => {
       let stillWorkValue = selector(state, "stillWork");
       return {
             stillWorkValue

@@ -1,6 +1,7 @@
 import React from "react";
 
 class RenderCheckbox extends React.Component {
+
     render() {
         const {
             label,
@@ -8,11 +9,13 @@ class RenderCheckbox extends React.Component {
             options: { first, second },
             meta: { error }
         } = this.props;
+
+        console.log(input.value)
         return (
             <div className="checkbox__root">
                 <p className="checkbox__title">{label}</p>
                 <label>
-                    <input type="checkbox" {...input} />
+                    <input type="checkbox" {...input}/>
                     <div
                         className={
                             input.value === true

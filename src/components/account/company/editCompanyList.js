@@ -41,13 +41,14 @@ class EditCompanyList extends React.Component {
                                                 End Year
                                           </p>
                                           <p className="info__value">
-                                                {company.endYear}
+                                                {company.stillWork === false ?  company.endYear : "Still Working Here..."}
                                           </p>
                                     </div>
                               </div>
                         ) : (
                               <CompanyFormComponent
                                     form={`company${this.props.staticKey}`}
+                                    formKey={this.props.staticKey}
                                     onEditData={this.props.onEditData}
                                     initialValues={company}
                                     type={"edit"}

@@ -234,7 +234,7 @@
                 ~ .checkbox__items {
                     @include font-style(1.6rem, $white);
                     &.close {
-                        border: none;
+                        border: 0.2rem solid $checkbox_border ;
                     }
                     &.open {
                         background-color: $form_border_blue;

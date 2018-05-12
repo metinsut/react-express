@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import { getAccount } from "../../actions/index";
 import Authentication from "../../components/authentication/authentication";
 import Profile from "../../components/account/profile";
 import Email from "../../components/account/email";
@@ -13,10 +12,7 @@ import AccountMenuContainer from "./accountMenu";
 import * as R from "../../constants/routhPath";
 
 class Account extends React.Component {
-    componentDidMount() {
-        const token = localStorage.getItem("userToken");
-        this.props.dispatch(getAccount(token));
-    }
+   
 
     render() {
         return (
@@ -63,7 +59,6 @@ class Account extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser,
         isLogin: state.statusLogin.status
     };
 };

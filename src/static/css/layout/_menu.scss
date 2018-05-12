@@ -1,12 +1,14 @@
 .nav__menu__root {
-      @include flex-center;
-      padding: 0 50px;
+      padding: 0 20px;
       background-color: rgba(52, 73, 94, 1);
+      display: flex;
+      justify-content: center;
       .nav__menu {
-            @include flex-center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
             .menu__item {
-                  margin: 0 10px;
-                  @include flex-center;
+                  margin: 0 8px;
                   cursor: pointer;
                   border-bottom: 2px solid transparent;
                   &:hover {
@@ -33,7 +35,7 @@
                   }
                   a {
                         @include flex-center;
-                        padding: 15px 25px;
+                        padding: 15px;
                         .item__icon {
                               @include custom;
                               @include font-style(2rem, $g1);
@@ -41,7 +43,7 @@
                         .item__name {
                               @include roboto-regular;
                               @include font-style(2rem, $g1);
-                              padding: 0 0 0 10px;
+                              padding: 0 0 0 8px;
                         }
                   }
             }

@@ -289,7 +289,7 @@ button[type="submit"] {
         font-size: 1.6rem;
         color: #ffffff; }
         .checkbox__root label input[type="checkbox"]:checked ~ .checkbox__items.close {
-          border: none; }
+          border: 0.2rem solid #6D6D6D; }
         .checkbox__root label input[type="checkbox"]:checked ~ .checkbox__items.open {
           background-color: #1e67bf;
           border: 0.2rem solid #1e67bf; }
@@ -497,20 +497,16 @@ footer {
         color: #cc181e; }
 
 .nav__menu__root {
+  padding: 0 20px;
+  background-color: #34495e;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 50px;
-  background-color: #34495e; }
+  justify-content: center; }
   .nav__menu__root .nav__menu {
     display: flex;
-    align-items: center;
-    justify-content: center; }
+    flex-wrap: wrap;
+    align-items: center; }
     .nav__menu__root .nav__menu .menu__item {
-      margin: 0 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin: 0 8px;
       cursor: pointer;
       border-bottom: 2px solid transparent; }
       .nav__menu__root .nav__menu .menu__item:hover {
@@ -529,7 +525,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 15px 25px; }
+        padding: 15px; }
         .nav__menu__root .nav__menu .menu__item a .item__icon {
           font-family: "custom";
           font-size: 2rem;
@@ -538,7 +534,7 @@ footer {
           font-family: "Roboto-Regular", arial, helvetica, sans-serif;
           font-size: 2rem;
           color: #c7d1d8;
-          padding: 0 0 0 10px; }
+          padding: 0 0 0 8px; }
 
 .loading__root {
   position: fixed;
@@ -674,31 +670,33 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start; }
-  .company__root .company__create__new__root .company__create__new {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
-    cursor: pointer; }
-    .company__root .company__create__new__root .company__create__new p {
-      font-family: "Roboto-Medium", arial, helvetica, sans-serif;
-      font-size: 1.6rem;
-      color: #4a4a4a; }
-    .company__root .company__create__new__root .company__create__new .add__new {
-      margin: 0 0 0 2rem;
-      border: 0.3rem solid #1e67bf;
-      border-radius: 50%;
-      width: 3rem;
-      height: 3rem;
+  .company__root .company__create__new__root {
+    width: 100%; }
+    .company__root .company__create__new__root .company__create__new {
       display: flex;
       align-items: center;
-      justify-content: center; }
-      .company__root .company__create__new__root .company__create__new .add__new .add__icon {
-        font-family: "custom";
-        font-size: 2rem;
-        color: #1e67bf; }
-  .company__root .company__create__new__root .new__acompany__form form {
-    margin: 1rem;
-    width: 80%; }
+      padding: 2rem;
+      cursor: pointer; }
+      .company__root .company__create__new__root .company__create__new p {
+        font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+        font-size: 1.6rem;
+        color: #4a4a4a; }
+      .company__root .company__create__new__root .company__create__new .add__new {
+        margin: 0 0 0 2rem;
+        border: 0.3rem solid #1e67bf;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .company__root .company__create__new__root .company__create__new .add__new .add__icon {
+          font-family: "custom";
+          font-size: 2rem;
+          color: #1e67bf; }
+    .company__root .company__create__new__root .new__acompany__form form {
+      margin: 1rem;
+      width: 80%; }
   .company__root .company__item {
     display: flex;
     align-items: flex-start;

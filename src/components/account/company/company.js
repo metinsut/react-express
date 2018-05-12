@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import {
       updateCompany,
       editCompany,
-      deleteCompany
+      deleteCompany,
+      getAccount
 } from "../../../actions/index";
 import CreateCompanyItem from "./createCompanyItem";
 import EditCompanyList from "./editCompanyList";
@@ -11,6 +12,16 @@ import Helper from "../../../helper/helper";
 
 class Company extends Component {
       dinamicKey = null;
+
+      componentDidMount() {
+            this.props.getAccount();
+      }
+
+      componentDidUpdate(prevState) {
+            if(prevState.result !== this.props.result) {
+                  this.props.getAccount();
+            }
+      }
 
       toggleEditProcess = key => {
             if (key === this.dinamicKey) {
@@ -26,9 +37,13 @@ class Company extends Component {
             const uuid = Helper.guid();
             const company = { ...data, ...{ id: uuid } };
             this.props.saveDataCompany(company);
+            this.dinamicKey = null;
+            this.forceUpdate();
       };
       onEditData = data => {
             this.props.editDataCompany(data);
+            this.dinamicKey = null;
+            this.forceUpdate();
       };
       onDeleteData = data => {
             this.props.deleteDataCompany(data);
@@ -78,14 +93,17 @@ class Company extends Component {
 
 const mapStateToProps = state => {
       return {
-            company: state.getUser.company
+            company: state.getUser.company,
+            result:state.formResult
       };
 };
 
 const mapDispatchToProps = (dispatch, ownprops) => {
       return {
+            getAccount: () => {
+                  dispatch(getAccount());
+            },
             saveDataCompany: data => {
-                  console.log(data);
                   const token = localStorage.getItem("userToken");
                   dispatch(
                         updateCompany({

@@ -53,7 +53,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
-            console.log(data);
         }
     };
 };

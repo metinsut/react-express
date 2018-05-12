@@ -72,7 +72,8 @@ export const logOut = () => dispatch => {
     });
 };
 
-export const getAccount = token => dispatch => {
+export const getAccount = () => dispatch => {
+      const token = localStorage.getItem("userToken");
     S.getAccountData({ token: token }).then(res => {
         if (res.data.success) {
             dispatch(getUser(res.data.success));
