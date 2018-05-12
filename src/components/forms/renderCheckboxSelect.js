@@ -40,7 +40,6 @@ class RenderCheckboxSelect extends Component {
         const {
             input,
             label,
-            // meta: { touched, error }
         } = this.props;
         return (
             <div className="checkboxGroup__root">

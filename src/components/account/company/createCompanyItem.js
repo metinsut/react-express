@@ -17,6 +17,7 @@ class CreateCompanyItem extends Component {
                 {this.props.dinamicKey === -1 ? (
                     <div className="new__acompany__form">
                         <CompanyFormComponent
+                        
                             type="create"
                             onSaveData={this.props.onSaveData}
                         />

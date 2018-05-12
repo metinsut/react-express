@@ -303,7 +303,7 @@ button[type="submit"] {
       font-size: 1.6rem;
       color: #ffffff; }
       .checkbox__root label .checkbox__items.close {
-        border: 0.2rem solid #6D6D6D !important;
+        border: 0.2rem solid #6D6D6D;
         transition: all 0.5s cubic-bezier(0.4, 0, 0.6, 1); }
       .checkbox__root label .checkbox__items.open {
         background-color: #ffffff;

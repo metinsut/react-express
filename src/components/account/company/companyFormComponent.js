@@ -40,13 +40,13 @@ let CompanyComponent = props => {
                               label="Start Year"
                               component={RenderCheckboxSelect}
                         />
-                        {stillWorkValue === false && (
-                              <Field
-                                    name="endYear"
-                                    label="End Year"
-                                    component={RenderCheckboxSelect}
-                              />
-                        )}
+                        {!stillWorkValue &&(
+                                          <Field
+                                                name="endYear"
+                                                label="End Year"
+                                                component={RenderCheckboxSelect}
+                                          />
+                                    )}
 
                         <Field
                               name="stillWork"
