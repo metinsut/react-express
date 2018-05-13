@@ -16,9 +16,6 @@ let CompanyComponent = props => {
             onEditData,
             type
       } = props;
-      // console.log(props.initialValues ? props.initialValues.stillWork : null);
-      // console.log(stillWorkValue);
-      // console.log(props);
       return (
             <form
                   onSubmit={handleSubmit(
@@ -90,7 +87,6 @@ CompanyComponent = reduxForm({
 })(CompanyComponent);
 
 CompanyComponent = connect((state, ownProps) => {
-      
       const selector = formValueSelector(`company${ownProps.formKey}`);
 
       let stillWorkValue = selector(state, "stillWork");

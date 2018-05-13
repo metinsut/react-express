@@ -1,6 +1,10 @@
 export const DATA = "./data";
 export const ASSETS = "/assets/";
 
+// IMAGE
+export const IMAGE = "/assets/images/";
+
+
 // SITE LAYOUT
 export const SITE = "http://localhost:3001/";
 

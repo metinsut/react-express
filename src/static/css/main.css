@@ -550,6 +550,45 @@ footer {
     color: #ffffff;
     text-transform: uppercase; }
 
+.about-root {
+  padding: 20px; }
+  .about-root .info-container h3 {
+    font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+    font-size: 2rem;
+    color: #4a4a4a;
+    margin: 0 0 10px 0; }
+  .about-root .info-container h6 {
+    font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: #4a4a4a; }
+  .about-root .slide-container {
+    height: 60vh; }
+    .about-root .slide-container .slide-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: antiquewhite; }
+      .about-root .slide-container .slide-block .button-item .icon-item {
+        cursor: pointer;
+        font-family: "custom";
+        font-size: 1.6rem;
+        color: #4a4a4a;
+        padding: 2rem;
+        background-color: aliceblue; }
+      .about-root .slide-container .slide-block .image-item {
+        top: 5%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+        position: absolute; }
+        .about-root .slide-container .slide-block .image-item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+
 .users article a {
   padding: 10px 20px;
   font-family: "Roboto-Medium", arial, helvetica, sans-serif;
