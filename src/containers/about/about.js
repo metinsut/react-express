@@ -39,29 +39,28 @@ class About extends Component {
                                 </div>
 
                                 {site
-                                    ? site.images.map((item, key) => {
-                                          return (
-                                              this.slideIndex === key && (
-                                                  <TransitionGroup>
-                                                      <CSSTransition
-                                                          key={key}
-                                                          timeout={2000}
-                                                          classNames="fade"
-                                                      >
-                                                          <div className="image-item">
-                                                              <img
-                                                                  src={`${IMAGE +
-                                                                      item.url}`}
-                                                                  alt="asd"
-                                                              />
-                                                              <p>{item.name}</p>
-                                                          </div>
-                                                      </CSSTransition>
-                                                  </TransitionGroup>
-                                              )
-                                          );
-                                      })
+                                    ? site.images.map((item, key) => (
+                                          <TransitionGroup>
+                                              {this.slideIndex === key && (
+                                                  <CSSTransition
+                                                      key={key}
+                                                      timeout={1000}
+                                                      classNames="fade"
+                                                  >
+                                                      <div className="image-item">
+                                                          <img
+                                                              src={`${IMAGE +
+                                                                  item.url}`}
+                                                              alt="asd"
+                                                          />
+                                                          <p>{item.name}</p>
+                                                      </div>
+                                                  </CSSTransition>
+                                              )}
+                                          </TransitionGroup>
+                                      ))
                                     : null}
+
                                 <div
                                     className="button-item"
                                     onClick={() => {

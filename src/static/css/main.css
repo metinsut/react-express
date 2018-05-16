@@ -569,7 +569,7 @@ footer {
       justify-content: space-between;
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 60vh;
       background-color: antiquewhite; }
       .about-root .slide-container .slide-block .button-item .icon-item {
         cursor: pointer;
@@ -782,3 +782,17 @@ footer {
         color: #c0392b;
         padding: 1rem 2rem;
         cursor: pointer; }
+
+.fade-enter {
+  opacity: 0.01; }
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in; }
+
+.fade-exit {
+  opacity: 1; }
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in; }
