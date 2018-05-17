@@ -11,11 +11,19 @@ const validate = values => {
 };
 
 class InterestedIn extends React.Component {
+    colors = [
+        "Computer",
+        "Music",
+        "Sport",
+        "Art",
+        "Gaming",
+        "Travel",
+        "Cooking"
+    ];
 
-      colors = ["Computer", "Music", "Sport", "Art", "Gaming", "Travel", "Cooking"];
-
-      render() {
+    render() {
         const { handleSubmit, pristine, reset, submitting } = this.props;
+        let interestedIn = this.props.account.interestedIn;
         return (
             <div className="profile__root">
                 <div className="account__title">
@@ -30,6 +38,7 @@ class InterestedIn extends React.Component {
                         label="InterestedIn"
                         options={this.colors}
                         component={renderCheckboxGroup}
+                        initialValues={interestedIn}
                     />
                     <div className="button__block">
                         <button
@@ -51,7 +60,7 @@ class InterestedIn extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser,
+        account: state.getUser ? state.getUser : null
     };
 };
 

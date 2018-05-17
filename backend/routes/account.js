@@ -22,7 +22,6 @@ router.post("/", (req, res) => {
 
 router.post("/update", (req, res) => {
       const token = req.body.token;
-
       const updateAccount = userSchema.findOneAndUpdate(token, req.body, {
             new: true
       });

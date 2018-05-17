@@ -4,6 +4,9 @@ class CheckboxGroup extends React.Component {
     checkboxMenu = React.createRef();
 
     componentDidMount() {
+        console.log(this.props.initialValues)
+        this.props.input.value = this.props.interestedIn ? this.props.initialValues : [];
+        this.forceUpdate();  
         if (typeof window !== "undefined") {
             window.addEventListener("click", this.closeCheckBoxMenu);
         }
@@ -35,6 +38,7 @@ class CheckboxGroup extends React.Component {
         return (
             <div className="checkboxGroup__root">
                 <h1>{title}</h1>
+                <div />
                 <div
                     onClick={this.toogleCheckBoxMenu}
                     className="checkboxGroup__menu"
@@ -56,7 +60,7 @@ class CheckboxGroup extends React.Component {
                                             input.value.indexOf(item) !== -1
                                         }
                                         onChange={event => {
-                                            const newValue = [...input.value];
+                                            let newValue = [...input.value];
                                             if (event.target.checked) {
                                                 newValue.push(item);
                                             } else {
