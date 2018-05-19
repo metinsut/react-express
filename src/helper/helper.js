@@ -21,7 +21,7 @@ class Helper {
             );
       };
 
-      monthNames = [
+      static monthNames = [
         "January",
         "February",
         "March",
@@ -35,7 +35,7 @@ class Helper {
         "November",
         "December"
     ];
-    days = [
+    static days = [
         "Sunday",
         "Monday",
         "Tuesday",

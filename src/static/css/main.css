@@ -684,6 +684,14 @@ footer {
         border-bottom: none; }
       .account__root .account__menu .menu__items a.active {
         background-color: #ededee; }
+  .account__root .account__content .InterestedIn {
+    display: flex;
+    align-items: center; }
+    .account__root .account__content .InterestedIn p {
+      font-family: "Roboto-Medium", arial, helvetica, sans-serif;
+      font-size: 1.6rem;
+      color: #3498db;
+      padding: 0 10px 0 0; }
   .account__root .account__title {
     padding: 1.5rem;
     margin: 0 0 2rem 0;

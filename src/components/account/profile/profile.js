@@ -4,23 +4,7 @@ import ProfileForm from "./profileForm";
 import { updateUser, getAccount } from "../../../actions/index";
 
 class Profile extends React.Component {
-    componentDidMount() {
-        // this.props.initializeData(this.props.account);
-        this.props.getAccount();
-    }
 
-    componentDidUpdate(prevState, prevProps) {
-        if (prevState.result !== this.props.result) {
-            this.props.getAccount();
-        }
-
-        // if (
-        //     Object.keys(prevProps.account).length === 0 &&
-        //     Object.keys(this.props.account).length > 0
-        // ) {
-        //     this.props.initializeData(this.props.account);
-        // }
-    }
 
     render() {
         return (
@@ -30,7 +14,7 @@ class Profile extends React.Component {
                 </div>
                 <ProfileForm
                     account={this.props.account}
-                    // initialValues={this.props.account}
+                    form={"profile"}
                 />
             </div>
         );

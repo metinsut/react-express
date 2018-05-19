@@ -4,9 +4,6 @@ class CheckboxGroup extends React.Component {
     checkboxMenu = React.createRef();
 
     componentDidMount() {
-        console.log(this.props.initialValues)
-        this.props.input.value = this.props.interestedIn ? this.props.initialValues : [];
-        this.forceUpdate();  
         if (typeof window !== "undefined") {
             window.addEventListener("click", this.closeCheckBoxMenu);
         }
@@ -93,5 +90,7 @@ class CheckboxGroup extends React.Component {
         );
     }
 }
+
+
 
 export default CheckboxGroup;

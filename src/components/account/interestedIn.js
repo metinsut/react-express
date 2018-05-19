@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, initialize, formValueSelector } from "redux-form";
 import renderCheckboxGroup from "../../components/forms/renderCheckboxGroup";
 import { updateUser } from "../../actions/index";
 
@@ -11,6 +11,19 @@ const validate = values => {
 };
 
 class InterestedIn extends React.Component {
+    componentDidMount() {
+        this.props.initializeData(this.props.account);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (
+            Object.keys(prevProps.account).length === 0 &&
+            Object.keys(this.props.account).length > 0
+        ) {
+            this.props.initializeData(this.props.account);
+        }
+    }
+
     colors = [
         "Computer",
         "Music",
@@ -31,6 +44,13 @@ class InterestedIn extends React.Component {
                 </div>
 
                 <form onSubmit={handleSubmit(this.props.onSaveData)}>
+                    <div className="InterestedIn">
+                        {interestedIn &&
+                            interestedIn.map((item, key) => (
+                                <p key={key}>{item}</p>
+                            ))}
+                    </div>
+
                     <Field
                         name="interestedIn"
                         type="checkbox"
@@ -38,7 +58,6 @@ class InterestedIn extends React.Component {
                         label="InterestedIn"
                         options={this.colors}
                         component={renderCheckboxGroup}
-                        initialValues={interestedIn}
                     />
                     <div className="button__block">
                         <button
@@ -60,18 +79,23 @@ class InterestedIn extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser ? state.getUser : null,
+        account: state.getUser ? state.getUser : null
     };
 };
+
+const selector = formValueSelector("interestedIn");
 
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
             const token = localStorage.getItem("userToken");
             dispatch(updateUser({ ...data, ...{ token: token } }));
+        },
+        initializeData: data => {
+            dispatch(initialize("interestedIn", data));
         }
     };
 };
 
 InterestedIn = connect(mapStateToProps, mapDispatchToProps)(InterestedIn);
-export default reduxForm({ form: "account", validate })(InterestedIn);
+export default reduxForm({ form: "interestedIn", validate })(InterestedIn);

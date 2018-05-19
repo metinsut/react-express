@@ -7,7 +7,7 @@ import renderSwitch from "../../../components/forms/renderSwitch";
 import renderCheckbox from "../../../components/forms/renderCheckbox";
 import renderDate from "../../forms/renderDate";
 import helper from "../../../helper/helper";
-import { updateUser, getAccount } from "../../../actions/index";
+import { updateUser } from "../../../actions/index";
 
 const validate = values => {
     let errors = {};
@@ -19,7 +19,7 @@ const validate = values => {
 
 class ProfileForm extends React.Component {
     componentDidMount() {
-        // this.props.initializeData(this.props.account);
+        this.props.initializeData(this.props.account);
     }
 
     componentDidUpdate(prevProps) {
@@ -33,16 +33,20 @@ class ProfileForm extends React.Component {
 
     render() {
         let account = this.props.account;
-        console.log(account);
         const date = new Date(account.joinDate);
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <form onSubmit={handleSubmit(this.props.onSaveData)}>
-                {/* <h1>{`Joined: ${date.getDate()} ${
-                    helper.monthNames[date.getMonth()]
-                } ${date.getFullYear()} ${
-                    helper.days[date.getDay()]
-                } ${date.getHours()}:${date.getMinutes()}`}</h1> */}
+                {date ? (
+                    <h1>{`Joined: ${date.getDate()} ${
+                        helper.monthNames[date.getMonth()]
+                    } ${date.getFullYear()} ${
+                        helper.days[date.getDay()]
+                    } ${date.getHours()}:${date.getMinutes()}`}</h1>
+                ) : (
+                    <div />
+                )}
+
                 <br />
 
                 <Field

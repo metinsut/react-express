@@ -10,9 +10,18 @@ import InterestedIn from "../../components/account/interestedIn";
 import Company from "../../components/account/company/company";
 import AccountMenuContainer from "./accountMenu";
 import * as R from "../../constants/routhPath";
+import { getAccount } from "../../actions/index";
 
 class Account extends React.Component {
-   
+    componentDidMount() {
+        this.props.getAccount();
+    }
+
+    componentDidUpdate(prevState, prevProps) {
+        if (prevState.result !== this.props.result) {
+            this.props.getAccount();
+        }
+    }
 
     render() {
         return (
@@ -63,4 +72,12 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Account);
+const mapDispatchToProps = dispatch => {
+    return {
+        getAccount: () => {
+            dispatch(getAccount());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
