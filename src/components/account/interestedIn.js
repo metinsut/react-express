@@ -60,7 +60,7 @@ class InterestedIn extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser ? state.getUser : null
+        account: state.getUser ? state.getUser : null,
     };
 };
 

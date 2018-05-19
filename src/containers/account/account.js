@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import Authentication from "../../components/authentication/authentication";
-import Profile from "../../components/account/profile";
+import Profile from "../../components/account/profile/profile";
 import Email from "../../components/account/email";
 import Password from "../../components/account/password";
 import Photo from "../../components/account/photo";
