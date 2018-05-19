@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Field, reduxForm, initialize, formValueSelector } from "redux-form";
+import { Field, reduxForm, initialize } from "redux-form";
 import renderCheckboxGroup from "../../components/forms/renderCheckboxGroup";
-import { updateUser } from "../../actions/index";
+import { updateUser, getAccount } from "../../actions/index";
 
 const validate = values => {
     let errors = {};
@@ -16,6 +16,10 @@ class InterestedIn extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.result !== this.props.result) {
+            this.props.getAccount();
+        }
+
         if (
             Object.keys(prevProps.account).length === 0 &&
             Object.keys(this.props.account).length > 0
@@ -79,17 +83,18 @@ class InterestedIn extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser ? state.getUser : null
+        account: state.getUser ? state.getUser : null,
+        result: state.formResult
     };
 };
 
-const selector = formValueSelector("interestedIn");
-
 const mapDispatchToProps = dispatch => {
     return {
+        getAccount: () => {
+            dispatch(getAccount());
+        },
         onSaveData: data => {
-            const token = localStorage.getItem("userToken");
-            dispatch(updateUser({ ...data, ...{ token: token } }));
+            dispatch(updateUser(data));
         },
         initializeData: data => {
             dispatch(initialize("interestedIn", data));

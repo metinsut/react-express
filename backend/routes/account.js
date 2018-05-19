@@ -21,13 +21,10 @@ router.post("/", (req, res) => {
 });
 
 router.post("/update", (req, res) => {
-    const token = req.body.token;
-    console.log(req.body)
-    const updateAccount = userSchema.findOneAndUpdate(token, req.body, {
+    const id = req.body._id;
+    const updateAccount = userSchema.findOneAndUpdate({ _id: id }, req.body, {
         new: true
     });
-
-    console.log(updateAccount)
     updateAccount
         .then(data => {
             res.json({
