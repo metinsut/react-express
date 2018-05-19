@@ -40,10 +40,9 @@ class About extends Component {
 
                                 {site
                                     ? site.images.map((item, key) => (
-                                          <TransitionGroup>
+                                          <TransitionGroup key={key}>
                                               {this.slideIndex === key && (
                                                   <CSSTransition
-                                                      key={key}
                                                       timeout={1000}
                                                       classNames="fade"
                                                   >
