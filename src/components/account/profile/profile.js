@@ -23,7 +23,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser ? state.getUser : null,
+        account: state.getAcc ? state.getAcc : null,
         result: state.formResult ? state.formResult : null
     };
 };

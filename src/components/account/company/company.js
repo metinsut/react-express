@@ -84,7 +84,7 @@ class Company extends Component {
 
 const mapStateToProps = state => {
     return {
-        company: state.getUser.company,
+        company: state.getAcc.company,
         result: state.formResult
     };
 };

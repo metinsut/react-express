@@ -23,13 +23,23 @@ export const statusLogin = data => ({
     payload: data
 });
 
-export const getUser = data => ({
+export const getAcc = data => ({
+    type: A.GET_ACC,
+    payload: data
+});
+
+export const getUsersReducer = data => ({
+    type: A.GET_USERS,
+    payload: data
+});
+
+export const getUserReducer = data => ({
     type: A.GET_USER,
     payload: data
 });
 
 export const clearGetUser = () => ({
-    type: A.CLEAR_GET_USER
+    type: A.CLEAR_GET_ACC
 });
 
 //GET SITE INFO
@@ -76,7 +86,7 @@ export const getAccount = () => dispatch => {
     const token = localStorage.getItem("userToken");
     S.getAccountData({ token: token }).then(res => {
         if (res.data.success) {
-            dispatch(getUser(res.data.success));
+            dispatch(getAcc(res.data.success));
         }
     });
 };
@@ -120,6 +130,7 @@ export const editCompany = data => dispatch => {
         }
     });
 };
+
 export const deleteCompany = data => dispatch => {
     S.deleteUserCompany(data).then(res => {
         if (res.data.success) {
@@ -132,6 +143,24 @@ export const uploadFile = data => dispatch => {
     S.uploadImage(data).then(res => {
         if (res.data.success) {
             dispatch(getResult(res.data.success));
+        }
+    });
+};
+
+export const getUsers = data => dispatch => {
+    const token = localStorage.getItem("userToken");
+    S.getUsers({ token: token }).then(res => {
+        if (res.data.success) {
+            dispatch(getUsersReducer(res.data.success));
+        }
+    });
+};
+
+export const getUser = data => dispatch => {
+    const token = localStorage.getItem("userToken");
+    S.getUsers({ token: token }).then(res => {
+        if (res.data.success) {
+            dispatch(getUserReducer(res.data.success));
         }
     });
 };

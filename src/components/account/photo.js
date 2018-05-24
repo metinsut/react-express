@@ -1,16 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Field, reduxForm } from "redux-form";
+// import { connect } from "react-redux";
+// import { Field, reduxForm } from "redux-form";
 // import renderFile from "../../components/forms/renderFile";
-import { uploadFile } from "../../actions/index";
+// import { uploadFile } from "../../actions/index";
 
-const validate = values => {
-    let errors = {};
-
-    return errors;
-};
-
-class Profile extends React.Component {
+class Photo extends React.Component {
     uploadFile = e => {
     };
 
@@ -69,19 +63,22 @@ class Profile extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        account: state.getUser
-    };
-};
+// const mapStateToProps = state => {
+//     return {
+//         account: state.getUser
+//     };
+// };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onSaveData: data => {
-            dispatch(uploadFile(data));
-        }
-    };
-};
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onSaveData: data => {
+//             // dispatch(uploadFile(data));
+//             console.log("OKAY");
+//         }
+//     };
+// };
 
-Profile = connect(mapStateToProps, mapDispatchToProps)(Profile);
-export default reduxForm({ form: "image", validate })(Profile);
+// Photo = connect(mapStateToProps, mapDispatchToProps)(Photo);
+// export default reduxForm({ form: "image", validate })(Photo);
+
+export default(Photo)

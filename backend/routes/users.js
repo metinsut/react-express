@@ -4,23 +4,28 @@ const userSchema = require("../models/userSchema");
 
 const router = express.Router();
 
-router.post("/:token", (req, res) => {
-   const token = req.params.token;
+router.post("/", (req, res) => {
+    const getUser = userSchema.find({}).select("name bio link");
 
-   const getUser = userSchema.findOne({ token: token });
-
-   getUser
-      .then(data => {
-         res.json({ success: data });
-      })
-      .catch(err => {
-         res.json(err);
-      });
+    getUser
+        .then(data => {
+            res.json({ success: data });
+        })
+        .catch(err => {
+            res.json(err);
+        });
 });
 
+router.post("/single", (req, res) => {
+    const getUser = userSchema.find({token:token}).select("name bio link");
 
-router.post("/update/:token", (req,res)=> {
-      const token = req.params.token;
-})
+    getUser
+        .then(data => {
+            res.json({ success: data });
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
 
 module.exports = router;

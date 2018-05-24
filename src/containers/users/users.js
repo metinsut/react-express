@@ -3,25 +3,57 @@ import { connect } from "react-redux";
 import { Link, Route } from "react-router-dom";
 import { USER, USERS } from "../../constants/routhPath";
 import User from "../users/user";
+import { getUsers } from "../../actions/index";
 
-class Home extends Component {
-      render() {
-            return (
-                  <section className="users">
-                        <article>
-                              <Link to={USERS + "/" + 1}>USER 1</Link>
-                              <Link to={USERS + "/" + 2}>USER 2</Link>
-                              <Link to={USERS + "/" + 3}>USER 3</Link>
-                        </article>
-                        <Route path={USER} component={User}/>
-                  </section>
-            );
-      }
+class Users extends Component {
+    componentDidMount() {
+        this.props.getUsers();
+    }
+
+    render() {
+        let users = this.props.users;
+        return (
+            <section className="users">
+                <article>
+                    {users
+                        ? Object.keys(users).map((key, index) => {
+                              return (
+                                  <Link
+                                      key={key}
+                                      to={
+                                          USERS +
+                                          "/" +
+                                          encodeURIComponent(
+                                              users[key].link
+                                                  .toLowerCase()
+                                                  .trim()
+                                          )
+                                      }
+                                  >
+                                      {users[key].name}
+                                  </Link>
+                              );
+                          })
+                        : null}
+                </article>
+                <Route path={USER} Component={User} />
+            </section>
+        );
+    }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-      lang: state.siteLang && state.siteLang.lang,
-      site: state.siteLayout && state.siteLayout[state.siteLang.lang]
+    lang: state.siteLang && state.siteLang.lang,
+    site: state.siteLayout && state.siteLayout[state.siteLang.lang],
+    users: state.getUsers && state.getUsers
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch, ownprops) => {
+    return {
+        getUsers: () => {
+            dispatch(getUsers());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

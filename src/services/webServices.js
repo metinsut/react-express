@@ -11,7 +11,9 @@ import {
     ACC_COMPANY,
     ACC_COM_EDIT,
     ACC_COM_DELETE,
-    UPLOAD
+    UPLOAD,
+    GET_USERS,
+    GET_USER
 } from "../constants/path";
 
 export const getSiteApi = () => {
@@ -58,6 +60,14 @@ export const deleteUserCompany = data => {
     return axios.post(ACC_COM_DELETE, data);
 };
 
+export const getUsers = data => {
+    return axios.post(GET_USERS, data);
+};
+
+export const getUser = data => {
+    return axios.post(GET_USER, data);
+};
+
 /* export const uploadImage = data => {
     console.log(data);
     let formData = new FormData();
@@ -79,15 +89,10 @@ export const uploadImage = data => {
     formData.append(data.name, data);
 
     console.log("giden", formData);
-    return axios.post(
-        UPLOAD,
-        formData,
-        {
-            headers:
-            {
-                    "Content-Type": "multipart/form-data",
-                    'x-access-token': token
-            }
+    return axios.post(UPLOAD, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+            "x-access-token": token
         }
-    );
+    });
 };

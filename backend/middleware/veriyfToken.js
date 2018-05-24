@@ -2,28 +2,27 @@ const jwt = require("jsonwebtoken");
 const key = require("../helpers/apiSecretKey");
 
 const verifyToken = (req, res, next) => {
-      console.log(req.query);
-      const token =
-            req.headers["x-access-token"] || req.body.token || req.query.token;
-      if (token) {
-            jwt.verify(token, key.api_secret_key, (err, decoded) => {
-                  if (err) {
-                        res.json({
-                              status: false,
-                              message: "Failed to authenticate token.",
-                              err: err
-                        });
-                  } else {
-                        req.decode = decoded;
-                        next();
-                  }
-            });
-      } else {
-            res.json({
-                  status: false,
-                  message: "No token provided"
-            });
-      }
+    const token =
+        req.headers["x-access-token"] || req.body.token || req.query.token;
+    if (token) {
+        jwt.verify(token, key.api_secret_key, (err, decoded) => {
+            if (err) {
+                res.json({
+                    status: false,
+                    message: "Failed to authenticate token.",
+                    err: err
+                });
+            } else {
+                req.decode = decoded;
+                next();
+            }
+        });
+    } else {
+        res.json({
+            status: false,
+            message: "No token provided"
+        });
+    }
 };
 
 module.exports = verifyToken;

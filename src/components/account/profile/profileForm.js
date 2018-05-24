@@ -33,7 +33,7 @@ class ProfileForm extends React.Component {
 
     render() {
         let account = this.props.account;
-        const date = new Date(account.joinDate);
+        const date = new Date(account ? account.joinDate : null);
         const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <form onSubmit={handleSubmit(this.props.onSaveData)}>
@@ -59,6 +59,12 @@ class ProfileForm extends React.Component {
                     name="surName"
                     type="text"
                     label="Sur Name"
+                    component={renderField}
+                />
+                <Field
+                    name="link"
+                    type="text"
+                    label="URL"
                     component={renderField}
                 />
 

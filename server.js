@@ -36,8 +36,9 @@ app.use("/login", login);
 app.use("/logout", logout);
 app.use("/signup", signup);
 
+app.use("/users", users);
+
 app.use("/api", verifyToken);
-app.use("/api/users", users);
 app.use("/api/account", account);
 
 const port = process.env.PORT || 3001;

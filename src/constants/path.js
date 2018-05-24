@@ -12,6 +12,11 @@ export const LOGIN = "http://localhost:3001/login";
 export const SINGUP = "http://localhost:3001/signup";
 export const LOGOUT = "http://localhost:3001/logout";
 
+// USERS
+export const GET_USERS = "http://localhost:3001/users";
+export const GET_USER = "http://localhost:3001/user";
+
+
 // ACCOUNT
 export const ACCOUNT = "http://localhost:3001/api/account";
 export const ACC_UP = "http://localhost:3001/api/account/update";
