@@ -73,7 +73,7 @@ export const logOut = () => dispatch => {
 };
 
 export const getAccount = () => dispatch => {
-      const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem("userToken");
     S.getAccountData({ token: token }).then(res => {
         if (res.data.success) {
             dispatch(getUser(res.data.success));
@@ -114,18 +114,24 @@ export const updateCompany = data => dispatch => {
 };
 
 export const editCompany = data => dispatch => {
-      S.editUserCompany(data).then(res => {
-          if (res.data.success) {
-              dispatch(getResult(res.data.success));
-          }
-      });
-  };
+    S.editUserCompany(data).then(res => {
+        if (res.data.success) {
+            dispatch(getResult(res.data.success));
+        }
+    });
+};
 export const deleteCompany = data => dispatch => {
-      S.deleteUserCompany(data).then(res => {
-          if (res.data.success) {
-              dispatch(getResult(res.data.success));
-          }
-      });
-  };
-  
+    S.deleteUserCompany(data).then(res => {
+        if (res.data.success) {
+            dispatch(getResult(res.data.success));
+        }
+    });
+};
 
+export const uploadFile = data => dispatch => {
+    S.uploadImage(data).then(res => {
+        if (res.data.success) {
+            dispatch(getResult(res.data.success));
+        }
+    });
+};

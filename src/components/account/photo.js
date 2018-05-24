@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import renderFile from "../../components/forms/renderFile";
+// import renderFile from "../../components/forms/renderFile";
+import { uploadFile } from "../../actions/index";
 
 const validate = values => {
     let errors = {};
@@ -10,15 +11,24 @@ const validate = values => {
 };
 
 class Profile extends React.Component {
+    uploadFile = e => {
+    };
+
+    run = e => {
+        let file = e.target.files[0];
+        // console.log(e.target.files[0]);
+        this.props.onSaveData(file);
+    };
+
     render() {
-        const { handleSubmit, pristine, reset, submitting } = this.props;
+        // const { handleSubmit, pristine, reset, submitting } = this.props;
         return (
             <div className="profile__root">
                 <div className="account__title">
                     <h1>YOUR PROFILE</h1>
                 </div>
 
-                <form onSubmit={handleSubmit(this.props.onSaveData)}>
+                {/* <form onSubmit={handleSubmit(this.props.onSaveData)}>
                     <Field
                         name="file"
                         type="file"
@@ -26,7 +36,7 @@ class Profile extends React.Component {
                         component={renderFile}
                     />
 
-                   <div className="button__block">
+                    <div className="button__block">
                         <button
                             type="button"
                             disabled={pristine || submitting}
@@ -38,6 +48,21 @@ class Profile extends React.Component {
                             SEND
                         </button>
                     </div>
+                </form> */}
+
+                <form action="" onSubmit={this.uploadFile}>
+                    <div className="file__root">
+                        <label>
+                            <input type="file" onChange={this.run} />
+                            <div className="icon">i</div>
+                            <p className="file">Upload an Image</p>
+                        </label>
+                        <input
+                            type="submit"
+                            value="SAVE"
+                            style={{ margin: "10px", padding: "10px" }}
+                        />
+                    </div>
                 </form>
             </div>
         );
@@ -46,16 +71,17 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser,
+        account: state.getUser
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
+            dispatch(uploadFile(data));
         }
     };
 };
 
 Profile = connect(mapStateToProps, mapDispatchToProps)(Profile);
-export default reduxForm({ form: "account", validate })(Profile);
+export default reduxForm({ form: "image", validate })(Profile);

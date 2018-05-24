@@ -44,6 +44,27 @@
                 padding: 0 10px 0 0;
             }
         }
+        .file__root {
+            label {
+                padding: 10px;
+                @include box-shadow1;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                input {
+                    display: none;
+                }
+                .file {
+                    @include roboto-medium;
+                    @include font-style(2em, $text);
+                    padding: 0 0 0 20px;
+                }
+                .icon {
+                    @include custom;
+                    @include font-style(4em, $blue);
+                }
+            }
+        }
     }
     .account__title {
         padding: 1.5rem;

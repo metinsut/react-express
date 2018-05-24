@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const key = require("../helpers/apiSecretKey");
 
 const verifyToken = (req, res, next) => {
+      console.log(req.query);
       const token =
             req.headers["x-access-token"] || req.body.token || req.query.token;
       if (token) {

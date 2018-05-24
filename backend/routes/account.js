@@ -2,6 +2,18 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bcrypt = require("bcrypt");
 const userSchema = require("../models/userSchema");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "public/images/uploads");
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "-" + Date.now());
+    }
+});
+
+const upload = multer({ storage: storage });
 
 const router = express.Router();
 
@@ -229,6 +241,14 @@ router.post("/companydelete", (req, res) => {
                 }
             });
         });
+});
+
+router.post("/upload", upload.single("userImage"), (req, res) => {
+    res.json({
+        success: {
+            name: "okay"
+        }
+    });
 });
 
 module.exports = router;
