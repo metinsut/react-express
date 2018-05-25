@@ -17,8 +17,8 @@ router.post("/", (req, res) => {
 });
 
 router.post("/single", (req, res) => {
-    const getUser = userSchema.find({token:token}).select("name bio link");
-
+    link = req.body.link;
+    const getUser = userSchema.find({ link: link }).select("name bio link");
     getUser
         .then(data => {
             res.json({ success: data });

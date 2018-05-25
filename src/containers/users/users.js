@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { USER, USERS } from "../../constants/routhPath";
 import User from "../users/user";
 import { getUsers } from "../../actions/index";
+import UsersInfo from "./usersInfo";
 
 class Users extends Component {
     componentDidMount() {
@@ -36,7 +37,12 @@ class Users extends Component {
                           })
                         : null}
                 </article>
-                <Route path={USER} Component={User} />
+                <article>
+                    <Switch>
+                        <Route exact path={USERS} component={UsersInfo} />
+                        <Route exact path={USER} component={User} />
+                    </Switch>
+                </article>
             </section>
         );
     }

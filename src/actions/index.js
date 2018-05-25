@@ -158,7 +158,7 @@ export const getUsers = data => dispatch => {
 
 export const getUser = data => dispatch => {
     const token = localStorage.getItem("userToken");
-    S.getUsers({ token: token }).then(res => {
+    S.getUser({ ...{ link: data }, ...{ token: token } }).then(res => {
         if (res.data.success) {
             dispatch(getUserReducer(res.data.success));
         }

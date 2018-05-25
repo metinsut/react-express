@@ -14,7 +14,7 @@ export const LOGOUT = "http://localhost:3001/logout";
 
 // USERS
 export const GET_USERS = "http://localhost:3001/users";
-export const GET_USER = "http://localhost:3001/user";
+export const GET_USER = "http://localhost:3001/users/single";
 
 
 // ACCOUNT

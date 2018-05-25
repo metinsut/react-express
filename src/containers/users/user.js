@@ -1,26 +1,28 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "../../actions/index";
 
 class User extends Component {
     componentDidMount() {
-        console.log(this.props.match);
-        console.log("ads");
         this.props.getUser(this.props.match.params.id);
     }
     componentDidUpdate(prevProps) {
-        if (prevProps) this.props.getUser(this.props.match.params.id);
+        if (prevProps.match.url !== this.props.match.url) {
+            this.props.getUser(this.props.match.params.id);
+        }
     }
 
     render() {
-        const user = this.props.user;
-        console.log(user);
+        const user = this.props.user[0];
+        console.log("data", user);
         return (
             <section>
-                <h1>{user.name}</h1>
-                <h1>ASD</h1>
-                <p>{user.bio}</p>
+                {user ? (
+                    <React.Fragment>
+                        <h1>{user.name}</h1>
+                        <p>{user.bio}</p>
+                    </React.Fragment>
+                ) : null}
             </section>
         );
     }
@@ -29,15 +31,15 @@ class User extends Component {
 const mapStateToProps = (state, ownProps) => ({
     lang: state.siteLang && state.siteLang.lang,
     site: state.siteLayout && state.siteLayout[state.siteLang.lang],
-    user: state.getUser && state.getUser
+    user: state.getUser ? state.getUser : null
 });
 
 const mapDispatchToProps = dispatch => {
     return {
-        getUser: () => {
-            dispatch(getUser());
+        getUser: id => {
+            dispatch(getUser(id));
         }
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(User));
+export default connect(mapStateToProps, mapDispatchToProps)(User);
