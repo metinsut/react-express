@@ -14,7 +14,6 @@ class User extends Component {
 
     render() {
         const user = this.props.user[0];
-        console.log("data", user);
         return (
             <section>
                 {user ? (
