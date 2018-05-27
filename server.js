@@ -9,6 +9,7 @@ const logout = require("./backend/routes/auth/logout");
 const users = require("./backend/routes/users");
 const account = require("./backend/routes/account");
 const post = require("./backend/routes/post");
+const upload = require("./backend/routes/upload");
 const verifyToken = require("./backend/middleware/veriyfToken");
 
 const app = express();
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", index);
+app.use("/upload", upload);
 
 app.use("/login", login);
 app.use("/logout", logout);

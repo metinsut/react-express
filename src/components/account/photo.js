@@ -1,16 +1,14 @@
 import React from "react";
-// import { connect } from "react-redux";
-// import { Field, reduxForm } from "redux-form";
-// import renderFile from "../../components/forms/renderFile";
-// import { uploadFile } from "../../actions/index";
+import { connect } from "react-redux";
+import { Field, reduxForm } from "redux-form";
+import renderFile from "../../components/forms/renderFile";
+import { uploadFile } from "../../actions/index";
 
 class Photo extends React.Component {
-    uploadFile = e => {
-    };
+    uploadFile = e => {};
 
     run = e => {
         let file = e.target.files[0];
-        // console.log(e.target.files[0]);
         this.props.onSaveData(file);
     };
 
@@ -63,22 +61,21 @@ class Photo extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         account: state.getUser
-//     };
-// };
+const mapStateToProps = state => {
+    return {
+        account: state.getUser
+    };
+};
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onSaveData: data => {
-//             // dispatch(uploadFile(data));
-//             console.log("OKAY");
-//         }
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        onSaveData: data => {
+            dispatch(uploadFile(data));
+        }
+    };
+};
 
-// Photo = connect(mapStateToProps, mapDispatchToProps)(Photo);
-// export default reduxForm({ form: "image", validate })(Photo);
+Photo = connect(mapStateToProps, mapDispatchToProps)(Photo);
+export default reduxForm({ form: "image" })(Photo);
 
-export default(Photo)
+// export default(Photo)

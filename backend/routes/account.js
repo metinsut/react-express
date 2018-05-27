@@ -6,9 +6,11 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "public/images/uploads");
+        cb(null, "backend/images");
+        console.log("destination")
     },
     filename: (req, file, cb) => {
+        console.log(fileName)
         cb(null, file.fieldname + "-" + Date.now());
     }
 });
@@ -244,6 +246,7 @@ router.post("/companydelete", (req, res) => {
 });
 
 router.post("/upload", upload.single("userImage"), (req, res) => {
+    console.log(req.file);
     res.json({
         success: {
             name: "okay"

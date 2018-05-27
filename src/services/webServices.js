@@ -81,12 +81,9 @@ export const getUser = data => {
 }; */
 export const uploadImage = data => {
     const token = localStorage.getItem("userToken");
-    console.log(data);
-    // let formData = {...data,...{token:token}}
-    console.log({ ...data });
-    let formData = new FormData();
+    let formData = new FormData(data);
 
-    formData.append(data.name, data);
+    // formData.append(data);
 
     console.log("giden", formData);
     return axios.post(UPLOAD, formData, {
