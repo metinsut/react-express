@@ -13,7 +13,10 @@ import {
     ACC_COM_DELETE,
     UPLOAD,
     GET_USERS,
-    GET_USER
+    GET_USER,
+    SEND_PERSON,
+    GET_PERSON
+    
 } from "../constants/path";
 
 export const getSiteApi = () => {
@@ -67,6 +70,14 @@ export const getUsers = data => {
 export const getUser = data => {
     return axios.post(GET_USER, data);
 };
+
+export const sendPerson = data => {
+     return axios.post(SEND_PERSON, data);
+ };
+
+ export const getPersonData = data => {
+     return axios.post(GET_PERSON, data);
+ };
 
 /* export const uploadImage = data => {
     console.log(data);

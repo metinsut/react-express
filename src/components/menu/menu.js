@@ -27,8 +27,14 @@ class Menu extends Component {
                               </li>
                               <li className="menu__item">
                                     <Link to={R.USERS}>
-                                          <div className="item__icon">e</div>
+                                          <div className="item__icon">L</div>
                                           <p className="item__name">USERS</p>
+                                    </Link>
+                              </li>
+                              <li className="menu__item">
+                                    <Link to={R.PERSONS}>
+                                          <div className="item__icon">e</div>
+                                          <p className="item__name">PERSONS</p>
                                     </Link>
                               </li>
                         </ul>

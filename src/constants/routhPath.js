@@ -26,3 +26,6 @@ export const PHOTO = "/photo";
 export const PROFILE = "/profile";
 export const INTERESTED = "/interested";
 export const COMPANY = "/company";
+
+
+export const PERSONS = "/persons"

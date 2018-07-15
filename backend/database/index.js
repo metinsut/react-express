@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const database = () => {
       mongoose.connect(
-            "mongodb://site:123456@ds229909.mlab.com:29909/site"
+            "mongodb://metinsut:mtn123456@ds229909.mlab.com:29909/site"
       );
 
       mongoose.connection.on("error", err => {
