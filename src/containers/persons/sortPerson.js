@@ -13,10 +13,17 @@ let SortItem = styled.p`
 `;
 
 class SortPerson extends React.Component {
+   type="asc";
+   
+   shortNameType = () => {
+      this.props.shortName(this.type);
+      this.type==="asc"? this.type="desc":this.type="asc";
+      this.forceUpdate();
+   }
      render() {
           return (
                <SortHead>
-                    <SortItem onClick={this.props.shortName}>First Name</SortItem>
+                    <SortItem onClick={this.shortNameType}>First Name</SortItem>
                     <SortItem>Last Name</SortItem>
                     <SortItem>City</SortItem>
                     <SortItem>Counrty</SortItem>
