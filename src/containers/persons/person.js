@@ -1,14 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sendPerson, getPersons, sortPersonReducer } from '../../actions/index';
+import { sendPerson, getPersons } from '../../actions/index';
 import PersonList from './personList';
 import SortPerson from './sortPerson';
 import { Root, Wrapper, Container, Section } from './person.styled';
 // import persons from '../../person.json';
 
 class Person extends React.Component {
+     listItems = [];
+
      componentDidMount() {
           this.props.getPerson();
+     }
+
+     shouldComponentUpdate() {
+          this.listItems = this.props.persons;
+          this.forceUpdate();
+          return false;
      }
 
      createPerson = event => {
@@ -18,12 +26,12 @@ class Person extends React.Component {
           }); */
      };
 
-     shortList = () => {
-          this.props.sortPerson();
-          this.forceUpdate();
+     shortName = () => {
+          console.log();
      };
 
      render() {
+          console.log(this.listItems);
           const persons = this.props.persons;
           return (
                <Section>
@@ -37,14 +45,14 @@ class Person extends React.Component {
                     <Root>
                          <Wrapper>
                               <Container>
-                                   <SortPerson shortList={this.shortList} />
-                                   {persons
-                                        ? Object.keys(persons).map(
+                                   <SortPerson shortName={this.shortName} />
+                                   {this.listItems
+                                        ? this.listItems.map(
                                                (item, key) => {
                                                     return (
                                                          <PersonList
                                                               person={
-                                                                   persons[item]
+                                                                   item
                                                               }
                                                               key={key}
                                                               count={key}
@@ -72,9 +80,6 @@ const mapDispatchToProps = dispatch => {
           },
           getPerson: () => {
                dispatch(getPersons());
-          },
-          sortPerson: () => {
-               dispatch(sortPersonReducer());
           }
      };
 };

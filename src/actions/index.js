@@ -47,10 +47,6 @@ export const getPerson = data => ({
      payload: data
 });
 
-export const sortPersonReducer = () => ({
-     type: A.SORT_PERSONS
-});
-
 //GET SITE INFO
 export const getSiteData = () => dispatch => {
      S.getSiteApi().then(res => {

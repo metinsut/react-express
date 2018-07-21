@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 
 let SortHead = styled.div`
      display: flex;
@@ -17,7 +16,7 @@ class SortPerson extends React.Component {
      render() {
           return (
                <SortHead>
-                    <SortItem onClick={this.props.shortList}>First Name</SortItem>
+                    <SortItem onClick={this.props.shortName}>First Name</SortItem>
                     <SortItem>Last Name</SortItem>
                     <SortItem>City</SortItem>
                     <SortItem>Counrty</SortItem>

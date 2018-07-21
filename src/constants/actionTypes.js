@@ -8,4 +8,3 @@ export const GET_USER = "GET_USER";
 export const GET_USERS = "GET_USERS";
 export const SEND_PERSONS = "SEND_PERSONS";
 export const GET_PERSONS = "GET_PERSONS";
-export const SORT_PERSONS = "SORT_PERSONS";
