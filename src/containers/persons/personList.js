@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Row, P1, P2, Self, Image } from "./person.styled";
+import moment from "moment";
 
 class PersonList extends React.Component {
    render() {
@@ -7,16 +8,8 @@ class PersonList extends React.Component {
       return (
          <Row>
             <Self>
-               <P1>Count</P1>
-               <P2>{count + 1}</P2>
-            </Self>
-            <Self>
-               <P1>First Name</P1>
-               <P2>{person.first_name}</P2>
-            </Self>
-            <Self>
-               <P1>Last Name</P1>
-               <P2>{person.last_name}</P2>
+               <P1>Name</P1>
+               <P2>{person.name}</P2>
             </Self>
             <Self>
                <P1>Gender</P1>
@@ -36,35 +29,27 @@ class PersonList extends React.Component {
             </Self>
             <Self>
                <P1>Depatman</P1>
-               <P2>{person.departman}</P2>
+               <P2>{person.department}</P2>
             </Self>
             <Self>
                <P1>Job Title</P1>
-               <P2>{person.job_title}</P2>
+               <P2>{person.title}</P2>
             </Self>
             <Self>
-               <P1>date</P1>
-               <P2>{person.date}</P2>
+               <P1>Birthday</P1>
+               <P2>{moment(person.birthday.$date).format("LL")}</P2>
             </Self>
             <Self>
-               <P1>date2</P1>
-               <P2>{person.date2}</P2>
-            </Self>
-            {/* <Self>
-                         <P1>date3</P1>
-                         <P2>{person.date3.$date}</P2>
-                    </Self> */}
-            <Self>
-               <P1>date4</P1>
-               <P2>{person.date4}</P2>
-            </Self>
-            <Self>
-               <P1>Year</P1>
-               <P2>{person.year}</P2>
+               <P1>Enter</P1>
+               <P2>{moment(person.enter.$date,"YYYYMMDD").fromNow()}</P2>
             </Self>
             <Self>
                <P1>Time</P1>
                <P2>{person.time}</P2>
+            </Self>
+            <Self>
+               <P1>Year</P1>
+               <P2>{person.year}</P2>
             </Self>
             <Self>
                <P1>image</P1>
@@ -75,16 +60,8 @@ class PersonList extends React.Component {
                <Image src={person.avatar} />
             </Self>
             <Self>
-               <P1>image_url</P1>
-               <Image src={person.image_url} />
-            </Self>
-            <Self>
                <P1>language</P1>
                <P2>{person.language}</P2>
-            </Self>
-            <Self>
-               <P1>web</P1>
-               <P2>{person.web}</P2>
             </Self>
             <Self>
                <P1>salary</P1>

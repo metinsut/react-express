@@ -34,3 +34,9 @@ export const Image = styled.img`
      height: 100px;
      object-fit: cover;
 `;
+
+export const Input = styled.input`
+     padding:10px;
+     font-size:16px;
+`;
+

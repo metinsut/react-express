@@ -19,6 +19,7 @@ export const GET_USER = "http://localhost:3001/users/single";
 //PERSONS
 export const SEND_PERSON = "http://localhost:3001/api/person";
 export const GET_PERSON = "http://localhost:3001/api/person/getPerson";
+export const GET_PERSON_JSON = "/data/person.json";
 
 // ACCOUNT
 export const ACCOUNT = "http://localhost:3001/api/account";

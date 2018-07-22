@@ -6,8 +6,6 @@ const personSchema = require("../models/personSchema");
 
 // POST A NEW DIRECTOR
 router.post("/", (req, res) => {
-     console.log("person route");
-     console.log(req.body.data);
     const person = new personSchema(req.body.data);
 
     const createPerson= person.save();

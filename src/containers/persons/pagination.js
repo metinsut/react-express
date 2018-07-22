@@ -13,9 +13,13 @@ class Pagination extends React.Component {
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             onPageChange={this.props.handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
+            containerClassName={"pagBlock"}
+            subContainerClassName={"pagItem"}
+            activeClassName={"activeClassName"}
+            pageClassName={"pageClassName"}
+            pageLinkClassName={"pageLinkClassName"}
+            previousClassName={"previousClassName"}
+            nextClassName={"nextClassName"}
          />
       );
    }

@@ -15,7 +15,8 @@ import {
     GET_USERS,
     GET_USER,
     SEND_PERSON,
-    GET_PERSON
+    GET_PERSON,
+    GET_PERSON_JSON
     
 } from "../constants/path";
 
@@ -78,6 +79,10 @@ export const sendPerson = data => {
  export const getPersonData = data => {
      return axios.post(GET_PERSON, data);
  };
+
+ export const getPersonJson = () => {
+    return axios.get(GET_PERSON_JSON);
+};
 
 /* export const uploadImage = data => {
     console.log(data);

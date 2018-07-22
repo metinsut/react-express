@@ -189,4 +189,10 @@ export const getPersons = () => dispatch => {
          Loader(false);
       }
    });
+   /* S.getPersonJson().then(res => {
+      if (res.data) {
+         dispatch(getPerson(res.data));
+         Loader(false);
+      }
+   }); */
 };

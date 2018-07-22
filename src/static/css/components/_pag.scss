@@ -1,0 +1,47 @@
+.pagBlock {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   margin: 10px 0;
+}
+.pagItem {
+   display: flex;
+}
+.pageClassName {
+   display: flex;
+   height: 100%;
+   a {
+      padding: 7px 10px;
+      margin: 1px;
+      border: 1px solid gray;
+      cursor: pointer;
+   }
+}
+.pageLinkClassName {
+}
+.previousClassName {
+   display: flex;
+   height: 100%;
+   a {
+      padding: 7px 10px;
+      margin: 1px;
+      border: 1px solid gray;
+      cursor: pointer;
+   }
+}
+.nextClassName {
+   display: flex;
+   height: 100%;
+   a {
+      padding: 7px 10px;
+      margin: 1px;
+      border: 1px solid gray;
+      cursor: pointer;
+   }
+}
+.activeClassName {
+   display: flex;
+   height: 100%;
+   background-color: blue;
+   color: white;
+}
