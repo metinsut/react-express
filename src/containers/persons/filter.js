@@ -13,11 +13,6 @@ import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 
 class Filter extends React.Component {
-
-   state = {
-      value: { min: 2, max: 10 },
-    };
-
    render() {
       return (
          <FilterRoot>
@@ -65,10 +60,10 @@ class Filter extends React.Component {
                   </Title>
                   <Content>
                      <InputRange 
-                     maxValue={20}
-                     minValue={0}
-                     value={this.state.value}
-                     onChange={value => this.setState({ value })} 
+                     maxValue={this.props.sellValues.max}
+                     minValue={this.props.sellValues.min}
+                     value={this.props.filterSellValues}
+                     onChange={value => this.props.FilterSell(value)} 
                      />
                   </Content>
                </FilterBlock>
