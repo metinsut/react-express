@@ -24,6 +24,8 @@ class Person extends React.Component {
    pageCount = 0;
    selected = 0;
    gender = null;
+   minSell=null;
+   maxSell=null;
 
    componentDidMount() {
       this.props.getPerson();
@@ -83,7 +85,6 @@ class Person extends React.Component {
    };
 
    shortBirthday = async type => {
-      console.log(type);
       await this.filterItems.sort((a, b) => {
          if (type === "asc") {
             return new Date(a.birthday.$date) - new Date(b.birthday.$date);
@@ -100,7 +101,6 @@ class Person extends React.Component {
    };
 
    shortSalary = async type => {
-      console.log(type);
       await this.filterItems.sort((a, b) => {
          if (type === "asc") {
             return a.salary - b.salary;
@@ -117,7 +117,6 @@ class Person extends React.Component {
    };
 
    shortSell = async type => {
-      console.log(type);
       await this.filterItems.sort((a, b) => {
          if (type === "asc") {
             return a.sell - b.sell;
@@ -134,7 +133,6 @@ class Person extends React.Component {
    };
 
    shortYear = async type => {
-      console.log(type);
       await this.filterItems.sort((a, b) => {
          if (type === "asc") {
             return a.year - b.year;
@@ -172,10 +170,14 @@ class Person extends React.Component {
    SelectGender = e => {
       this.gender = e.target.value;
       this.forceUpdate();
-      this.FilterList(this.gender);
+      this.FilterGender(this.gender);
    };
 
-   FilterList = async gender => {
+  //  selectSell = e => {
+  //    this.minSell = e.target.value
+  //  }
+
+   FilterGender = async gender => {
       if (gender === "all") {
         console.log("1");
          this.filterItems = await this.listItems;
@@ -194,8 +196,6 @@ class Person extends React.Component {
    };
 
    render() {
-     console.log("all-item",this.listItems);
-     console.log("filter",this.filterItems);
       return (
          <Section>
             {/* <form onSubmit={this.createPerson}>

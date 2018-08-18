@@ -9,8 +9,15 @@ import {
    Label,
    P3
 } from "./person.styled";
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 class Filter extends React.Component {
+
+   state = {
+      value: { min: 2, max: 10 },
+    };
+
    render() {
       return (
          <FilterRoot>
@@ -50,6 +57,19 @@ class Filter extends React.Component {
                         />
                         <P3>All</P3>
                      </Label>
+                  </Content>
+               </FilterBlock>
+               <FilterBlock>
+                  <Title>
+                     <P4>Sell</P4>
+                  </Title>
+                  <Content>
+                     <InputRange 
+                     maxValue={20}
+                     minValue={0}
+                     value={this.state.value}
+                     onChange={value => this.setState({ value })} 
+                     />
                   </Content>
                </FilterBlock>
             </FilterContainer>
