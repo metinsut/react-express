@@ -93,12 +93,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
-            const token = localStorage.getItem("userToken");
             dispatch(
                 updateUserEmail({
                     ...{ previousEmail: data.previousEmail },
-                    ...{ email: data.email },
-                    ...{ token: token }
+                    ...{ email: data.email }
                 })
             );
         }

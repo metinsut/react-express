@@ -17,8 +17,17 @@ import {
     SEND_PERSON,
     GET_PERSON,
     GET_PERSON_JSON
-    
+
 } from "../constants/path";
+
+const token = localStorage.getItem("userToken");
+
+const tokenHeader = { 'x-access-token': token }
+
+const formHeader = {
+    'x-access-token': token,
+    'Content-Type': 'multipart/form-data'
+}
 
 export const getSiteApi = () => {
     return axios.get(SITE);
@@ -32,55 +41,136 @@ export const loginToken = data => {
     return axios.post(LOGIN, data);
 };
 
-export const leaveUser = token => {
-    return axios.post(LOGOUT, token);
+export const leaveUser = () => {
+    const options = {
+        url: LOGOUT,
+        method: 'POST',
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
-export const getAccountData = token => {
-    return axios.post(ACCOUNT, token);
+export const getAccountData = () => {
+    const options = {
+        url: ACCOUNT,
+        method: 'POST',
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const updateAccountData = data => {
-    return axios.post(ACC_UP, data);
+    const options = {
+        url: ACC_UP,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const updateAccountEmail = data => {
-    return axios.post(ACC_EMAIL, data);
+    const options = {
+        url: ACC_EMAIL,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const updateAccountPassword = data => {
-    return axios.post(ACC_PASS, data);
+    const options = {
+        url: ACC_PASS,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const pushNewUserCompany = data => {
-    return axios.post(ACC_COMPANY, data);
+    const options = {
+        url: ACC_COMPANY,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const editUserCompany = data => {
-    return axios.post(ACC_COM_EDIT, data);
+    const options = {
+        url: ACC_COM_EDIT,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const deleteUserCompany = data => {
-    return axios.post(ACC_COM_DELETE, data);
+    const options = {
+        url: ACC_COM_DELETE,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const getUsers = data => {
-    return axios.post(GET_USERS, data);
+    const options = {
+        url: GET_USERS,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const getUser = data => {
-    return axios.post(GET_USER, data);
+    const options = {
+        url: GET_USER,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const sendPerson = data => {
-     return axios.post(SEND_PERSON, data);
- };
+    const options = {
+        url: SEND_PERSON,
+        method: 'POST',
+        data: data,
+        headers: tokenHeader,
+    };
+    return axios(options);
+};
 
- export const getPersonData = data => {
-     return axios.post(GET_PERSON, data);
- };
+export const getPersonData = () => {
+    const options = {
+        url: GET_PERSON,
+        method: 'POST',
+        headers: tokenHeader,
+    };
+    return axios(options);
+};
 
- export const getPersonJson = () => {
+// export const getPersonData = () => {
+//     const options = {
+//         url: `${GET_PERSON}?token=${token}`,
+//         method: 'POST',
+//         headers: tokenHeader,
+//         params: {
+//             token: token
+//         }
+//     };
+//     return axios(options);
+// };
+
+export const getPersonJson = () => {
     return axios.get(GET_PERSON_JSON);
 };
 

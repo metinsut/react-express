@@ -74,12 +74,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
-            const token = localStorage.getItem("userToken");
             dispatch(
                 updateUserPassword({
                     ...{ previousPassword: data.previousPassword },
-                    ...{ password: data.password },
-                    ...{ token: token }
+                    ...{ password: data.password }
                 })
             );
         }

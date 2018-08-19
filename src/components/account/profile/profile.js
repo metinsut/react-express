@@ -34,8 +34,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(getAccount());
         },
         onSaveData: data => {
-            const token = localStorage.getItem("userToken");
-            dispatch(updateUser({ ...data, ...{ token: token } }));
+            dispatch(updateUser(data));
         }
     };
 };

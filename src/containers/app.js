@@ -18,48 +18,48 @@ import { getSiteData, getResult, statusLogin } from '../actions/index';
 import Persons from '../containers/persons/person';
 
 class App extends Component {
-     componentDidMount() {
-          this.props.dispatch(getSiteData());
-          this.props.dispatch(getResult());
-          this.props.dispatch(
-               statusLogin(
-                    localStorage.userToken
-                         ? {
-                                status: true,
-                                token: localStorage.userToken,
-                                name: localStorage.userName
-                           }
-                         : { status: false }
-               )
-          );
-     }
+  componentDidMount() {
+    this.props.dispatch(getSiteData());
+    this.props.dispatch(getResult());
+    this.props.dispatch(
+      statusLogin(
+        localStorage.userToken
+          ? {
+            status: true,
+            token: localStorage.userToken,
+            name: localStorage.userName
+          }
+          : { status: false }
+      )
+    );
+  }
 
-     render() {
-          return (
-               <ScrollToTopComponent>
-                    <Header />
-                    <Menu />
-                    <main>
-                         <Switch>
-                              <Route exact path={R.ROOT} component={Home} />
-                              <Route path={R.HOME} component={Home} />
-                              <Route path={R.ABOUT} component={About} />
-                              <Route path={R.CONTACT} component={Contact} />
-                              <Route path={R.USERS} component={Users} />
-                              <Route path={R.ACCOUNT} component={Account} />
-                              <Route path={R.PERSONS} component={Persons} />
-                              <Route component={NoMatch} />
-                         </Switch>
-                         <Route path={R.ALLPAGES + R.LOGIN} component={Login} />
-                         <Route
-                              path={R.ALLPAGES + R.SINGUP}
-                              component={SignUp}
-                         />
-                    </main>
-                    {/* <Footer /> */}
-               </ScrollToTopComponent>
-          );
-     }
+  render() {
+    return (
+      <ScrollToTopComponent>
+        <Header />
+        <Menu />
+        <main>
+          <Switch>
+            <Route exact path={R.ROOT} component={Home} />
+            <Route path={R.HOME} component={Home} />
+            <Route path={R.ABOUT} component={About} />
+            <Route path={R.CONTACT} component={Contact} />
+            <Route path={R.USERS} component={Users} />
+            <Route path={R.ACCOUNT} component={Account} />
+            <Route path={R.PERSONS} component={Persons} />
+            <Route component={NoMatch} />
+          </Switch>
+          <Route path={R.ALLPAGES + R.LOGIN} component={Login} />
+          <Route
+            path={R.ALLPAGES + R.SINGUP}
+            component={SignUp}
+          />
+        </main>
+        {/* <Footer /> */}
+      </ScrollToTopComponent>
+    );
+  }
 }
 
 export default withRouter(connect()(App));

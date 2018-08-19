@@ -95,29 +95,23 @@ const mapDispatchToProps = (dispatch, ownprops) => {
             dispatch(getAccount());
         },
         saveDataCompany: data => {
-            const token = localStorage.getItem("userToken");
             dispatch(
                 updateCompany({
-                    ...{ company: data },
-                    ...{ token: token }
+                    ...{ company: data }
                 })
             );
         },
         editDataCompany: data => {
-            const token = localStorage.getItem("userToken");
             dispatch(
                 editCompany({
-                    ...{ company: data },
-                    ...{ token: token }
+                    ...{ company: data }
                 })
             );
         },
         deleteDataCompany: data => {
-            const token = localStorage.getItem("userToken");
             dispatch(
                 deleteCompany({
-                    ...{ id: data },
-                    ...{ token: token }
+                    ...{ id: data }
                 })
             );
         }
