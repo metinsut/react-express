@@ -2,20 +2,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bcrypt = require("bcrypt");
 const userSchema = require("../models/userSchema");
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "backend/images");
-        console.log("destination")
-    },
-    filename: (req, file, cb) => {
-        console.log(fileName)
-        cb(null, file.fieldname + "-" + Date.now());
-    }
-});
-
-const upload = multer({ storage: storage });
 
 const router = express.Router();
 
@@ -245,12 +231,33 @@ router.post("/companydelete", (req, res) => {
         });
 });
 
-router.post("/upload", upload.single("userImage"), (req, res) => {
-    console.log(req.file);
-    res.json({
-        success: {
-            name: "okay"
+router.post("/upload", (req, res) => {
+    let sendImage = req.files.file;
+    const token = req.headers["x-access-token"];
+    sendImage.mv(__dirname + "/../uploads/" + sendImage.name, err => {
+        if (err) {
+            return res.status(500).send(err);
         }
+
+        const updateAccount = userSchema.findOneAndUpdate(
+            { token: token },
+            { $set: { profileImage: `http://localhost:3001/${sendImage.name}` } },
+            { new: true });
+        updateAccount
+            .then(data => {
+                res.json({
+                    success: {
+                        profileImage: `http://localhost:3001/${data.profileImage}`,
+                    }
+                });
+            })
+            .catch(err => {
+                res.json({
+                    success: {
+                        err
+                    }
+                });
+            });
     });
 });
 

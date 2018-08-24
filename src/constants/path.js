@@ -30,7 +30,6 @@ export const ACC_PASS = "http://localhost:3001/api/account/password";
 export const ACC_COMPANY = "http://localhost:3001/api/account/company";
 export const ACC_COM_EDIT = "http://localhost:3001/api/account/companyedit";
 export const ACC_COM_DELETE = "http://localhost:3001/api/account/companydelete";
-// export const UPLOAD = "http://localhost:3001/api/account/upload";
-export const UPLOAD = "http://localhost:3001/upload";
+export const UPLOAD = "http://localhost:3001/api/account/upload";
 
 // OTHERS

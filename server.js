@@ -13,9 +13,11 @@ const person = require("./backend/routes/persons");
 const upload = require("./backend/routes/upload");
 const checklogin = require("./backend/routes/auth/checklogin");
 const verifyToken = require("./backend/middleware/veriyfToken");
-
+const fileUpload = require('express-fileupload');
 const app = express();
 database();
+
+app.use(express.static("backend/uploads"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,6 +35,8 @@ app.use((req, res, next) => {
       res.setHeader("Access-Control-Allow-Credentials", true);
       next();
 });
+
+app.use(fileUpload());
 
 app.use("/", index);
 

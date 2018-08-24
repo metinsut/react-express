@@ -184,28 +184,14 @@ export const getPersonJson = () => {
     return axios.get(GET_PERSON_JSON);
 };
 
-/* export const uploadImage = data => {
-    console.log(data);
-    let formData = new FormData();
-    formData.append(data.name,data);
-    console.log(formData);
-    return axios.post(UPLOAD, formData,{
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-    });
-}; */
 export const uploadImage = data => {
-    console.log(data);
     let formData = new FormData();
-    formData.append("file",data);
-    console.log("giden", formData);
+    formData.append("file", data);
     const options = {
         url: UPLOAD,
         method: 'POST',
         data: formData,
         headers: formHeader,
     };
-    console.log("axios", options);
     return axios(options);
 };

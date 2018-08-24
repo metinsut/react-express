@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { reduxForm } from 'redux-form';
-// import renderFile from "../../components/forms/renderFile";
 import { uploadFile } from '../../actions/index';
 
 class Photo extends React.Component {
@@ -15,61 +13,44 @@ class Photo extends React.Component {
 
     run = e => {
         this.file = e.target.files[0];
+        var output = document.getElementById('img');
+        output.src = URL.createObjectURL(this.file);
         this.forceUpdate();
     };
 
     render() {
-        // const { handleSubmit, pristine, reset, submitting } = this.props;
+        let { acc } = this.props.account;
+        console.log(acc)
         return (
             <div className="profile__root">
                 <div className="account__title">
                     <h1>YOUR PROFILE</h1>
                 </div>
 
-                {/* <form onSubmit={handleSubmit(this.props.onSaveData)}>
-                    <Field
-                        name="file"
-                        type="file"
-                        label="File"
-                        component={renderFile}
-                    />
-
-                    <div className="button__block">
-                        <button
-                            type="button"
-                            disabled={pristine || submitting}
-                            onClick={reset}
-                        >
-                            Clear Values
-                        </button>
-                        <button type="submit" disabled={submitting}>
-                            SEND
-                        </button>
-                    </div>
-                </form> */}
-
                 <form action="" onSubmit={this.uploadFile}>
                     <div className="file__root">
                         <label>
-                            <input type="file" onChange={this.run} multiple/>
+                            <input type="file" onChange={this.run} multiple name="photo" />
                             <div className="icon">i</div>
                             <p className="file">Upload an Image</p>
                         </label>
-                        <input
-                            type="submit"
-                            value="SAVE"
-                            style={{ margin: '10px', padding: '10px' }}
-                        />
+                        <button type="submit">
+                            SEND
+                        </button>
+                    </div>
+                    <div className="image-items">
+                        <img style={{ height: "100px", width: "100px", padding: "10px" }} src="" alt="" id="img" />
                     </div>
                 </form>
-            </div>
+
+            </div >
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        account: state.getUser
+        account: state.getAcc ? state.getAcc : null,
     };
 };
 
@@ -85,4 +66,4 @@ Photo = connect(
     mapStateToProps,
     mapDispatchToProps
 )(Photo);
-export default reduxForm({ form: 'image' })(Photo);
+export default Photo;
