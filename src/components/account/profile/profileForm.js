@@ -128,8 +128,7 @@ class ProfileForm extends React.Component {
 const mapDispatchToProps = dispatch => {
     return {
         onSaveData: data => {
-            const token = localStorage.getItem("userToken");
-            dispatch(updateUser({ ...data, ...{ token: token } }));
+            dispatch(updateUser(data));
         },
         initializeData: data => {
             dispatch(initialize("profile", data));

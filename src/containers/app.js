@@ -14,24 +14,14 @@ import SignUp from './auth/signUp';
 import Account from './account/account';
 import NoMatch from '../components/noMatch/noMatch';
 import ScrollToTopComponent from '../components/scrollTo/scrollToTopComponent';
-import { getSiteData, getResult, statusLogin } from '../actions/index';
+import { getSiteData, getResult, statusLogin, checkLogin } from '../actions/index';
 import Persons from '../containers/persons/person';
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(getSiteData());
     this.props.dispatch(getResult());
-    this.props.dispatch(
-      statusLogin(
-        localStorage.userToken
-          ? {
-            status: true,
-            token: localStorage.userToken,
-            name: localStorage.userName
-          }
-          : { status: false }
-      )
-    );
+    this.props.dispatch(checkLogin());
   }
 
   render() {

@@ -13,7 +13,7 @@ import { getLang } from "./actions/index";
 const middleware = [thunk];
 
 if (process.env.NODE_ENV !== "production") {
-   middleware.push(createLogger());
+    middleware.push(createLogger());
 }
 
 const store = createStore(reducer, applyMiddleware(...middleware));
@@ -21,11 +21,11 @@ const store = createStore(reducer, applyMiddleware(...middleware));
 store.dispatch(getLang("en"));
 
 const AppClient = () => (
-   <Provider store={store}>
-      <BrowserRouter>
-         <App />
-      </BrowserRouter>
-   </Provider>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 );
 
 ReactDOM.render(<AppClient />, document.getElementById("root"));

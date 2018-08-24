@@ -57,6 +57,27 @@ export const getSiteData = () => dispatch => {
     });
 };
 
+export const checkLogin = () => dispatch => {
+    S.checkToken().then(res => {
+        if (!res.data.status) {
+            localStorage.removeItem("userToken");
+        } else {
+            let token = localStorage.getItem("userToken");
+            if (token) {
+                dispatch(statusLogin({
+                    status: true,
+                    token: localStorage.userToken,
+                    name:res.data.name
+                }))
+            } else {
+                dispatch(statusLogin({
+                    status: false
+                }))
+            }
+        }
+    });
+}
+
 export const signUp = data => dispatch => {
     S.signUpApi(data).then(res => {
         if (res.data) {
@@ -69,7 +90,6 @@ export const login = data => dispatch => {
     S.loginToken(data).then(res => {
         if (res.data.status) {
             localStorage.setItem("userToken", res.data.token);
-            localStorage.setItem("userName", res.data.name);
             dispatch(statusLogin(res.data));
         } else {
             dispatch(statusLogin(res.data));
@@ -78,11 +98,10 @@ export const login = data => dispatch => {
 };
 
 export const logOut = () => dispatch => {
-    localStorage.removeItem("userToken");
-    localStorage.removeItem("userName");
     return S.leaveUser().then(res => {
         if (res.data) {
             dispatch(statusLogin(res.data));
+            localStorage.removeItem("userToken");
         }
     });
 };

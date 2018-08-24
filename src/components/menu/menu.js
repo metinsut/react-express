@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import * as R from "../../constants/routhPath";
 
 class Menu extends Component {
@@ -31,16 +32,24 @@ class Menu extends Component {
                                           <p className="item__name">USERS</p>
                                     </Link>
                               </li>
-                              <li className="menu__item">
-                                    <Link to={R.PERSONS}>
-                                          <div className="item__icon">e</div>
-                                          <p className="item__name">PERSONS</p>
-                                    </Link>
-                              </li>
+                              {this.props.isLogin === true &&
+                                    <li className="menu__item">
+                                          <Link to={R.PERSONS}>
+                                                <div className="item__icon">e</div>
+                                                <p className="item__name">PERSONS</p>
+                                          </Link>
+                                    </li>
+                              }
                         </ul>
                   </nav>
             );
       }
 }
 
-export default Menu;
+const mapStateToProps = (state) => {
+      return {
+            isLogin: state.statusLogin.status
+      }
+}
+
+export default connect(mapStateToProps)(Menu);

@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 const router = express.Router();
 
 router.post("/", (req, res) => {
-    const token = req.body.token;
+    const token = req.headers["x-access-token"];
     const getAccount = userSchema.findOne({ token: token });
 
     getAccount
@@ -89,7 +89,7 @@ router.post("/email", (req, res) => {
 router.post("/password", (req, res) => {
     const previousPassword = req.body.previousPassword;
     const password = req.body.password;
-    const token = req.body.token;
+    const token = req.headers["x-access-token"];
     userSchema.findOne({ token: token }, (err, data) => {
         if (err) {
             throw err;
@@ -144,7 +144,7 @@ router.post("/password", (req, res) => {
 });
 
 router.post("/company", (req, res) => {
-    const token = req.body.token;
+    const token = req.headers["x-access-token"];
     const index = req.body.index;
     const company = req.body.company;
 
@@ -172,7 +172,7 @@ router.post("/company", (req, res) => {
 });
 
 router.post("/companyedit", (req, res) => {
-    const token = req.body.token;
+    const token = req.headers["x-access-token"];
     const index = req.body.index;
     const company = req.body.company;
     const id = req.body.company.id;
@@ -223,7 +223,7 @@ router.post("/companyedit", (req, res) => {
 });
 
 router.post("/companydelete", (req, res) => {
-    const token = req.body.token;
+    const token = req.headers["x-access-token"];
     const id = req.body.id;
     const updateCompany = userSchema
         .find({ token: token })

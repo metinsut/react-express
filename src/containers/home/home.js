@@ -10,6 +10,7 @@ class Home extends Component {
                         {site && (
                               <article>
                                     <p>{site.home.title}</p>
+
                               </article>
                         )}
                   </section>

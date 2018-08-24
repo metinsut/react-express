@@ -16,7 +16,8 @@ import {
     GET_USER,
     SEND_PERSON,
     GET_PERSON,
-    GET_PERSON_JSON
+    GET_PERSON_JSON,
+    CHECKLOGIN
 
 } from "../constants/path";
 
@@ -39,6 +40,15 @@ export const signUpApi = data => {
 
 export const loginToken = data => {
     return axios.post(LOGIN, data);
+};
+
+export const checkToken = () => {
+    const options = {
+        url: CHECKLOGIN,
+        method: 'POST',
+        headers: tokenHeader,
+    };
+    return axios(options);
 };
 
 export const leaveUser = () => {
@@ -186,16 +196,16 @@ export const getPersonJson = () => {
     });
 }; */
 export const uploadImage = data => {
-    const token = localStorage.getItem("userToken");
-    let formData = new FormData(data);
-
-    // formData.append(data);
-
+    console.log(data);
+    let formData = new FormData();
+    formData.append("file",data);
     console.log("giden", formData);
-    return axios.post(UPLOAD, formData, {
-        headers: {
-            "Content-Type": "multipart/form-data",
-            "x-access-token": token
-        }
-    });
+    const options = {
+        url: UPLOAD,
+        method: 'POST',
+        data: formData,
+        headers: formHeader,
+    };
+    console.log("axios", options);
+    return axios(options);
 };

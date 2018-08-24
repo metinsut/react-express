@@ -17,61 +17,64 @@ class Header extends Component {
                               {...this.props.isLogin}
                         />
                         <div className="header__user">
-                              {isLogin.status === false ? (
-                                    <React.Fragment>
-                                          <div className="user__item">
-                                                <Link
-                                                      to={
-                                                            this.props.location
-                                                                  .pathname ===
-                                                            "/"
-                                                                  ? HOME + LOGIN
-                                                                  : this.props
-                                                                          .location
-                                                                          .pathname +
-                                                                    LOGIN
-                                                      }
-                                                >
-                                                      {header.login}
-                                                </Link>
-                                          </div>
-                                          <div className="user__item">
-                                                <Link
-                                                      to={
-                                                            this.props.location
-                                                                  .pathname ===
-                                                            "/"
-                                                                  ? HOME +
-                                                                    SINGUP
-                                                                  : this.props
-                                                                          .location
-                                                                          .pathname +
-                                                                    SINGUP
-                                                      }
-                                                >
-                                                      {header.singup}
-                                                </Link>
-                                          </div>
-                                    </React.Fragment>
-                              ) : (
-                                    <React.Fragment>
-                                          <div className="user__item">
-                                                <Link to={ACCOUNT}>
-                                                      Settings
-                                                </Link>
-                                          </div>
-                                          <div className="user__item">
-                                                <div
-                                                      className="logout__text"
-                                                      onClick={
-                                                            this.props.logOut
-                                                      }
-                                                >
-                                                      Logout
+                              {isLogin && isLogin.status === true ?
+                                    (
+                                          <React.Fragment>
+                                                <div className="user__item">
+                                                      <Link to={ACCOUNT}>
+                                                            Settings
+                                          </Link>
                                                 </div>
+                                                <div className="user__item">
+                                                      <div
+                                                            className="logout__text"
+                                                            onClick={
+                                                                  this.props.logOut
+                                                            }
+                                                      >
+                                                            Logout
                                           </div>
-                                    </React.Fragment>
-                              )}
+                                                </div>
+                                          </React.Fragment>
+                                    )
+                                    :
+                                    (
+                                          <React.Fragment>
+                                                <div className="user__item">
+                                                      <Link
+                                                            to={
+                                                                  this.props.location
+                                                                        .pathname ===
+                                                                        "/"
+                                                                        ? HOME + LOGIN
+                                                                        : this.props
+                                                                              .location
+                                                                              .pathname +
+                                                                        LOGIN
+                                                            }
+                                                      >
+                                                            {header.login}
+                                                      </Link>
+                                                </div>
+                                                <div className="user__item">
+                                                      <Link
+                                                            to={
+                                                                  this.props.location
+                                                                        .pathname ===
+                                                                        "/"
+                                                                        ? HOME +
+                                                                        SINGUP
+                                                                        : this.props
+                                                                              .location
+                                                                              .pathname +
+                                                                        SINGUP
+                                                            }
+                                                      >
+                                                            {header.singup}
+                                                      </Link>
+                                                </div>
+                                          </React.Fragment>
+                                    )}
                               <div className="header__line" />
                               <div className="user__lang">
                                     <div
@@ -112,6 +115,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                   dispatch(getLang(lang));
             },
             logOut() {
+                  ownProps.history.push("/");
                   dispatch(logOut());
                   dispatch(clearGetUser());
             }

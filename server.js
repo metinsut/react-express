@@ -11,6 +11,7 @@ const account = require("./backend/routes/account");
 const post = require("./backend/routes/post");
 const person = require("./backend/routes/persons");
 const upload = require("./backend/routes/upload");
+const checklogin = require("./backend/routes/auth/checklogin");
 const verifyToken = require("./backend/middleware/veriyfToken");
 
 const app = express();
@@ -34,9 +35,11 @@ app.use((req, res, next) => {
 });
 
 app.use("/", index);
+
 app.use("/upload", upload);
 
 app.use("/login", login);
+app.use("/checklogin", checklogin);
 app.use("/logout", logout);
 app.use("/signup", signup);
 
